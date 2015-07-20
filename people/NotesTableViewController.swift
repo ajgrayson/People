@@ -23,6 +23,8 @@ class NotesTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        configureTableView()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -51,13 +53,20 @@ class NotesTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("noteCell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("noteCell", forIndexPath: indexPath) as! NotesTableViewCell
         
         var content = notes[indexPath.row].valueForKey("content") as! String?
         
-        cell.textLabel!.text = content!
+        cell.noteLabel!.text = content!
         
         return cell
+    }
+    
+    func configureTableView() {
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 160.0
+        
+        tableView.tableFooterView = UIView(frame: CGRectZero)
     }
     
     func loadNotes() {
@@ -83,14 +92,46 @@ class NotesTableViewController: UITableViewController {
         
         tableView.reloadData()
     }
-
-    /*
+    
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         // Return NO if you do not want the specified item to be editable.
         return true
     }
-    */
+    
+    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject] {
+    
+        var deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Delete") {
+            (action, indexPath) -> Void in
+            self.deleteRow(indexPath)
+        }
+        
+        return [deleteAction]
+    }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+    }
+    
+    func deleteRow(indexPath: NSIndexPath) {
+        //notes[indexPath.row].deleted = true
+        
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        let managedContext = appDelegate.managedObjectContext!
+        
+        var note = notes[indexPath.row]
+        
+        managedContext.deleteObject(note)
+        
+        var error: NSError?
+        if !managedContext.save(&error) {
+            println("Could not save \(error), \(error?.userInfo)")
+        }
+        
+        //tableView.reloadData()
+        
+        loadNotes()
+    }
 
     /*
     // Override to support editing the table view.

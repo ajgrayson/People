@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F0CA7631B5CA202001E5459 /* NotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0CA7621B5CA202001E5459 /* NotesTableViewCell.swift */; };
+		0F0CA7651B5CAD2E001E5459 /* PeopleListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0CA7641B5CAD2E001E5459 /* PeopleListTableViewCell.swift */; };
+		0F0CA7671B5CB0C1001E5459 /* AppNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0CA7661B5CB0C1001E5459 /* AppNavigationController.swift */; };
 		0FF279E01B5B9B4300FDEDC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF279DF1B5B9B4300FDEDC7 /* AppDelegate.swift */; };
 		0FF279E31B5B9B4300FDEDC7 /* people.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0FF279E11B5B9B4300FDEDC7 /* people.xcdatamodeld */; };
 		0FF279E51B5B9B4300FDEDC7 /* EditPersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF279E41B5B9B4300FDEDC7 /* EditPersonViewController.swift */; };
@@ -30,6 +33,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F0CA7621B5CA202001E5459 /* NotesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesTableViewCell.swift; sourceTree = "<group>"; };
+		0F0CA7641B5CAD2E001E5459 /* PeopleListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleListTableViewCell.swift; sourceTree = "<group>"; };
+		0F0CA7661B5CB0C1001E5459 /* AppNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppNavigationController.swift; sourceTree = "<group>"; };
 		0FF279DA1B5B9B4300FDEDC7 /* people.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = people.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FF279DE1B5B9B4300FDEDC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0FF279DF1B5B9B4300FDEDC7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +96,9 @@
 				0FF27A021B5B9E5900FDEDC7 /* PeopleListTableViewController.swift */,
 				0FF27A041B5BA34800FDEDC7 /* NotesTableViewController.swift */,
 				0FF27A061B5BA35800FDEDC7 /* EditNoteViewController.swift */,
+				0F0CA7621B5CA202001E5459 /* NotesTableViewCell.swift */,
+				0F0CA7641B5CAD2E001E5459 /* PeopleListTableViewCell.swift */,
+				0F0CA7661B5CB0C1001E5459 /* AppNavigationController.swift */,
 				0FF279E61B5B9B4300FDEDC7 /* Main.storyboard */,
 				0FF279E91B5B9B4300FDEDC7 /* Images.xcassets */,
 				0FF279EB1B5B9B4300FDEDC7 /* LaunchScreen.xib */,
@@ -224,9 +233,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F0CA7671B5CB0C1001E5459 /* AppNavigationController.swift in Sources */,
+				0F0CA7631B5CA202001E5459 /* NotesTableViewCell.swift in Sources */,
 				0FF279E51B5B9B4300FDEDC7 /* EditPersonViewController.swift in Sources */,
 				0FF279E31B5B9B4300FDEDC7 /* people.xcdatamodeld in Sources */,
 				0FF27A031B5B9E5900FDEDC7 /* PeopleListTableViewController.swift in Sources */,
+				0F0CA7651B5CAD2E001E5459 /* PeopleListTableViewCell.swift in Sources */,
 				0FF279E01B5B9B4300FDEDC7 /* AppDelegate.swift in Sources */,
 				0FF27A071B5BA35800FDEDC7 /* EditNoteViewController.swift in Sources */,
 				0FF27A051B5BA34800FDEDC7 /* NotesTableViewController.swift in Sources */,
