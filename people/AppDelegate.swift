@@ -14,9 +14,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        var controller = self.window!.rootViewController as! AppNavigationController;
+        var listController = controller.childViewControllers.first as! PeopleListTableViewController
+        
+        listController.managedContext = self.managedObjectContext;
+        
         return true
     }
 

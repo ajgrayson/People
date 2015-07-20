@@ -21,7 +21,7 @@
         <attribute name="updateDate" optional="YES" attributeType="Date" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Note" positionX="144" positionY="117" width="128" height="103"/>
+        <element name="Note" positionX="144" positionY="117" width="128" height="105"/>
         <element name="Person" positionX="-63" positionY="-18" width="128" height="105"/>
         <element name="Reminder" positionX="54" positionY="99" width="128" height="135"/>
     </elements>

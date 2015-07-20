@@ -11,19 +11,22 @@ import CoreData
 
 class PeopleListTableViewController: UITableViewController {
 
-    var people = [NSManagedObject]()
+    // passed in properties
+    var managedContext : NSManagedObjectContext!
     
-    var personToEdit : NSManagedObject?
+    // local properties
+    private var people = [NSManagedObject]()
+    
+    private var personToEdit : NSManagedObject?
+    
+    private var personService : PersonService!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
+        personService = PersonService(context: managedContext)
+
+        // hides the extra lines
         tableView.tableFooterView = UIView(frame: CGRectZero)
     }
     
@@ -35,20 +38,15 @@ class PeopleListTableViewController: UITableViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
         return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
         return people.count
     }
 
@@ -81,33 +79,11 @@ class PeopleListTableViewController: UITableViewController {
     }
     
     func loadPeople() {
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        
-        let managedContext = appDelegate.managedObjectContext!
-        
-        let fetchRequest = NSFetchRequest(entityName:"Person")
-        
-        let sort = NSSortDescriptor(key: "name", ascending: true)
-        fetchRequest.sortDescriptors = [sort]
-        
-        var error: NSError?
-        
-        let fetchedResults = managedContext.executeFetchRequest(fetchRequest, error: &error) as! [NSManagedObject]?
-        
-        if let results = fetchedResults {
-            people = results
-        } else {
-            println("Could not fetch \(error), \(error!.userInfo)")
-        }
-        
+        people = personService.getAllPeopleOrderedByName()
         tableView.reloadData()
     }
     
     func deleteRow(indexPath: NSIndexPath) {
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        
-        let managedContext = appDelegate.managedObjectContext!
-        
         var person = people[indexPath.row]
         
         managedContext.deleteObject(person)
@@ -119,16 +95,10 @@ class PeopleListTableViewController: UITableViewController {
             println("Could not save \(error), \(error?.userInfo)")
         }
         
-        //tableView.reloadData()
-        
         loadPeople()
     }
     
     func editRow(indexPath: NSIndexPath) {
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        
-        let managedContext = appDelegate.managedObjectContext!
-        
         var person = people[indexPath.row]
         
         personToEdit = person
@@ -147,11 +117,18 @@ class PeopleListTableViewController: UITableViewController {
             var person = people[self.tableView.indexPathsForSelectedRows()!.first!.row]
             
             nvc2.person = person;
+            nvc2.managedContext = self.managedContext
         }
-        if(segue.identifier == "editPerson") {
+        else if(segue.identifier == "editPerson") {
             var nvc = segue.destinationViewController as! EditPersonViewController
             nvc.person = personToEdit
         }
+        
+        if(segue.identifier == "addPerson" || segue.identifier == "editPerson") {
+            var nvc = segue.destinationViewController as! EditPersonViewController
+            nvc.managedContext = self.managedContext
+        }
+        
     }
 
 }

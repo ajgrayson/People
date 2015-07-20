@@ -11,24 +11,30 @@ import CoreData
 
 class EditNoteViewController: UIViewController {
 
+    // passed in properties
     var note : NSManagedObject?
     
     var person : NSManagedObject!
     
+    var managedContext : NSManagedObjectContext!
+    
+    // local properties
+    private var noteService : NoteService!
+    
     @IBOutlet weak var contentTextView: UITextView!
     
     @IBAction func saveNoteClicked(sender: AnyObject) {
-        save()
+        if save() {
+            self.navigationController?.popViewControllerAnimated(true)
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        noteService = NoteService(context: managedContext)
         
-        if(note != nil) {
-            contentTextView.text = note!.valueForKey("content") as! String
-        }
+        loadNote()
     }
 
     override func didReceiveMemoryWarning() {
@@ -36,36 +42,28 @@ class EditNoteViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func save() {
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    func loadNote() {
+        if(note != nil) {
+            contentTextView.text = note!.valueForKey("content") as! String
+        }
         
-        let managedContext = appDelegate.managedObjectContext!
+        contentTextView.becomeFirstResponder()
+    }
+    
+    func save() -> Bool {
+        let content = contentTextView.text
         
-        let date = NSDate()
+        if content == nil || content == "" {
+            return false
+        }
         
         if note == nil {
-            let entity =  NSEntityDescription.entityForName("Note", inManagedObjectContext: managedContext)
-            
-            note = NSManagedObject(entity: entity!, insertIntoManagedObjectContext:managedContext)
-            note!.setValue(date, forKey: "createdDate")
-            
-            var set = person.mutableSetValueForKey("notes")
-            set.addObject(note!)
+            note = noteService.addNote(content, toPerson: person)
+            return note != nil
+        } else {
+            note!.setValue(content, forKey: "content")
+            return noteService.updateNote(note!)
         }
-        
-        let content = contentTextView.text;
-        
-        note!.setValue(content, forKey: "content")
-        note!.setValue(date, forKey: "updatedDate")
-        
-        var error: NSError?
-        if !managedContext.save(&error) {
-            println("Could not save \(error), \(error?.userInfo)")
-        }
-        
-        self.navigationController?.popViewControllerAnimated(true)
-        
-        return
     }
 
 }

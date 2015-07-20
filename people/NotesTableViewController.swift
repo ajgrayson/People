@@ -11,21 +11,28 @@ import CoreData
 
 class NotesTableViewController: UITableViewController {
 
-    var notes = [NSManagedObject]()
+    // passed in properties
+    var managedContext : NSManagedObjectContext!
     
     var person : NSManagedObject!
     
+    // local properties
+    private var notes = [NSManagedObject]()
+    
+    private var noteService : NoteService!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.navigationItem.title = person.valueForKey("name") as! String!
         
+        noteService = NoteService(context: managedContext)
+
         configureTableView()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        loadPerson()
         loadNotes()
     }
 
@@ -63,40 +70,23 @@ class NotesTableViewController: UITableViewController {
         return cell
     }
     
+    func loadPerson() {
+        self.navigationItem.title = person.valueForKey("name") as! String!
+    }
+    
     func configureTableView() {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 160.0
-        
         tableView.tableFooterView = UIView(frame: CGRectZero)
     }
     
     func loadNotes() {
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        
-        let managedContext = appDelegate.managedObjectContext!
-        
-        let fetchRequest = NSFetchRequest(entityName:"Note")
-        fetchRequest.predicate = NSPredicate(format: "person = %@", argumentArray: [person])
-        
-        let sortDate = NSSortDescriptor(key: "createdDate", ascending: false)
-        fetchRequest.sortDescriptors = [sortDate]
-        
-        var error: NSError?
-        
-        let fetchedResults = managedContext.executeFetchRequest(fetchRequest, error: &error) as! [NSManagedObject]?
-        
-        if let results = fetchedResults {
-            notes = results
-        } else {
-            println("Could not fetch \(error), \(error!.userInfo)")
-        }
-        
+        notes = noteService.getAllNotesFor(person, orderedByDate: true)
         tableView.reloadData()
     }
     
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
         return true
     }
     
@@ -114,18 +104,9 @@ class NotesTableViewController: UITableViewController {
     }
     
     func deleteRow(indexPath: NSIndexPath) {
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-        
-        let managedContext = appDelegate.managedObjectContext!
-        
         var note = notes[indexPath.row]
         
-        managedContext.deleteObject(note)
-        
-        var error: NSError?
-        if !managedContext.save(&error) {
-            println("Could not save \(error), \(error?.userInfo)")
-        }
+        noteService.deleteNote(note)
         
         loadNotes()
     }
@@ -141,10 +122,11 @@ class NotesTableViewController: UITableViewController {
         
         if(segue.identifier == "editNote") {
             var note = notes[self.tableView.indexPathsForSelectedRows()!.first!.row]
-            
             nvc.note = note;
         }
+        
         nvc.person = person;
+        nvc.managedContext = managedContext
     }
 
 }
