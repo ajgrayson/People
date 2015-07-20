@@ -22,6 +22,10 @@ class EditPersonViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        if(person != nil) {
+            nameTextField.text = person?.valueForKey("name") as! String!
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,6 +34,12 @@ class EditPersonViewController: UIViewController {
     }
     
     func save() {
+        let name = nameTextField.text;
+        
+        if(name == nil || name == "") {
+            return
+        }
+        
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
         let managedContext = appDelegate.managedObjectContext!
@@ -43,8 +53,6 @@ class EditPersonViewController: UIViewController {
             
             person!.setValue(date, forKey: "createdDate")
         }
-        
-        let name = nameTextField.text;
         
         person!.setValue(name, forKey: "name")
         person!.setValue(date, forKey: "updatedDate")

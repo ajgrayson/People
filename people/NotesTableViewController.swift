@@ -52,8 +52,13 @@ class NotesTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("noteCell", forIndexPath: indexPath) as! NotesTableViewCell
         
         var content = notes[indexPath.row].valueForKey("content") as! String?
+        var updatedDate = notes[indexPath.row].valueForKey("updatedDate") as! NSDate?
+        
+        var dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MMM dd, yyyy h:mm a"
         
         cell.noteLabel!.text = content!
+        cell.dateLabel!.text = dateFormatter.stringFromDate(updatedDate!)
         
         return cell
     }

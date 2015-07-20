@@ -13,6 +13,8 @@ class PeopleListTableViewController: UITableViewController {
 
     var people = [NSManagedObject]()
     
+    var personToEdit : NSManagedObject?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -67,7 +69,12 @@ class PeopleListTableViewController: UITableViewController {
             self.deleteRow(indexPath)
         }
         
-        return [deleteAction]
+        var editAction = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: "Edit") {
+            (action, indexPath) -> Void in
+            self.editRow(indexPath)
+        }
+        
+        return [deleteAction, editAction]
     }
     
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
@@ -79,6 +86,9 @@ class PeopleListTableViewController: UITableViewController {
         let managedContext = appDelegate.managedObjectContext!
         
         let fetchRequest = NSFetchRequest(entityName:"Person")
+        
+        let sort = NSSortDescriptor(key: "name", ascending: true)
+        fetchRequest.sortDescriptors = [sort]
         
         var error: NSError?
         
@@ -94,15 +104,13 @@ class PeopleListTableViewController: UITableViewController {
     }
     
     func deleteRow(indexPath: NSIndexPath) {
-        //notes[indexPath.row].deleted = true
-        
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         
         let managedContext = appDelegate.managedObjectContext!
         
-        var note = people[indexPath.row]
+        var person = people[indexPath.row]
         
-        managedContext.deleteObject(note)
+        managedContext.deleteObject(person)
         
         // todo - get all notes and delete those too.
         
@@ -116,6 +124,18 @@ class PeopleListTableViewController: UITableViewController {
         loadPeople()
     }
     
+    func editRow(indexPath: NSIndexPath) {
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        let managedContext = appDelegate.managedObjectContext!
+        
+        var person = people[indexPath.row]
+        
+        personToEdit = person
+        
+        self.performSegueWithIdentifier("editPerson", sender: self)
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -127,6 +147,10 @@ class PeopleListTableViewController: UITableViewController {
             var person = people[self.tableView.indexPathsForSelectedRows()!.first!.row]
             
             nvc2.person = person;
+        }
+        if(segue.identifier == "editPerson") {
+            var nvc = segue.destinationViewController as! EditPersonViewController
+            nvc.person = personToEdit
         }
     }
 
