@@ -18,7 +18,6 @@ class EditNoteViewController: UIViewController {
     @IBOutlet weak var contentTextView: UITextView!
     
     @IBAction func saveNoteClicked(sender: AnyObject) {
-        
         save()
     }
     
@@ -36,17 +35,6 @@ class EditNoteViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     func save() {
         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
@@ -75,7 +63,9 @@ class EditNoteViewController: UIViewController {
             println("Could not save \(error), \(error?.userInfo)")
         }
         
-        self.navigationController?.popViewControllerAnimated(true);
+        self.navigationController?.popViewControllerAnimated(true)
+        
+        return
     }
 
 }

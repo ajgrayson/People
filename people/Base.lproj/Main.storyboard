@@ -137,7 +137,7 @@
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
                                     <outlet property="noteLabel" destination="vmO-RE-IZz" id="rX5-bJ-ymt"/>
-                                    <segue destination="Lzn-do-J3T" kind="show" identifier="editNote" id="Pbp-bm-38f"/>
+                                    <segue destination="vpu-s3-N69" kind="show" identifier="editNote" id="2jz-DI-IWv"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -149,7 +149,7 @@
                     <navigationItem key="navigationItem" title="Notes" id="xh5-vp-Q7X">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="hvu-tu-YBB">
                             <connections>
-                                <segue destination="Lzn-do-J3T" kind="show" identifier="newNote" id="dT7-8p-2vQ"/>
+                                <segue destination="vpu-s3-N69" kind="show" identifier="newNote" id="VEr-nw-dBT"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -197,24 +197,6 @@
             </objects>
             <point key="canvasLocation" x="2018" y="1001"/>
         </scene>
-        <!--Note-->
-        <scene sceneID="w5D-f4-1Bn">
-            <objects>
-                <navigationController title="Note" automaticallyAdjustsScrollViewInsets="NO" id="Lzn-do-J3T" customClass="AppNavigationController" customModule="people" customModuleProvider="target" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="j4F-3P-p5a">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="vpu-s3-N69" kind="relationship" relationship="rootViewController" id="A1n-sL-33Q"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0Ie-jO-atu" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3582" y="1001"/>
-        </scene>
         <!--Edit Note-->
         <scene sceneID="uJ7-XZ-nJN">
             <objects>
@@ -256,10 +238,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A8B-vD-UxZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4312" y="1001"/>
+            <point key="canvasLocation" x="3583" y="1001"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="dT7-8p-2vQ"/>
+        <segue reference="2jz-DI-IWv"/>
     </inferredMetricsTieBreakers>
 </document>
