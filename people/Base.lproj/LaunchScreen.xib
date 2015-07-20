@@ -17,16 +17,34 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Launch image" translatesAutoresizingMaskIntoConstraints="NO" id="uuE-8E-1JO">
+                    <rect key="frame" x="206" y="175" width="69" height="70"/>
+                </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+                <constraint firstAttribute="centerX" secondItem="uuE-8E-1JO" secondAttribute="centerX" id="1XF-Ab-mFl"/>
                 <constraint firstItem="kId-c2-rCX" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="bottom" multiplier="1/3" constant="1" id="5cJ-9S-tgC"/>
                 <constraint firstAttribute="centerX" secondItem="kId-c2-rCX" secondAttribute="centerX" id="Koa-jz-hwk"/>
+                <constraint firstAttribute="centerX" secondItem="uuE-8E-1JO" secondAttribute="centerX" constant="-0.5" id="SuZ-Xu-SaG"/>
+                <constraint firstItem="uuE-8E-1JO" firstAttribute="top" secondItem="kId-c2-rCX" secondAttribute="bottom" constant="16" id="dib-Va-ZGT"/>
                 <constraint firstItem="kId-c2-rCX" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" symbolic="YES" id="fvb-Df-36g"/>
+                <constraint firstItem="uuE-8E-1JO" firstAttribute="top" secondItem="kId-c2-rCX" secondAttribute="bottom" constant="-8" id="oFP-Z4-UMI"/>
+                <constraint firstItem="uuE-8E-1JO" firstAttribute="top" secondItem="kId-c2-rCX" secondAttribute="bottom" constant="-7" id="sVT-Ls-WOn"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="1XF-Ab-mFl"/>
+                    <exclude reference="dib-Va-ZGT"/>
+                    <exclude reference="sVT-Ls-WOn"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="548" y="455"/>
         </view>
     </objects>
+    <resources>
+        <image name="Launch image" width="512" height="512"/>
+    </resources>
 </document>
