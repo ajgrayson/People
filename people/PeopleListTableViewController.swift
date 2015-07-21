@@ -23,8 +23,22 @@ class PeopleListTableViewController: UITableViewController, ABPeoplePickerNaviga
     
     private var personService : PersonService!
     
+    private let addressBookRef: ABAddressBook = ABAddressBookCreateWithOptions(nil, nil).takeRetainedValue()
+    
     @IBAction func addPersonClicked(sender: AnyObject) {
-        lookupAddressBook()
+        let authorizationStatus = ABAddressBookGetAuthorizationStatus()
+        
+        switch authorizationStatus {
+        case .Denied, .Restricted:
+            //1
+            self.displayCantAddContactAlert()
+        case .Authorized:
+            //2
+            lookupAddressBook()
+        case .NotDetermined:
+            //3
+            promptForAddressBookRequestAccess()
+        }
     }
     
     override func viewDidLoad() {
@@ -203,6 +217,42 @@ class PeopleListTableViewController: UITableViewController, ABPeoplePickerNaviga
             self.navigationController?.pushViewController(personViewController, animated: true)
         })
         
+    }
+    
+    func promptForAddressBookRequestAccess() {
+        var err: Unmanaged<CFError>? = nil
+        ABAddressBookRequestAccessWithCompletion(addressBookRef) {
+            (granted: Bool, error: CFError!) in
+            dispatch_async(dispatch_get_main_queue()) {
+                if !granted {
+                    // 1
+                    self.displayCantAddContactAlert()
+                } else {
+                    // 2
+                    self.lookupAddressBook()
+                }
+            }
+        }
+    }
+    
+    func openSettings() {
+        let url = NSURL(string: UIApplicationOpenSettingsURLString)
+        UIApplication.sharedApplication().openURL(url!)
+    }
+    
+    func displayCantAddContactAlert() {
+        let cantAddContactAlert = UIAlertController(title: "Cannot Add Contact",
+            message: "You must give the app permission to add the contact first.",
+            preferredStyle: .Alert)
+        
+        cantAddContactAlert.addAction(UIAlertAction(title: "Change Settings",
+            style: .Default,
+            handler: { action in
+                self.openSettings()
+        }))
+        
+        cantAddContactAlert.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
+        presentViewController(cantAddContactAlert, animated: true, completion: nil)
     }
 
 }
