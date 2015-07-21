@@ -85,13 +85,32 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="noteCell" rowHeight="88" id="rvt-2P-hSX" customClass="NotesTableViewCell" customModule="people" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="noteCell" rowHeight="58" id="rvt-2P-hSX" customClass="NotesTableViewCell" customModule="people" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rvt-2P-hSX" id="lAV-dE-S9O">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="38 minutes ago" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bVJ-5R-l20">
+                                            <rect key="frame" x="8" y="32" width="192" height="17"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="RLS-Ri-XZZ"/>
+                                                <constraint firstAttribute="width" constant="192" id="sOb-IP-DSt"/>
+                                                <constraint firstAttribute="width" constant="192" id="tmo-Lh-IJy"/>
+                                                <constraint firstAttribute="width" constant="192" id="vmg-3h-VNA"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
+                                            <color key="textColor" red="1" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="RLS-Ri-XZZ"/>
+                                                    <exclude reference="sOb-IP-DSt"/>
+                                                    <exclude reference="tmo-Lh-IJy"/>
+                                                </mask>
+                                            </variation>
+                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="This is the demo note content that is really long and has multiple lines of content that ..." lineBreakMode="tailTruncation" numberOfLines="9999" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vmO-RE-IZz">
-                                            <rect key="frame" x="8" y="8" width="584" height="50.5"/>
+                                            <rect key="frame" x="8" y="5" width="584" height="23.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="72" id="NOd-j7-trQ"/>
                                             </constraints>
@@ -104,46 +123,55 @@
                                                 </mask>
                                             </variation>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="38 minutes ago" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bVJ-5R-l20">
-                                            <rect key="frame" x="8" y="62" width="192" height="17"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="21" id="RLS-Ri-XZZ"/>
-                                                <constraint firstAttribute="width" constant="192" id="sOb-IP-DSt"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                                            <color key="textColor" red="1" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="RLS-Ri-XZZ"/>
-                                                </mask>
-                                            </variation>
-                                        </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="bVJ-5R-l20" firstAttribute="leading" secondItem="lAV-dE-S9O" secondAttribute="leadingMargin" id="1Ga-JH-ts8"/>
+                                        <constraint firstItem="bVJ-5R-l20" firstAttribute="top" secondItem="vmO-RE-IZz" secondAttribute="bottom" constant="1.5" id="225-J4-tN1"/>
                                         <constraint firstItem="vmO-RE-IZz" firstAttribute="leading" secondItem="lAV-dE-S9O" secondAttribute="leadingMargin" id="2Zi-83-zf9"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="bVJ-5R-l20" secondAttribute="bottom" constant="0.5" id="3Dc-ZJ-iet"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="vmO-RE-IZz" secondAttribute="bottom" constant="13" id="3Qa-pY-Wh2"/>
+                                        <constraint firstItem="bVJ-5R-l20" firstAttribute="top" secondItem="vmO-RE-IZz" secondAttribute="bottom" constant="-3.5" id="4uH-pa-HEx"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="vmO-RE-IZz" secondAttribute="bottom" constant="19.5" id="9Cv-wQ-WKa"/>
+                                        <constraint firstItem="vmO-RE-IZz" firstAttribute="leading" secondItem="lAV-dE-S9O" secondAttribute="leadingMargin" id="CR9-DQ-2zV"/>
                                         <constraint firstItem="vmO-RE-IZz" firstAttribute="top" secondItem="lAV-dE-S9O" secondAttribute="topMargin" constant="29" id="DDE-dT-Crj"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="vmO-RE-IZz" secondAttribute="bottom" constant="21" id="EcV-3V-Osr"/>
+                                        <constraint firstItem="bVJ-5R-l20" firstAttribute="leading" secondItem="lAV-dE-S9O" secondAttribute="leadingMargin" id="EwZ-XP-Chd"/>
                                         <constraint firstItem="vmO-RE-IZz" firstAttribute="leading" secondItem="lAV-dE-S9O" secondAttribute="leadingMargin" id="FRh-1H-H2K"/>
+                                        <constraint firstItem="bVJ-5R-l20" firstAttribute="top" secondItem="lAV-dE-S9O" secondAttribute="topMargin" constant="24" id="G8G-i3-h3U"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="vmO-RE-IZz" secondAttribute="bottom" constant="16" id="GKi-r3-ReP"/>
+                                        <constraint firstItem="vmO-RE-IZz" firstAttribute="trailing" secondItem="lAV-dE-S9O" secondAttribute="trailingMargin" id="H4L-es-0j2"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="vmO-RE-IZz" secondAttribute="bottom" constant="21" id="Hjl-3S-wzB"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="bVJ-5R-l20" secondAttribute="bottom" constant="0.5" id="Hyi-AV-hS0"/>
                                         <constraint firstItem="vmO-RE-IZz" firstAttribute="leading" secondItem="lAV-dE-S9O" secondAttribute="leadingMargin" id="IPY-MT-4Xe"/>
                                         <constraint firstItem="vmO-RE-IZz" firstAttribute="bottom" secondItem="lAV-dE-S9O" secondAttribute="bottomMargin" id="IgA-HJ-VOn"/>
                                         <constraint firstItem="vmO-RE-IZz" firstAttribute="bottom" secondItem="lAV-dE-S9O" secondAttribute="bottomMargin" id="JrT-dN-kJw"/>
+                                        <constraint firstItem="vmO-RE-IZz" firstAttribute="top" secondItem="lAV-dE-S9O" secondAttribute="topMargin" constant="-3" id="M8J-jV-bMl"/>
                                         <constraint firstItem="vmO-RE-IZz" firstAttribute="leading" secondItem="lAV-dE-S9O" secondAttribute="leadingMargin" constant="6" id="MYK-BN-LfD"/>
+                                        <constraint firstItem="bVJ-5R-l20" firstAttribute="leading" secondItem="lAV-dE-S9O" secondAttribute="leadingMargin" id="QKz-DX-5Zc"/>
                                         <constraint firstItem="vmO-RE-IZz" firstAttribute="top" secondItem="lAV-dE-S9O" secondAttribute="topMargin" constant="17" id="Qp4-D5-dNC"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="vmO-RE-IZz" secondAttribute="bottom" constant="6" id="TeA-v4-StV"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="vmO-RE-IZz" secondAttribute="bottom" constant="18" id="V6M-T8-F3e"/>
+                                        <constraint firstItem="bVJ-5R-l20" firstAttribute="top" secondItem="vmO-RE-IZz" secondAttribute="bottom" constant="-1.5" id="WdP-ZI-5Dp"/>
+                                        <constraint firstItem="bVJ-5R-l20" firstAttribute="top" secondItem="vmO-RE-IZz" secondAttribute="bottom" constant="-1.5" id="WkD-di-mlw"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="bVJ-5R-l20" secondAttribute="bottom" constant="-0.5" id="aDj-bY-0Ot"/>
                                         <constraint firstItem="bVJ-5R-l20" firstAttribute="trailing" secondItem="lAV-dE-S9O" secondAttribute="trailingMargin" id="bWg-Gc-lEY"/>
                                         <constraint firstItem="vmO-RE-IZz" firstAttribute="trailing" secondItem="lAV-dE-S9O" secondAttribute="trailingMargin" id="cNR-w9-zzt"/>
                                         <constraint firstItem="bVJ-5R-l20" firstAttribute="top" secondItem="vmO-RE-IZz" secondAttribute="bottom" constant="-0.5" id="d2S-w9-eBs"/>
+                                        <constraint firstItem="bVJ-5R-l20" firstAttribute="top" secondItem="vmO-RE-IZz" secondAttribute="bottom" constant="-1.5" id="dQi-XH-2Ot"/>
+                                        <constraint firstItem="vmO-RE-IZz" firstAttribute="leading" secondItem="lAV-dE-S9O" secondAttribute="leadingMargin" id="dgD-Ko-Mec"/>
                                         <constraint firstItem="vmO-RE-IZz" firstAttribute="leading" secondItem="lAV-dE-S9O" secondAttribute="leadingMargin" id="eDp-EX-nLW"/>
                                         <constraint firstItem="vmO-RE-IZz" firstAttribute="leading" secondItem="lAV-dE-S9O" secondAttribute="leadingMargin" id="eXj-tO-Vwd"/>
                                         <constraint firstItem="vmO-RE-IZz" firstAttribute="trailing" secondItem="lAV-dE-S9O" secondAttribute="trailingMargin" id="ekp-RY-krl"/>
+                                        <constraint firstItem="vmO-RE-IZz" firstAttribute="top" secondItem="lAV-dE-S9O" secondAttribute="topMargin" constant="-3" id="emB-cz-7ZT"/>
                                         <constraint firstItem="vmO-RE-IZz" firstAttribute="trailing" secondItem="lAV-dE-S9O" secondAttribute="trailingMargin" id="fGH-fM-faK"/>
+                                        <constraint firstItem="bVJ-5R-l20" firstAttribute="top" secondItem="vmO-RE-IZz" secondAttribute="bottom" constant="3.5" id="hS2-AF-LkR"/>
                                         <constraint firstItem="bVJ-5R-l20" firstAttribute="top" secondItem="vmO-RE-IZz" secondAttribute="bottom" constant="3.5" id="hhc-YA-ks7"/>
                                         <constraint firstItem="vmO-RE-IZz" firstAttribute="top" secondItem="lAV-dE-S9O" secondAttribute="topMargin" id="jnf-l7-TFF"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="bVJ-5R-l20" secondAttribute="bottom" constant="0.5" id="kkE-J7-XUs"/>
+                                        <constraint firstItem="bVJ-5R-l20" firstAttribute="top" secondItem="vmO-RE-IZz" secondAttribute="bottom" constant="-1.5" id="ljE-Ip-XhL"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="vmO-RE-IZz" secondAttribute="trailing" constant="5" id="mIC-nb-hmI"/>
                                         <constraint firstItem="vmO-RE-IZz" firstAttribute="top" secondItem="lAV-dE-S9O" secondAttribute="topMargin" id="ooh-Zn-Whk"/>
+                                        <constraint firstItem="vmO-RE-IZz" firstAttribute="trailing" secondItem="lAV-dE-S9O" secondAttribute="trailingMargin" id="pzi-06-0wB"/>
                                         <constraint firstItem="vmO-RE-IZz" firstAttribute="trailing" secondItem="lAV-dE-S9O" secondAttribute="trailingMargin" id="vfj-Wx-zkJ"/>
                                         <constraint firstItem="vmO-RE-IZz" firstAttribute="bottom" secondItem="lAV-dE-S9O" secondAttribute="bottomMargin" id="w1Z-DG-nkP"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="vmO-RE-IZz" secondAttribute="trailing" constant="8" id="yEn-yj-yjS"/>
@@ -153,25 +181,49 @@
                                     <variation key="default">
                                         <mask key="constraints">
                                             <exclude reference="2Zi-83-zf9"/>
+                                            <exclude reference="3Qa-pY-Wh2"/>
                                             <exclude reference="9Cv-wQ-WKa"/>
+                                            <exclude reference="CR9-DQ-2zV"/>
                                             <exclude reference="DDE-dT-Crj"/>
+                                            <exclude reference="EcV-3V-Osr"/>
                                             <exclude reference="FRh-1H-H2K"/>
+                                            <exclude reference="GKi-r3-ReP"/>
+                                            <exclude reference="H4L-es-0j2"/>
                                             <exclude reference="IPY-MT-4Xe"/>
                                             <exclude reference="IgA-HJ-VOn"/>
                                             <exclude reference="JrT-dN-kJw"/>
+                                            <exclude reference="M8J-jV-bMl"/>
                                             <exclude reference="MYK-BN-LfD"/>
                                             <exclude reference="Qp4-D5-dNC"/>
                                             <exclude reference="TeA-v4-StV"/>
+                                            <exclude reference="V6M-T8-F3e"/>
+                                            <exclude reference="cNR-w9-zzt"/>
+                                            <exclude reference="eDp-EX-nLW"/>
                                             <exclude reference="eXj-tO-Vwd"/>
                                             <exclude reference="ekp-RY-krl"/>
                                             <exclude reference="fGH-fM-faK"/>
+                                            <exclude reference="jnf-l7-TFF"/>
                                             <exclude reference="mIC-nb-hmI"/>
                                             <exclude reference="ooh-Zn-Whk"/>
                                             <exclude reference="vfj-Wx-zkJ"/>
                                             <exclude reference="w1Z-DG-nkP"/>
                                             <exclude reference="yEn-yj-yjS"/>
+                                            <exclude reference="225-J4-tN1"/>
+                                            <exclude reference="4uH-pa-HEx"/>
+                                            <exclude reference="EwZ-XP-Chd"/>
+                                            <exclude reference="G8G-i3-h3U"/>
+                                            <exclude reference="Hyi-AV-hS0"/>
+                                            <exclude reference="QKz-DX-5Zc"/>
+                                            <exclude reference="WdP-ZI-5Dp"/>
+                                            <exclude reference="WkD-di-mlw"/>
+                                            <exclude reference="aDj-bY-0Ot"/>
                                             <exclude reference="bWg-Gc-lEY"/>
                                             <exclude reference="d2S-w9-eBs"/>
+                                            <exclude reference="dQi-XH-2Ot"/>
+                                            <exclude reference="hhc-YA-ks7"/>
+                                            <exclude reference="kkE-J7-XUs"/>
+                                            <exclude reference="ljE-Ip-XhL"/>
+                                            <exclude reference="zNO-IN-mLI"/>
                                             <exclude reference="zak-vN-7d1"/>
                                         </mask>
                                     </variation>
