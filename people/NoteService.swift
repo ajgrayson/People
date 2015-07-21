@@ -51,6 +51,13 @@ class NoteService : NSObject {
         return true
     }
     
+    func deleteNotesFor(person: NSManagedObject) {
+        var notes = getAllNotesFor(person, orderedByDate: false)
+        for note in notes {
+            deleteNote(note)
+        }
+    }
+    
     func addNote(content: String, toPerson: NSManagedObject) -> NSManagedObject? {
         let date = NSDate()
         

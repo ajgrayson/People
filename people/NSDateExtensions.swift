@@ -30,6 +30,9 @@ extension NSDate {
     func secondsFrom(date:NSDate) -> Int {
         return NSCalendar.currentCalendar().components(.CalendarUnitSecond, fromDate: date, toDate: self, options: nil).second
     }
+    func nanosecondsFrom(date:NSDate) -> Int {
+        return NSCalendar.currentCalendar().components(.CalendarUnitSecond, fromDate: date, toDate: self, options: nil).nanosecond
+    }
     var relativeTime: String {
         let now = NSDate()
         if now.yearsFrom(self)   > 0 {
@@ -45,10 +48,10 @@ extension NSDate {
             if daysFrom(self) == 1 { return "Yesterday" }
             return now.daysFrom(self).description + " days ago"
         }
-        if now.hoursFrom(self) > 0 || now.minutesFrom(self) > 0 || now.secondsFrom(self) > 0 {
+        if now.hoursFrom(self) > 0 || now.minutesFrom(self) > 0 || now.secondsFrom(self) > 0 || now.nanosecondsFrom(self) > 0 {
             return "Today"
         }
-        return ""
+        return "N/A"
         
         
 //        if now.hoursFrom(self)   > 0 {

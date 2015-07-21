@@ -23,6 +23,8 @@ class PeopleListTableViewController: UITableViewController, ABPeoplePickerNaviga
     
     private var personService : PersonService!
     
+    private var noteService : NoteService!
+    
     private let addressBookRef: ABAddressBook = ABAddressBookCreateWithOptions(nil, nil).takeRetainedValue()
     
     @IBAction func addPersonClicked(sender: AnyObject) {
@@ -45,6 +47,7 @@ class PeopleListTableViewController: UITableViewController, ABPeoplePickerNaviga
         super.viewDidLoad()
         
         personService = PersonService(context: managedContext)
+        noteService = NoteService(context: managedContext)
 
         // hides the extra lines
         tableView.tableFooterView = UIView(frame: CGRectZero)
@@ -107,9 +110,9 @@ class PeopleListTableViewController: UITableViewController, ABPeoplePickerNaviga
     func deleteRow(indexPath: NSIndexPath) {
         var person = people[indexPath.row]
         
-        managedContext.deleteObject(person)
+        noteService.deleteNotesFor(person)
         
-        // todo - get all notes and delete those too.
+        managedContext.deleteObject(person)
         
         var error: NSError?
         if !managedContext.save(&error) {

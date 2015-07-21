@@ -91,7 +91,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="38 minutes ago" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bVJ-5R-l20">
-                                            <rect key="frame" x="8" y="32" width="192" height="17"/>
+                                            <rect key="frame" x="8" y="32" width="584" height="17"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="RLS-Ri-XZZ"/>
                                                 <constraint firstAttribute="width" constant="192" id="sOb-IP-DSt"/>
@@ -106,6 +106,7 @@
                                                     <exclude reference="RLS-Ri-XZZ"/>
                                                     <exclude reference="sOb-IP-DSt"/>
                                                     <exclude reference="tmo-Lh-IJy"/>
+                                                    <exclude reference="vmg-3h-VNA"/>
                                                 </mask>
                                             </variation>
                                         </label>
@@ -141,6 +142,7 @@
                                         <constraint firstAttribute="bottomMargin" secondItem="vmO-RE-IZz" secondAttribute="bottom" constant="16" id="GKi-r3-ReP"/>
                                         <constraint firstItem="vmO-RE-IZz" firstAttribute="trailing" secondItem="lAV-dE-S9O" secondAttribute="trailingMargin" id="H4L-es-0j2"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="vmO-RE-IZz" secondAttribute="bottom" constant="21" id="Hjl-3S-wzB"/>
+                                        <constraint firstItem="bVJ-5R-l20" firstAttribute="trailing" secondItem="lAV-dE-S9O" secondAttribute="trailingMargin" id="Hwa-MY-7t7"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="bVJ-5R-l20" secondAttribute="bottom" constant="0.5" id="Hyi-AV-hS0"/>
                                         <constraint firstItem="vmO-RE-IZz" firstAttribute="leading" secondItem="lAV-dE-S9O" secondAttribute="leadingMargin" id="IPY-MT-4Xe"/>
                                         <constraint firstItem="vmO-RE-IZz" firstAttribute="bottom" secondItem="lAV-dE-S9O" secondAttribute="bottomMargin" id="IgA-HJ-VOn"/>

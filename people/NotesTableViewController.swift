@@ -58,7 +58,7 @@ class NotesTableViewController: UITableViewController {
         var updatedDate = notes[indexPath.row].valueForKey("updatedDate") as! NSDate?
         
         cell.noteLabel!.text = content!
-        cell.dateLabel!.text = updatedDate?.relativeTime //dateFormatter.stringFromDate(updatedDate!)
+        cell.dateLabel!.text = updatedDate?.relativeTime
         
         return cell
     }
