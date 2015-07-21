@@ -205,10 +205,14 @@ class PeopleListTableViewController: UITableViewController, ABPeoplePickerNaviga
         
         AddressBookService().lookupAddressBookRecord(addressBookRecordId, result: {(record: ABRecord?) -> Void in
             
-            let personViewController = ABPersonViewController()
-            personViewController.displayedPerson = record
-            
-            self.navigationController?.pushViewController(personViewController, animated: true)
+            if record != nil {
+                let personViewController = ABPersonViewController()
+                personViewController.displayedPerson = record
+                
+                self.navigationController?.pushViewController(personViewController, animated: true)
+            } else {
+                self.showMissingContactError()
+            }
         })
         
     }
@@ -247,6 +251,16 @@ class PeopleListTableViewController: UITableViewController, ABPeoplePickerNaviga
         
         cantAddContactAlert.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
         presentViewController(cantAddContactAlert, animated: true, completion: nil)
+    }
+    
+    func showMissingContactError() {
+        let missingContactAlert = UIAlertController(title: "Missing Contact",
+            message: "The contact can't be found in your address book. It's likely they've its been deleted.",
+            preferredStyle: .Alert)
+        
+        missingContactAlert.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
+        
+        presentViewController(missingContactAlert, animated: true, completion: nil)
     }
 
 }

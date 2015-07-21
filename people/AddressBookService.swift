@@ -21,7 +21,11 @@ class AddressBookService : NSObject {
     func lookupAddressBookRecord(recordId: Int32, result: ABRecord? -> Void) {
         checkAuthorization({() -> Void in
             var record = ABAddressBookGetPersonWithRecordID(self.addressBookRef, recordId)
-            result(record.takeUnretainedValue())
+            if record != nil {
+                result(record.takeUnretainedValue())
+            } else {
+                result(nil)
+            }
         }, deniedBlock: {() -> Void in
             result(nil)
         })
