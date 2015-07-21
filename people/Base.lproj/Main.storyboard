@@ -5,49 +5,6 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Person-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="EditPersonViewController" customModule="people" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lr4-E1-64U">
-                                <rect key="frame" x="16" y="83" width="568" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="dVx-dl-tep"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="lr4-E1-64U" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="3zb-Np-lXa"/>
-                            <constraint firstItem="lr4-E1-64U" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="19" id="RT6-JP-X5q"/>
-                            <constraint firstItem="lr4-E1-64U" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="qtv-9n-8Zf"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Person" id="yLI-Hb-dPJ">
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="zOB-eI-Woo">
-                            <connections>
-                                <action selector="saveButtonClicked:" destination="BYZ-38-t0r" id="aL5-Em-dwR"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="nameTextField" destination="lr4-E1-64U" id="Hr9-Le-f6A"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2048" y="282"/>
-        </scene>
         <!--People-->
         <scene sceneID="qOY-Gl-bLp">
             <objects>
@@ -91,13 +48,10 @@
                     <navigationItem key="navigationItem" title="People" id="ThB-ye-PKd">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="CYW-hG-qk3">
                             <connections>
-                                <segue destination="BYZ-38-t0r" kind="show" identifier="addPerson" id="0Dj-X1-bdO"/>
+                                <action selector="addPersonClicked:" destination="Esw-g5-99S" id="ASa-sH-4SS"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="editPerson" id="LSF-mS-648"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yp4-pB-VuB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -272,7 +226,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="LSF-mS-648"/>
         <segue reference="2jz-DI-IWv"/>
     </inferredMetricsTieBreakers>
 </document>

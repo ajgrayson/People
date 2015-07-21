@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>8236E957-C499-459D-82BD-3B1BD5A80637</string>
 	<key>IDESourceControlProjectName</key>
-	<string>people</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>EAFF029A513BD87D34C9E3494710AD6A826B6733</key>
 		<string>github.com:ajgrayson/People.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>people.xcodeproj</string>
+	<string>people.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>EAFF029A513BD87D34C9E3494710AD6A826B6733</key>

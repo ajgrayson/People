@@ -17,7 +17,7 @@ class PersonService : NSObject {
         self.managedObjectContext = context
     }
     
-    func addPerson(name: String) -> NSManagedObject? {
+    func addPerson(name: String, addressBookRecordId: Int32?) -> NSManagedObject? {
         if name == "" {
             return nil
         }
@@ -30,6 +30,10 @@ class PersonService : NSObject {
         
         person.setValue(date, forKey: "createdDate")
         person.setValue(name, forKey: "name")
+        
+        if addressBookRecordId != nil {
+            person.setValue(NSNumber(int: addressBookRecordId!), forKey: "addressBookRecordId")
+        }
         
         updatePerson(person)
         
@@ -65,6 +69,18 @@ class PersonService : NSObject {
             println("Could not fetch \(error), \(error!.userInfo)")
             return [NSManagedObject]()
         }
+    }
+    
+    func doesPersonExist(addressBookRecordId: Int32) -> Bool {
+        let fetchRequest = NSFetchRequest(entityName: "Person")
+        
+        fetchRequest.predicate = NSPredicate(format: "addressBookRecordId = %@", argumentArray: [NSNumber(int: addressBookRecordId)])
+        
+        var error: NSError?
+        
+        let fetchedResults = managedObjectContext.executeFetchRequest(fetchRequest, error: &error) as! [NSManagedObject]?
+        
+        return fetchedResults?.count > 0
     }
     
 }

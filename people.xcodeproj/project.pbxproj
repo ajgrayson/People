@@ -11,10 +11,14 @@
 		0F0CA7651B5CAD2E001E5459 /* PeopleListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0CA7641B5CAD2E001E5459 /* PeopleListTableViewCell.swift */; };
 		0F0CA7671B5CB0C1001E5459 /* AppNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0CA7661B5CB0C1001E5459 /* AppNavigationController.swift */; };
 		0F8E8EF31B5DAD3500E9D52F /* NoteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8E8EF21B5DAD3500E9D52F /* NoteService.swift */; };
+		0F8E8EF71B5DCB3E00E9D52F /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F8E8EF61B5DCB3E00E9D52F /* AddressBookUI.framework */; };
+		0F8E8EF91B5DCB4800E9D52F /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F8E8EF81B5DCB4800E9D52F /* AddressBook.framework */; };
+		0FA35F441B5DDDA100131D3E /* AddressBookService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA35F431B5DDDA100131D3E /* AddressBookService.swift */; };
+		0FA35F4B1B5E025C00131D3E /* PersonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA35F4A1B5E025C00131D3E /* PersonModel.swift */; };
+		0FA35F4D1B5E059800131D3E /* PersonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA35F4C1B5E059800131D3E /* PersonHelper.swift */; };
 		0FC6236B1B5DA00200A08B65 /* PersonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6236A1B5DA00200A08B65 /* PersonService.swift */; };
 		0FF279E01B5B9B4300FDEDC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF279DF1B5B9B4300FDEDC7 /* AppDelegate.swift */; };
 		0FF279E31B5B9B4300FDEDC7 /* people.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0FF279E11B5B9B4300FDEDC7 /* people.xcdatamodeld */; };
-		0FF279E51B5B9B4300FDEDC7 /* EditPersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF279E41B5B9B4300FDEDC7 /* EditPersonViewController.swift */; };
 		0FF279E81B5B9B4300FDEDC7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FF279E61B5B9B4300FDEDC7 /* Main.storyboard */; };
 		0FF279EA1B5B9B4300FDEDC7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0FF279E91B5B9B4300FDEDC7 /* Images.xcassets */; };
 		0FF279ED1B5B9B4300FDEDC7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FF279EB1B5B9B4300FDEDC7 /* LaunchScreen.xib */; };
@@ -39,12 +43,16 @@
 		0F0CA7641B5CAD2E001E5459 /* PeopleListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleListTableViewCell.swift; sourceTree = "<group>"; };
 		0F0CA7661B5CB0C1001E5459 /* AppNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppNavigationController.swift; sourceTree = "<group>"; };
 		0F8E8EF21B5DAD3500E9D52F /* NoteService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteService.swift; sourceTree = "<group>"; };
+		0F8E8EF61B5DCB3E00E9D52F /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		0F8E8EF81B5DCB4800E9D52F /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		0FA35F431B5DDDA100131D3E /* AddressBookService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressBookService.swift; sourceTree = "<group>"; };
+		0FA35F4A1B5E025C00131D3E /* PersonModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonModel.swift; sourceTree = "<group>"; };
+		0FA35F4C1B5E059800131D3E /* PersonHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonHelper.swift; sourceTree = "<group>"; };
 		0FC6236A1B5DA00200A08B65 /* PersonService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonService.swift; sourceTree = "<group>"; };
 		0FF279DA1B5B9B4300FDEDC7 /* people.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = people.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FF279DE1B5B9B4300FDEDC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0FF279DF1B5B9B4300FDEDC7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0FF279E21B5B9B4300FDEDC7 /* people.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = people.xcdatamodel; sourceTree = "<group>"; };
-		0FF279E41B5B9B4300FDEDC7 /* EditPersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPersonViewController.swift; sourceTree = "<group>"; };
 		0FF279E71B5B9B4300FDEDC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0FF279E91B5B9B4300FDEDC7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0FF279EC1B5B9B4300FDEDC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -61,6 +69,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F8E8EF91B5DCB4800E9D52F /* AddressBook.framework in Frameworks */,
+				0F8E8EF71B5DCB3E00E9D52F /* AddressBookUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,11 +84,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0FA35F491B5E024A00131D3E /* models */ = {
+			isa = PBXGroup;
+			children = (
+				0FA35F4A1B5E025C00131D3E /* PersonModel.swift */,
+			);
+			name = models;
+			sourceTree = "<group>";
+		};
+		0FA35F4E1B5E05ED00131D3E /* helpers */ = {
+			isa = PBXGroup;
+			children = (
+				0FA35F4C1B5E059800131D3E /* PersonHelper.swift */,
+			);
+			name = helpers;
+			sourceTree = "<group>";
+		};
 		0FC623691B5D9FE100A08B65 /* services */ = {
 			isa = PBXGroup;
 			children = (
 				0FC6236A1B5DA00200A08B65 /* PersonService.swift */,
 				0F8E8EF21B5DAD3500E9D52F /* NoteService.swift */,
+				0FA35F431B5DDDA100131D3E /* AddressBookService.swift */,
 			);
 			name = services;
 			sourceTree = "<group>";
@@ -86,6 +113,8 @@
 		0FF279D11B5B9B4300FDEDC7 = {
 			isa = PBXGroup;
 			children = (
+				0F8E8EF81B5DCB4800E9D52F /* AddressBook.framework */,
+				0F8E8EF61B5DCB3E00E9D52F /* AddressBookUI.framework */,
 				0FF279DC1B5B9B4300FDEDC7 /* people */,
 				0FF279F51B5B9B4300FDEDC7 /* peopleTests */,
 				0FF279DB1B5B9B4300FDEDC7 /* Products */,
@@ -104,9 +133,10 @@
 		0FF279DC1B5B9B4300FDEDC7 /* people */ = {
 			isa = PBXGroup;
 			children = (
+				0FA35F4E1B5E05ED00131D3E /* helpers */,
+				0FA35F491B5E024A00131D3E /* models */,
 				0FC623691B5D9FE100A08B65 /* services */,
 				0FF279DF1B5B9B4300FDEDC7 /* AppDelegate.swift */,
-				0FF279E41B5B9B4300FDEDC7 /* EditPersonViewController.swift */,
 				0FF27A021B5B9E5900FDEDC7 /* PeopleListTableViewController.swift */,
 				0FF27A041B5BA34800FDEDC7 /* NotesTableViewController.swift */,
 				0FF27A061B5BA35800FDEDC7 /* EditNoteViewController.swift */,
@@ -248,11 +278,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F0CA7671B5CB0C1001E5459 /* AppNavigationController.swift in Sources */,
+				0FA35F441B5DDDA100131D3E /* AddressBookService.swift in Sources */,
 				0F8E8EF31B5DAD3500E9D52F /* NoteService.swift in Sources */,
+				0FA35F4B1B5E025C00131D3E /* PersonModel.swift in Sources */,
 				0FC6236B1B5DA00200A08B65 /* PersonService.swift in Sources */,
 				0F0CA7631B5CA202001E5459 /* NotesTableViewCell.swift in Sources */,
-				0FF279E51B5B9B4300FDEDC7 /* EditPersonViewController.swift in Sources */,
 				0FF279E31B5B9B4300FDEDC7 /* people.xcdatamodeld in Sources */,
+				0FA35F4D1B5E059800131D3E /* PersonHelper.swift in Sources */,
 				0FF27A031B5B9E5900FDEDC7 /* PeopleListTableViewController.swift in Sources */,
 				0F0CA7651B5CAD2E001E5459 /* PeopleListTableViewCell.swift in Sources */,
 				0FF279E01B5B9B4300FDEDC7 /* AppDelegate.swift in Sources */,

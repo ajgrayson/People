@@ -8,8 +8,10 @@
 
 import UIKit
 import CoreData
+import AddressBookUI
+import AddressBook
 
-class PeopleListTableViewController: UITableViewController {
+class PeopleListTableViewController: UITableViewController, ABPeoplePickerNavigationControllerDelegate {
 
     // passed in properties
     var managedContext : NSManagedObjectContext!
@@ -17,9 +19,13 @@ class PeopleListTableViewController: UITableViewController {
     // local properties
     private var people = [NSManagedObject]()
     
-    private var personToEdit : NSManagedObject?
+    private var personToView : NSManagedObject?
     
     private var personService : PersonService!
+    
+    @IBAction func addPersonClicked(sender: AnyObject) {
+        lookupAddressBook()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,9 +59,9 @@ class PeopleListTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("personCell", forIndexPath: indexPath) as! PeopleListTableViewCell
         
-        var name = people[indexPath.row].valueForKey("name") as! String?
+        let p = PersonModel(person: people[indexPath.row])
         
-        cell.nameLabel!.text = name!
+        cell.nameLabel!.text = p.name
         
         return cell
     }
@@ -67,9 +73,9 @@ class PeopleListTableViewController: UITableViewController {
             self.deleteRow(indexPath)
         }
         
-        var editAction = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: "Edit") {
+        var editAction = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: "View") {
             (action, indexPath) -> Void in
-            self.editRow(indexPath)
+            self.viewRow(indexPath)
         }
         
         return [deleteAction, editAction]
@@ -98,12 +104,16 @@ class PeopleListTableViewController: UITableViewController {
         loadPeople()
     }
     
-    func editRow(indexPath: NSIndexPath) {
+    func viewRow(indexPath: NSIndexPath) {
         var person = people[indexPath.row]
         
-        personToEdit = person
+        personToView = person
         
-        self.performSegueWithIdentifier("editPerson", sender: self)
+        var recordId = person.valueForKey("addressBookRecordId")?.intValue
+        
+        viewPerson(recordId!)
+        
+        //self.performSegueWithIdentifier("viewPerson", sender: self)
     }
     
     // MARK: - Navigation
@@ -119,15 +129,79 @@ class PeopleListTableViewController: UITableViewController {
             nvc2.person = person;
             nvc2.managedContext = self.managedContext
         }
-        else if(segue.identifier == "editPerson") {
-            var nvc = segue.destinationViewController as! EditPersonViewController
-            nvc.person = personToEdit
-        }
+    }
+    
+    // address picker
+    
+    func lookupAddressBook() {
+        var picker = ABPeoplePickerNavigationController()
+        picker.peoplePickerDelegate = self;
         
-        if(segue.identifier == "addPerson" || segue.identifier == "editPerson") {
-            var nvc = segue.destinationViewController as! EditPersonViewController
-            nvc.managedContext = self.managedContext
+        // clear it
+        //addressBookRecordId = nil
+        //addressBookRecord = nil
+        //nameTextField.text = ""
+        
+        self.presentViewController(picker, animated: true) { () -> Void in
+            
         }
+    }
+    
+    func peoplePickerNavigationController(peoplePicker: ABPeoplePickerNavigationController!, didSelectPerson person: ABRecord!) {
+        
+        var addressBookRecordId = ABRecordGetRecordID(person)
+        
+        if !personService.doesPersonExist(addressBookRecordId) {
+            var firstName = ABRecordCopyValue(person, kABPersonFirstNameProperty).takeRetainedValue() as! String
+            
+            var lastName = ABRecordCopyValue(person, kABPersonLastNameProperty).takeRetainedValue() as! String
+            
+            var name = PersonHelper().buildFullName(firstName, lastName: lastName)
+            
+            var person = personService.addPerson(name, addressBookRecordId: addressBookRecordId)
+            
+            closeAddressPicker()
+            
+            tableView.reloadData()
+        } else {
+            closeAddressPicker()
+            displayAlreadyExistsAlert()
+        }
+    }
+    
+    func peoplePickerNavigationControllerDidCancel(peoplePicker: ABPeoplePickerNavigationController!) {
+        closeAddressPicker()
+    }
+    
+    func peoplePickerNavigationController(peoplePicker: ABPeoplePickerNavigationController!, didSelectPerson person: ABRecord!, property: ABPropertyID, identifier: ABMultiValueIdentifier) {
+        
+    }
+    
+    func closeAddressPicker() {
+        self.dismissViewControllerAnimated(true, completion: { () -> Void in
+            
+        })
+    }
+    
+    func displayAlreadyExistsAlert() {
+        let cantAddContactAlert = UIAlertController(title: "Contact Already Exists",
+            message: "This contact has already been added.",
+            preferredStyle: .Alert)
+        
+        cantAddContactAlert.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
+        
+        self.presentViewController(cantAddContactAlert, animated: true, completion: nil)
+    }
+    
+    func viewPerson(addressBookRecordId: Int32) {
+        
+        AddressBookService().lookupAddressBookRecord(addressBookRecordId, result: {(record: ABRecord?) -> Void in
+            
+            let personViewController = ABPersonViewController()
+            personViewController.displayedPerson = record
+            
+            self.navigationController?.pushViewController(personViewController, animated: true)
+        })
         
     }
 
