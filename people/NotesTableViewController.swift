@@ -44,14 +44,10 @@ class NotesTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
         return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
         return notes.count
     }
 
@@ -61,11 +57,8 @@ class NotesTableViewController: UITableViewController {
         var content = notes[indexPath.row].valueForKey("content") as! String?
         var updatedDate = notes[indexPath.row].valueForKey("updatedDate") as! NSDate?
         
-        var dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "MMM dd, yyyy h:mm a"
-        
         cell.noteLabel!.text = content!
-        cell.dateLabel!.text = dateFormatter.stringFromDate(updatedDate!)
+        cell.dateLabel!.text = updatedDate?.relativeTime //dateFormatter.stringFromDate(updatedDate!)
         
         return cell
     }

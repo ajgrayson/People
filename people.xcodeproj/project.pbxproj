@@ -16,6 +16,7 @@
 		0FA35F441B5DDDA100131D3E /* AddressBookService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA35F431B5DDDA100131D3E /* AddressBookService.swift */; };
 		0FA35F4B1B5E025C00131D3E /* PersonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA35F4A1B5E025C00131D3E /* PersonModel.swift */; };
 		0FA35F4D1B5E059800131D3E /* PersonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA35F4C1B5E059800131D3E /* PersonHelper.swift */; };
+		0FA35F531B5E1C3000131D3E /* NSDateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA35F521B5E1C3000131D3E /* NSDateExtensions.swift */; };
 		0FC6236B1B5DA00200A08B65 /* PersonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6236A1B5DA00200A08B65 /* PersonService.swift */; };
 		0FF279E01B5B9B4300FDEDC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF279DF1B5B9B4300FDEDC7 /* AppDelegate.swift */; };
 		0FF279E31B5B9B4300FDEDC7 /* people.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0FF279E11B5B9B4300FDEDC7 /* people.xcdatamodeld */; };
@@ -48,6 +49,7 @@
 		0FA35F431B5DDDA100131D3E /* AddressBookService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressBookService.swift; sourceTree = "<group>"; };
 		0FA35F4A1B5E025C00131D3E /* PersonModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonModel.swift; sourceTree = "<group>"; };
 		0FA35F4C1B5E059800131D3E /* PersonHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonHelper.swift; sourceTree = "<group>"; };
+		0FA35F521B5E1C3000131D3E /* NSDateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtensions.swift; sourceTree = "<group>"; };
 		0FC6236A1B5DA00200A08B65 /* PersonService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonService.swift; sourceTree = "<group>"; };
 		0FF279DA1B5B9B4300FDEDC7 /* people.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = people.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FF279DE1B5B9B4300FDEDC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -100,6 +102,14 @@
 			name = helpers;
 			sourceTree = "<group>";
 		};
+		0FA35F511B5E1C2500131D3E /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0FA35F521B5E1C3000131D3E /* NSDateExtensions.swift */,
+			);
+			name = extensions;
+			sourceTree = "<group>";
+		};
 		0FC623691B5D9FE100A08B65 /* services */ = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +143,7 @@
 		0FF279DC1B5B9B4300FDEDC7 /* people */ = {
 			isa = PBXGroup;
 			children = (
+				0FA35F511B5E1C2500131D3E /* extensions */,
 				0FA35F4E1B5E05ED00131D3E /* helpers */,
 				0FA35F491B5E024A00131D3E /* models */,
 				0FC623691B5D9FE100A08B65 /* services */,
@@ -281,6 +292,7 @@
 				0FA35F441B5DDDA100131D3E /* AddressBookService.swift in Sources */,
 				0F8E8EF31B5DAD3500E9D52F /* NoteService.swift in Sources */,
 				0FA35F4B1B5E025C00131D3E /* PersonModel.swift in Sources */,
+				0FA35F531B5E1C3000131D3E /* NSDateExtensions.swift in Sources */,
 				0FC6236B1B5DA00200A08B65 /* PersonService.swift in Sources */,
 				0F0CA7631B5CA202001E5459 /* NotesTableViewCell.swift in Sources */,
 				0FF279E31B5B9B4300FDEDC7 /* people.xcdatamodeld in Sources */,

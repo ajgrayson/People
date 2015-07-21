@@ -19,6 +19,17 @@ class PersonModel : NSObject {
         }
     }
     
+    var timeSinceLastContact : String {
+        get {
+            var dateRaw : AnyObject? = person.valueForKey("lastContactedDate")
+            if dateRaw == nil {
+                return ""
+            }
+            var date = dateRaw as! NSDate
+            return date.relativeTime
+        }
+    }
+    
     init(person: NSManagedObject) {
         self.person = person
     }

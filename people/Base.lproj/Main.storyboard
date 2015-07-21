@@ -19,23 +19,42 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="J5G-Z9-kYy" id="2Pu-rt-niD">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mS8-Cu-a85">
-                                            <rect key="frame" x="8" y="8" width="584" height="27.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Doe" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mS8-Cu-a85">
+                                            <rect key="frame" x="8" y="8" width="444" height="27.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="38 days ago" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6CJ-eH-xjI">
+                                            <rect key="frame" x="460" y="11" width="132" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="132" id="Tar-S1-9Pe"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" red="1" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="mS8-Cu-a85" firstAttribute="top" secondItem="2Pu-rt-niD" secondAttribute="topMargin" id="4Qj-ZG-Gkg"/>
                                         <constraint firstItem="mS8-Cu-a85" firstAttribute="trailing" secondItem="2Pu-rt-niD" secondAttribute="trailingMargin" id="92D-z1-5tz"/>
+                                        <constraint firstItem="6CJ-eH-xjI" firstAttribute="leading" secondItem="mS8-Cu-a85" secondAttribute="trailing" constant="8" id="FJ5-4z-qwl"/>
+                                        <constraint firstItem="6CJ-eH-xjI" firstAttribute="top" secondItem="2Pu-rt-niD" secondAttribute="topMargin" constant="3" id="FbZ-Za-FJH"/>
                                         <constraint firstItem="mS8-Cu-a85" firstAttribute="bottom" secondItem="2Pu-rt-niD" secondAttribute="bottomMargin" id="U3h-HR-CYm"/>
+                                        <constraint firstItem="6CJ-eH-xjI" firstAttribute="trailing" secondItem="2Pu-rt-niD" secondAttribute="trailingMargin" id="W6G-L9-y7Y"/>
                                         <constraint firstItem="mS8-Cu-a85" firstAttribute="leading" secondItem="2Pu-rt-niD" secondAttribute="leadingMargin" id="k0e-Y3-34J"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="6CJ-eH-xjI" secondAttribute="bottom" constant="3.5" id="t3f-Ys-QtN"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="92D-z1-5tz"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
                                     <outlet property="nameLabel" destination="mS8-Cu-a85" id="cAv-Sf-6JK"/>
+                                    <outlet property="timeLabel" destination="6CJ-eH-xjI" id="Be8-tq-MBh"/>
                                     <segue destination="PlO-mQ-3xh" kind="show" identifier="viewNotes" id="ntm-pk-cbB"/>
                                 </connections>
                             </tableViewCell>
@@ -71,8 +90,8 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rvt-2P-hSX" id="lAV-dE-S9O">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="Note content...." lineBreakMode="tailTruncation" numberOfLines="9999" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vmO-RE-IZz">
-                                            <rect key="frame" x="8" y="8" width="584" height="52"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="750" text="This is the demo note content that is really long and has multiple lines of content that ..." lineBreakMode="tailTruncation" numberOfLines="9999" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vmO-RE-IZz">
+                                            <rect key="frame" x="8" y="8" width="584" height="50.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="72" id="NOd-j7-trQ"/>
                                             </constraints>
@@ -85,41 +104,81 @@
                                                 </mask>
                                             </variation>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jan 5, 2015 3:09PM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dAk-ax-cYs">
-                                            <rect key="frame" x="8" y="62" width="266" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="38 minutes ago" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bVJ-5R-l20">
+                                            <rect key="frame" x="8" y="62" width="192" height="17"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="266" id="TAM-yf-Kfe"/>
-                                                <constraint firstAttribute="width" constant="136" id="oGS-Gw-ikV"/>
+                                                <constraint firstAttribute="height" constant="21" id="RLS-Ri-XZZ"/>
+                                                <constraint firstAttribute="width" constant="192" id="sOb-IP-DSt"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                            <color key="textColor" red="0.50196081399917603" green="0.50196081399917603" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <color key="textColor" red="1" green="0.50196081399917603" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="default">
                                                 <mask key="constraints">
-                                                    <exclude reference="oGS-Gw-ikV"/>
+                                                    <exclude reference="RLS-Ri-XZZ"/>
                                                 </mask>
                                             </variation>
                                         </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="vmO-RE-IZz" firstAttribute="leading" secondItem="lAV-dE-S9O" secondAttribute="leadingMargin" id="2Zi-83-zf9"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="vmO-RE-IZz" secondAttribute="bottom" constant="19.5" id="9Cv-wQ-WKa"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="dAk-ax-cYs" secondAttribute="bottom" constant="-3.5" id="CnC-mY-bsW"/>
+                                        <constraint firstItem="vmO-RE-IZz" firstAttribute="top" secondItem="lAV-dE-S9O" secondAttribute="topMargin" constant="29" id="DDE-dT-Crj"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="vmO-RE-IZz" secondAttribute="bottom" constant="21" id="EcV-3V-Osr"/>
+                                        <constraint firstItem="vmO-RE-IZz" firstAttribute="leading" secondItem="lAV-dE-S9O" secondAttribute="leadingMargin" id="FRh-1H-H2K"/>
+                                        <constraint firstItem="vmO-RE-IZz" firstAttribute="leading" secondItem="lAV-dE-S9O" secondAttribute="leadingMargin" id="IPY-MT-4Xe"/>
                                         <constraint firstItem="vmO-RE-IZz" firstAttribute="bottom" secondItem="lAV-dE-S9O" secondAttribute="bottomMargin" id="IgA-HJ-VOn"/>
+                                        <constraint firstItem="vmO-RE-IZz" firstAttribute="bottom" secondItem="lAV-dE-S9O" secondAttribute="bottomMargin" id="JrT-dN-kJw"/>
+                                        <constraint firstItem="vmO-RE-IZz" firstAttribute="leading" secondItem="lAV-dE-S9O" secondAttribute="leadingMargin" constant="6" id="MYK-BN-LfD"/>
+                                        <constraint firstItem="vmO-RE-IZz" firstAttribute="top" secondItem="lAV-dE-S9O" secondAttribute="topMargin" constant="17" id="Qp4-D5-dNC"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="vmO-RE-IZz" secondAttribute="bottom" constant="6" id="TeA-v4-StV"/>
+                                        <constraint firstItem="bVJ-5R-l20" firstAttribute="trailing" secondItem="lAV-dE-S9O" secondAttribute="trailingMargin" id="bWg-Gc-lEY"/>
+                                        <constraint firstItem="vmO-RE-IZz" firstAttribute="trailing" secondItem="lAV-dE-S9O" secondAttribute="trailingMargin" id="cNR-w9-zzt"/>
+                                        <constraint firstItem="bVJ-5R-l20" firstAttribute="top" secondItem="vmO-RE-IZz" secondAttribute="bottom" constant="-0.5" id="d2S-w9-eBs"/>
+                                        <constraint firstItem="vmO-RE-IZz" firstAttribute="leading" secondItem="lAV-dE-S9O" secondAttribute="leadingMargin" id="eDp-EX-nLW"/>
                                         <constraint firstItem="vmO-RE-IZz" firstAttribute="leading" secondItem="lAV-dE-S9O" secondAttribute="leadingMargin" id="eXj-tO-Vwd"/>
+                                        <constraint firstItem="vmO-RE-IZz" firstAttribute="trailing" secondItem="lAV-dE-S9O" secondAttribute="trailingMargin" id="ekp-RY-krl"/>
                                         <constraint firstItem="vmO-RE-IZz" firstAttribute="trailing" secondItem="lAV-dE-S9O" secondAttribute="trailingMargin" id="fGH-fM-faK"/>
-                                        <constraint firstItem="dAk-ax-cYs" firstAttribute="leading" secondItem="lAV-dE-S9O" secondAttribute="leadingMargin" id="kpM-FD-XCN"/>
-                                        <constraint firstItem="dAk-ax-cYs" firstAttribute="top" secondItem="vmO-RE-IZz" secondAttribute="bottom" constant="2" id="msq-jS-Cth"/>
+                                        <constraint firstItem="bVJ-5R-l20" firstAttribute="top" secondItem="vmO-RE-IZz" secondAttribute="bottom" constant="3.5" id="hhc-YA-ks7"/>
+                                        <constraint firstItem="vmO-RE-IZz" firstAttribute="top" secondItem="lAV-dE-S9O" secondAttribute="topMargin" id="jnf-l7-TFF"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="bVJ-5R-l20" secondAttribute="bottom" constant="0.5" id="kkE-J7-XUs"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="vmO-RE-IZz" secondAttribute="trailing" constant="5" id="mIC-nb-hmI"/>
                                         <constraint firstItem="vmO-RE-IZz" firstAttribute="top" secondItem="lAV-dE-S9O" secondAttribute="topMargin" id="ooh-Zn-Whk"/>
+                                        <constraint firstItem="vmO-RE-IZz" firstAttribute="trailing" secondItem="lAV-dE-S9O" secondAttribute="trailingMargin" id="vfj-Wx-zkJ"/>
+                                        <constraint firstItem="vmO-RE-IZz" firstAttribute="bottom" secondItem="lAV-dE-S9O" secondAttribute="bottomMargin" id="w1Z-DG-nkP"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="vmO-RE-IZz" secondAttribute="trailing" constant="8" id="yEn-yj-yjS"/>
+                                        <constraint firstItem="bVJ-5R-l20" firstAttribute="leading" secondItem="lAV-dE-S9O" secondAttribute="leadingMargin" id="zNO-IN-mLI"/>
+                                        <constraint firstItem="bVJ-5R-l20" firstAttribute="leading" secondItem="vmO-RE-IZz" secondAttribute="trailing" constant="8" id="zak-vN-7d1"/>
                                     </constraints>
                                     <variation key="default">
                                         <mask key="constraints">
+                                            <exclude reference="2Zi-83-zf9"/>
+                                            <exclude reference="9Cv-wQ-WKa"/>
+                                            <exclude reference="DDE-dT-Crj"/>
+                                            <exclude reference="FRh-1H-H2K"/>
+                                            <exclude reference="IPY-MT-4Xe"/>
                                             <exclude reference="IgA-HJ-VOn"/>
+                                            <exclude reference="JrT-dN-kJw"/>
+                                            <exclude reference="MYK-BN-LfD"/>
+                                            <exclude reference="Qp4-D5-dNC"/>
+                                            <exclude reference="TeA-v4-StV"/>
+                                            <exclude reference="eXj-tO-Vwd"/>
+                                            <exclude reference="ekp-RY-krl"/>
+                                            <exclude reference="fGH-fM-faK"/>
+                                            <exclude reference="mIC-nb-hmI"/>
+                                            <exclude reference="ooh-Zn-Whk"/>
+                                            <exclude reference="vfj-Wx-zkJ"/>
+                                            <exclude reference="w1Z-DG-nkP"/>
+                                            <exclude reference="yEn-yj-yjS"/>
+                                            <exclude reference="bWg-Gc-lEY"/>
+                                            <exclude reference="d2S-w9-eBs"/>
+                                            <exclude reference="zak-vN-7d1"/>
                                         </mask>
                                     </variation>
                                 </tableViewCellContentView>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <connections>
-                                    <outlet property="dateLabel" destination="dAk-ax-cYs" id="U7M-7E-JYE"/>
+                                    <outlet property="dateLabel" destination="bVJ-5R-l20" id="1aJ-xx-paC"/>
                                     <outlet property="noteLabel" destination="vmO-RE-IZz" id="rX5-bJ-ymt"/>
                                     <segue destination="vpu-s3-N69" kind="show" identifier="editNote" id="2jz-DI-IWv"/>
                                 </connections>

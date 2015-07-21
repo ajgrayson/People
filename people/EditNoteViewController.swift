@@ -21,6 +21,8 @@ class EditNoteViewController: UIViewController {
     // local properties
     private var noteService : NoteService!
     
+    private var personService : PersonService!
+    
     @IBOutlet weak var contentTextView: UITextView!
     
     @IBAction func saveNoteClicked(sender: AnyObject) {
@@ -33,6 +35,7 @@ class EditNoteViewController: UIViewController {
         super.viewDidLoad()
 
         noteService = NoteService(context: managedContext)
+        personService = PersonService(context: managedContext)
         
         loadNote()
     }
@@ -56,6 +59,8 @@ class EditNoteViewController: UIViewController {
         if content == nil || content == "" {
             return false
         }
+        
+        personService.setLastContactedDate(person, date: NSDate())
         
         if note == nil {
             note = noteService.addNote(content, toPerson: person)

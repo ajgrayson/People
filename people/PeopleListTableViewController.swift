@@ -76,6 +76,7 @@ class PeopleListTableViewController: UITableViewController, ABPeoplePickerNaviga
         let p = PersonModel(person: people[indexPath.row])
         
         cell.nameLabel!.text = p.name
+        cell.timeLabel!.text = p.timeSinceLastContact
         
         return cell
     }
@@ -126,8 +127,6 @@ class PeopleListTableViewController: UITableViewController, ABPeoplePickerNaviga
         var recordId = person.valueForKey("addressBookRecordId")?.intValue
         
         viewPerson(recordId!)
-        
-        //self.performSegueWithIdentifier("viewPerson", sender: self)
     }
     
     // MARK: - Navigation
@@ -150,11 +149,6 @@ class PeopleListTableViewController: UITableViewController, ABPeoplePickerNaviga
     func lookupAddressBook() {
         var picker = ABPeoplePickerNavigationController()
         picker.peoplePickerDelegate = self;
-        
-        // clear it
-        //addressBookRecordId = nil
-        //addressBookRecord = nil
-        //nameTextField.text = ""
         
         self.presentViewController(picker, animated: true) { () -> Void in
             

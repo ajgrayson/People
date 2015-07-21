@@ -10,7 +10,7 @@
         <attribute name="addressBookRecordId" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <attribute name="createdDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="dateOfBirth" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="lastContacted" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="lastContactedDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="updatedDate" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="notes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Note" inverseName="person" inverseEntity="Note" syncable="YES"/>

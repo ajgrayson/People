@@ -53,6 +53,12 @@ class PersonService : NSObject {
         return true
     }
     
+    func setLastContactedDate(person : NSManagedObject, date: NSDate) -> Bool {
+        person.setValue(date, forKey: "lastContactedDate")
+        
+        return updatePerson(person)
+    }
+    
     func getAllPeopleOrderedByName() -> [NSManagedObject] {
         let fetchRequest = NSFetchRequest(entityName:"Person")
         
