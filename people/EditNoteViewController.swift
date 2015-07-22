@@ -12,9 +12,9 @@ import CoreData
 class EditNoteViewController: UIViewController {
 
     // passed in properties
-    var note : NSManagedObject?
+    var note : Note?
     
-    var person : NSManagedObject!
+    var person : Person!
     
     var managedContext : NSManagedObjectContext!
     

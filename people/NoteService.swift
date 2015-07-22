@@ -17,7 +17,7 @@ class NoteService : NSObject {
         self.context = context
     }
     
-    func getAllNotesFor(person: NSManagedObject, orderedByDate: Bool) -> [NSManagedObject] {
+    func getAllNotesFor(person: Person, orderedByDate: Bool) -> [Note] {
         let fetchRequest = NSFetchRequest(entityName:"Note")
         
         fetchRequest.predicate = NSPredicate(format: "person = %@", argumentArray: [person])
@@ -27,38 +27,36 @@ class NoteService : NSObject {
             fetchRequest.sortDescriptors = [sortDate]
         }
         
-        var error: NSError?
-        
-        let fetchedResults = context.executeFetchRequest(fetchRequest, error: &error) as! [NSManagedObject]?
-        
-        if let results = fetchedResults {
-            return results
-        } else {
-            println("Could not fetch \(error), \(error!.userInfo)")
-            return [NSManagedObject]()
+        do {
+            let fetchedResults = try context.executeFetchRequest(fetchRequest) as! [Note]
+            
+            return fetchedResults
+        } catch {
+            return [Note]()
         }
 
     }
     
-    func deleteNote(note: NSManagedObject) -> Bool {
+    func deleteNote(note: Note) -> Bool {
         context.deleteObject(note)
         
-        var error: NSError?
-        if !context.save(&error) {
-            println("Could not save \(error), \(error?.userInfo)")
+        do {
+            try context.save()
+            return true
+        } catch {
+            print("Could not save")
             return false
         }
-        return true
     }
     
-    func deleteNotesFor(person: NSManagedObject) {
-        var notes = getAllNotesFor(person, orderedByDate: false)
+    func deleteNotesFor(person: Person) {
+        let notes = getAllNotesFor(person, orderedByDate: false)
         for note in notes {
             deleteNote(note)
         }
     }
     
-    func addNote(content: String, toPerson: NSManagedObject) -> NSManagedObject? {
+    func addNote(content: String, toPerson: Person) -> Note? {
         let date = NSDate()
         
         if content == "" {
@@ -67,11 +65,11 @@ class NoteService : NSObject {
         
         let entity =  NSEntityDescription.entityForName("Note", inManagedObjectContext: context)
         
-        var note = NSManagedObject(entity: entity!, insertIntoManagedObjectContext:context)
+        let note = Note(entity: entity!, insertIntoManagedObjectContext:context)
         note.setValue(date, forKey: "createdDate")
         note.setValue(content, forKey: "content")
         
-        var set = toPerson.mutableSetValueForKey("notes")
+        let set = toPerson.mutableSetValueForKey("notes")
         set.addObject(note)
         
         updateNote(note)
@@ -79,17 +77,18 @@ class NoteService : NSObject {
         return note
     }
     
-    func updateNote(note: NSManagedObject) -> Bool {
+    func updateNote(note: Note) -> Bool {
         let date = NSDate()
         
         note.setValue(date, forKey: "updatedDate")
         
-        var error: NSError?
-        if !context.save(&error) {
-            println("Could not save \(error), \(error?.userInfo)")
+        do {
+            try context.save()
+            return true
+        } catch {
+            print("Could not save note")
             return false
         }
-        return true
     }
     
 }

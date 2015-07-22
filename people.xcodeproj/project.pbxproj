@@ -10,11 +10,14 @@
 		0F0CA7631B5CA202001E5459 /* NotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0CA7621B5CA202001E5459 /* NotesTableViewCell.swift */; };
 		0F0CA7651B5CAD2E001E5459 /* PeopleListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0CA7641B5CAD2E001E5459 /* PeopleListTableViewCell.swift */; };
 		0F0CA7671B5CB0C1001E5459 /* AppNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0CA7661B5CB0C1001E5459 /* AppNavigationController.swift */; };
+		0F32478E1B5EF317004D56E2 /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F32478A1B5EF317004D56E2 /* Note+CoreDataProperties.swift */; };
+		0F32478F1B5EF317004D56E2 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F32478B1B5EF317004D56E2 /* Note.swift */; };
+		0F3247901B5EF317004D56E2 /* Person+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F32478C1B5EF317004D56E2 /* Person+CoreDataProperties.swift */; };
+		0F3247911B5EF317004D56E2 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F32478D1B5EF317004D56E2 /* Person.swift */; };
 		0F8E8EF31B5DAD3500E9D52F /* NoteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8E8EF21B5DAD3500E9D52F /* NoteService.swift */; };
 		0F8E8EF71B5DCB3E00E9D52F /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F8E8EF61B5DCB3E00E9D52F /* AddressBookUI.framework */; };
 		0F8E8EF91B5DCB4800E9D52F /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F8E8EF81B5DCB4800E9D52F /* AddressBook.framework */; };
 		0FA35F441B5DDDA100131D3E /* AddressBookService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA35F431B5DDDA100131D3E /* AddressBookService.swift */; };
-		0FA35F4B1B5E025C00131D3E /* PersonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA35F4A1B5E025C00131D3E /* PersonModel.swift */; };
 		0FA35F4D1B5E059800131D3E /* PersonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA35F4C1B5E059800131D3E /* PersonHelper.swift */; };
 		0FA35F531B5E1C3000131D3E /* NSDateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA35F521B5E1C3000131D3E /* NSDateExtensions.swift */; };
 		0FC6236B1B5DA00200A08B65 /* PersonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6236A1B5DA00200A08B65 /* PersonService.swift */; };
@@ -43,11 +46,14 @@
 		0F0CA7621B5CA202001E5459 /* NotesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesTableViewCell.swift; sourceTree = "<group>"; };
 		0F0CA7641B5CAD2E001E5459 /* PeopleListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleListTableViewCell.swift; sourceTree = "<group>"; };
 		0F0CA7661B5CB0C1001E5459 /* AppNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppNavigationController.swift; sourceTree = "<group>"; };
+		0F32478A1B5EF317004D56E2 /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Note+CoreDataProperties.swift"; path = "../Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0F32478B1B5EF317004D56E2 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Note.swift; path = ../Note.swift; sourceTree = "<group>"; };
+		0F32478C1B5EF317004D56E2 /* Person+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Person+CoreDataProperties.swift"; path = "../Person+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0F32478D1B5EF317004D56E2 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Person.swift; path = ../Person.swift; sourceTree = "<group>"; };
 		0F8E8EF21B5DAD3500E9D52F /* NoteService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteService.swift; sourceTree = "<group>"; };
 		0F8E8EF61B5DCB3E00E9D52F /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		0F8E8EF81B5DCB4800E9D52F /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		0FA35F431B5DDDA100131D3E /* AddressBookService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressBookService.swift; sourceTree = "<group>"; };
-		0FA35F4A1B5E025C00131D3E /* PersonModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonModel.swift; sourceTree = "<group>"; };
 		0FA35F4C1B5E059800131D3E /* PersonHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonHelper.swift; sourceTree = "<group>"; };
 		0FA35F521B5E1C3000131D3E /* NSDateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtensions.swift; sourceTree = "<group>"; };
 		0FC6236A1B5DA00200A08B65 /* PersonService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonService.swift; sourceTree = "<group>"; };
@@ -89,7 +95,10 @@
 		0FA35F491B5E024A00131D3E /* models */ = {
 			isa = PBXGroup;
 			children = (
-				0FA35F4A1B5E025C00131D3E /* PersonModel.swift */,
+				0F32478A1B5EF317004D56E2 /* Note+CoreDataProperties.swift */,
+				0F32478B1B5EF317004D56E2 /* Note.swift */,
+				0F32478C1B5EF317004D56E2 /* Person+CoreDataProperties.swift */,
+				0F32478D1B5EF317004D56E2 /* Person.swift */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -232,11 +241,13 @@
 		0FF279D21B5B9B4300FDEDC7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "John Grayson";
 				TargetAttributes = {
 					0FF279D91B5B9B4300FDEDC7 = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = CD7HSD9D72;
 					};
 					0FF279F11B5B9B4300FDEDC7 = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -291,17 +302,20 @@
 				0F0CA7671B5CB0C1001E5459 /* AppNavigationController.swift in Sources */,
 				0FA35F441B5DDDA100131D3E /* AddressBookService.swift in Sources */,
 				0F8E8EF31B5DAD3500E9D52F /* NoteService.swift in Sources */,
-				0FA35F4B1B5E025C00131D3E /* PersonModel.swift in Sources */,
 				0FA35F531B5E1C3000131D3E /* NSDateExtensions.swift in Sources */,
+				0F3247901B5EF317004D56E2 /* Person+CoreDataProperties.swift in Sources */,
+				0F3247911B5EF317004D56E2 /* Person.swift in Sources */,
 				0FC6236B1B5DA00200A08B65 /* PersonService.swift in Sources */,
 				0F0CA7631B5CA202001E5459 /* NotesTableViewCell.swift in Sources */,
 				0FF279E31B5B9B4300FDEDC7 /* people.xcdatamodeld in Sources */,
 				0FA35F4D1B5E059800131D3E /* PersonHelper.swift in Sources */,
 				0FF27A031B5B9E5900FDEDC7 /* PeopleListTableViewController.swift in Sources */,
 				0F0CA7651B5CAD2E001E5459 /* PeopleListTableViewCell.swift in Sources */,
+				0F32478F1B5EF317004D56E2 /* Note.swift in Sources */,
 				0FF279E01B5B9B4300FDEDC7 /* AppDelegate.swift in Sources */,
 				0FF27A071B5BA35800FDEDC7 /* EditNoteViewController.swift in Sources */,
 				0FF27A051B5BA34800FDEDC7 /* NotesTableViewController.swift in Sources */,
+				0F32478E1B5EF317004D56E2 /* Note+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,6 +378,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -430,10 +445,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = people/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "grayson.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -441,10 +460,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = people/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "grayson.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -462,6 +485,7 @@
 				);
 				INFOPLIST_FILE = peopleTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "grayson.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/people.app/people";
 			};
@@ -477,6 +501,7 @@
 				);
 				INFOPLIST_FILE = peopleTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "grayson.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/people.app/people";
 			};

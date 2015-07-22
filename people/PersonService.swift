@@ -17,16 +17,16 @@ class PersonService : NSObject {
         self.managedObjectContext = context
     }
     
-    func addPerson(name: String, addressBookRecordId: Int32?) -> NSManagedObject? {
+    func addPerson(name: String, addressBookRecordId: Int32?) -> Person? {
         if name == "" {
             return nil
         }
         
         let entity =  NSEntityDescription.entityForName("Person", inManagedObjectContext: managedObjectContext)
         
-        var date = NSDate()
+        let date = NSDate()
         
-        var person = NSManagedObject(entity: entity!, insertIntoManagedObjectContext:managedObjectContext)
+        let person = Person(entity: entity!, insertIntoManagedObjectContext:managedObjectContext)
         
         person.setValue(date, forKey: "createdDate")
         person.setValue(name, forKey: "name")
@@ -40,40 +40,39 @@ class PersonService : NSObject {
         return person
     }
     
-    func updatePerson(person : NSManagedObject) -> Bool {
-        var date = NSDate()
+    func updatePerson(person : Person) -> Bool {
+        let date = NSDate()
         
         person.setValue(date, forKey: "updatedDate")
         
-        var error: NSError?
-        if !managedObjectContext.save(&error) {
-            println("Could not save \(error), \(error?.userInfo)")
+        do {
+            try managedObjectContext.save()
+        } catch {
+            print("Could not save person")
             return false
         }
         return true
     }
     
-    func setLastContactedDate(person : NSManagedObject, date: NSDate) -> Bool {
+    func setLastContactedDate(person : Person, date: NSDate) -> Bool {
         person.setValue(date, forKey: "lastContactedDate")
         
         return updatePerson(person)
     }
     
-    func getAllPeopleOrderedByName() -> [NSManagedObject] {
+    func getAllPeopleOrderedByName() -> [Person] {
         let fetchRequest = NSFetchRequest(entityName:"Person")
         
         let sort = NSSortDescriptor(key: "name", ascending: true)
         fetchRequest.sortDescriptors = [sort]
         
-        var error: NSError?
-        
-        let fetchedResults = managedObjectContext.executeFetchRequest(fetchRequest, error: &error) as! [NSManagedObject]?
-        
-        if let results = fetchedResults {
-            return results
-        } else {
-            println("Could not fetch \(error), \(error!.userInfo)")
-            return [NSManagedObject]()
+        do {
+            let fetchedResults = try managedObjectContext.executeFetchRequest(fetchRequest) as! [Person]
+            
+            return fetchedResults
+        } catch {
+            print("Failed to get results")
+            return [Person]()
         }
     }
     
@@ -82,11 +81,14 @@ class PersonService : NSObject {
         
         fetchRequest.predicate = NSPredicate(format: "addressBookRecordId = %@", argumentArray: [NSNumber(int: addressBookRecordId)])
         
-        var error: NSError?
+        do {
+            let fetchedResults = try managedObjectContext.executeFetchRequest(fetchRequest) as! [Person]
         
-        let fetchedResults = managedObjectContext.executeFetchRequest(fetchRequest, error: &error) as! [NSManagedObject]?
-        
-        return fetchedResults?.count > 0
+            return fetchedResults.count > 0
+        } catch {
+            print("Failed to find person")
+            return false
+        }
     }
     
 }

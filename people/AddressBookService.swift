@@ -20,7 +20,7 @@ class AddressBookService : NSObject {
     
     func lookupAddressBookRecord(recordId: Int32, result: ABRecord? -> Void) {
         checkAuthorization({() -> Void in
-            var record = ABAddressBookGetPersonWithRecordID(self.addressBookRef, recordId)
+            let record = ABAddressBookGetPersonWithRecordID(self.addressBookRef, recordId)
             if record != nil {
                 result(record.takeUnretainedValue())
             } else {
@@ -37,7 +37,7 @@ class AddressBookService : NSObject {
         switch authorizationStatus {
         case .Denied, .Restricted:
             //1
-            println("Denied")
+            print("Denied")
             deniedBlock()
         case .Authorized:
             //2
@@ -49,16 +49,14 @@ class AddressBookService : NSObject {
     }
     
     func promptForAddressBookRequestAccess(successBlock: Void -> Void, deniedBlock: Void -> Void) {
-        var err: Unmanaged<CFError>? = nil
-        
         ABAddressBookRequestAccessWithCompletion(addressBookRef) {
             (granted: Bool, error: CFError!) in
             dispatch_async(dispatch_get_main_queue()) {
                 if !granted {
-                    println("Just denied")
+                    print("Just denied")
                     deniedBlock()
                 } else {
-                    println("Just authorized")
+                    print("Just authorized")
                     successBlock()
                 }
             }

@@ -17,9 +17,9 @@ class PeopleListTableViewController: UITableViewController, ABPeoplePickerNaviga
     var managedContext : NSManagedObjectContext!
     
     // local properties
-    private var people = [NSManagedObject]()
+    private var people = [Person]()
     
-    private var personToView : NSManagedObject?
+    private var personToView : Person?
     
     private var personService : PersonService!
     
@@ -76,22 +76,21 @@ class PeopleListTableViewController: UITableViewController, ABPeoplePickerNaviga
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("personCell", forIndexPath: indexPath) as! PeopleListTableViewCell
         
-        let p = PersonModel(person: people[indexPath.row])
-        
+        let p : Person = people[indexPath.row] //PersonModel(person: people[indexPath.row])
+    
         cell.nameLabel!.text = p.name
         cell.timeLabel!.text = p.timeSinceLastContact
         
         return cell
     }
     
-    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject] {
-        
-        var deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Delete") {
+    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+        let deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Delete") {
             (action, indexPath) -> Void in
             self.deleteRow(indexPath)
         }
         
-        var editAction = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: "View") {
+        let editAction = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: "View") {
             (action, indexPath) -> Void in
             self.viewRow(indexPath)
         }
@@ -108,26 +107,27 @@ class PeopleListTableViewController: UITableViewController, ABPeoplePickerNaviga
     }
     
     func deleteRow(indexPath: NSIndexPath) {
-        var person = people[indexPath.row]
+        let person = people[indexPath.row]
         
         noteService.deleteNotesFor(person)
         
         managedContext.deleteObject(person)
         
-        var error: NSError?
-        if !managedContext.save(&error) {
-            println("Could not save \(error), \(error?.userInfo)")
+        do {
+            try managedContext.save()
+        } catch {
+            print("Save failed")
         }
         
         loadPeople()
     }
     
     func viewRow(indexPath: NSIndexPath) {
-        var person = people[indexPath.row]
+        let person = people[indexPath.row]
         
         personToView = person
         
-        var recordId = person.valueForKey("addressBookRecordId")?.intValue
+        let recordId = person.valueForKey("addressBookRecordId")?.intValue
         
         viewPerson(recordId!)
     }
@@ -137,10 +137,10 @@ class PeopleListTableViewController: UITableViewController, ABPeoplePickerNaviga
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if(segue.identifier == "viewNotes") {
-            var nvc = segue.destinationViewController as! UINavigationController
-            var nvc2 = nvc.childViewControllers.first as! NotesTableViewController
+            let nvc = segue.destinationViewController as! UINavigationController
+            let nvc2 = nvc.childViewControllers.first as! NotesTableViewController
             
-            var person = people[self.tableView.indexPathsForSelectedRows()!.first!.row]
+            let person = people[self.tableView.indexPathsForSelectedRows!.first!.row]
             
             nvc2.person = person;
             nvc2.managedContext = self.managedContext
@@ -150,7 +150,7 @@ class PeopleListTableViewController: UITableViewController, ABPeoplePickerNaviga
     // address picker
     
     func lookupAddressBook() {
-        var picker = ABPeoplePickerNavigationController()
+        let picker = ABPeoplePickerNavigationController()
         picker.peoplePickerDelegate = self;
         
         self.presentViewController(picker, animated: true) { () -> Void in
@@ -158,18 +158,18 @@ class PeopleListTableViewController: UITableViewController, ABPeoplePickerNaviga
         }
     }
     
-    func peoplePickerNavigationController(peoplePicker: ABPeoplePickerNavigationController!, didSelectPerson person: ABRecord!) {
+    func peoplePickerNavigationController(peoplePicker: ABPeoplePickerNavigationController, didSelectPerson person: ABRecord) {
         
-        var addressBookRecordId = ABRecordGetRecordID(person)
+        let addressBookRecordId = ABRecordGetRecordID(person)
         
         if !personService.doesPersonExist(addressBookRecordId) {
-            var firstName = ABRecordCopyValue(person, kABPersonFirstNameProperty).takeRetainedValue() as! String
+            let firstName = ABRecordCopyValue(person, kABPersonFirstNameProperty).takeRetainedValue() as! String
             
-            var lastName = ABRecordCopyValue(person, kABPersonLastNameProperty).takeRetainedValue() as! String
+            let lastName = ABRecordCopyValue(person, kABPersonLastNameProperty).takeRetainedValue() as! String
             
-            var name = PersonHelper().buildFullName(firstName, lastName: lastName)
+            let name = PersonHelper().buildFullName(firstName, lastName: lastName)
             
-            var person = personService.addPerson(name, addressBookRecordId: addressBookRecordId)
+            personService.addPerson(name, addressBookRecordId: addressBookRecordId)
             
             closeAddressPicker()
             
@@ -180,11 +180,11 @@ class PeopleListTableViewController: UITableViewController, ABPeoplePickerNaviga
         }
     }
     
-    func peoplePickerNavigationControllerDidCancel(peoplePicker: ABPeoplePickerNavigationController!) {
+    func peoplePickerNavigationControllerDidCancel(peoplePicker: ABPeoplePickerNavigationController) {
         closeAddressPicker()
     }
     
-    func peoplePickerNavigationController(peoplePicker: ABPeoplePickerNavigationController!, didSelectPerson person: ABRecord!, property: ABPropertyID, identifier: ABMultiValueIdentifier) {
+    func peoplePickerNavigationController(peoplePicker: ABPeoplePickerNavigationController, didSelectPerson person: ABRecord, property: ABPropertyID, identifier: ABMultiValueIdentifier) {
         
     }
     
@@ -210,7 +210,7 @@ class PeopleListTableViewController: UITableViewController, ABPeoplePickerNaviga
             
             if record != nil {
                 let personViewController = ABPersonViewController()
-                personViewController.displayedPerson = record
+                personViewController.displayedPerson = record!
                 
                 self.navigationController?.pushViewController(personViewController, animated: true)
             } else {
@@ -221,7 +221,6 @@ class PeopleListTableViewController: UITableViewController, ABPeoplePickerNaviga
     }
     
     func promptForAddressBookRequestAccess() {
-        var err: Unmanaged<CFError>? = nil
         ABAddressBookRequestAccessWithCompletion(addressBookRef) {
             (granted: Bool, error: CFError!) in
             dispatch_async(dispatch_get_main_queue()) {

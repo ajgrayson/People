@@ -14,10 +14,10 @@ class NotesTableViewController: UITableViewController {
     // passed in properties
     var managedContext : NSManagedObjectContext!
     
-    var person : NSManagedObject!
+    var person : Person!
     
     // local properties
-    private var notes = [NSManagedObject]()
+    private var notes = [Note]()
     
     private var noteService : NoteService!
     
@@ -54,8 +54,8 @@ class NotesTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("noteCell", forIndexPath: indexPath) as! NotesTableViewCell
         
-        var content = notes[indexPath.row].valueForKey("content") as! String?
-        var updatedDate = notes[indexPath.row].valueForKey("updatedDate") as! NSDate?
+        let content = notes[indexPath.row].valueForKey("content") as! String?
+        let updatedDate = notes[indexPath.row].valueForKey("updatedDate") as! NSDate?
         
         cell.noteLabel!.text = content!
         cell.dateLabel!.text = updatedDate?.relativeTime
@@ -83,9 +83,9 @@ class NotesTableViewController: UITableViewController {
         return true
     }
     
-    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [AnyObject] {
-    
-        var deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Delete") {
+    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction] {
+        
+        let deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Delete") {
             (action, indexPath) -> Void in
             self.deleteRow(indexPath)
         }
@@ -97,7 +97,7 @@ class NotesTableViewController: UITableViewController {
     }
     
     func deleteRow(indexPath: NSIndexPath) {
-        var note = notes[indexPath.row]
+        let note = notes[indexPath.row]
         
         noteService.deleteNote(note)
         
@@ -111,10 +111,10 @@ class NotesTableViewController: UITableViewController {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
         
-        var nvc = segue.destinationViewController as! EditNoteViewController
+        let nvc = segue.destinationViewController as! EditNoteViewController
         
         if(segue.identifier == "editNote") {
-            var note = notes[self.tableView.indexPathsForSelectedRows()!.first!.row]
+            let note = notes[self.tableView.indexPathsForSelectedRows!.first!.row]
             nvc.note = note;
         }
         
