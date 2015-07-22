@@ -72,7 +72,7 @@ class PeopleListTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("personCell", forIndexPath: indexPath) as! PeopleListTableViewCell
         
-        let p : Person = people[indexPath.row] //PersonModel(person: people[indexPath.row])
+        let p : Person = people[indexPath.row]
     
         cell.nameLabel!.text = p.name
         cell.timeLabel!.text = p.timeSinceLastContact
