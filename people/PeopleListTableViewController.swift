@@ -163,9 +163,17 @@ class PeopleListTableViewController: UITableViewController, ABPeoplePickerNaviga
         let addressBookRecordId = ABRecordGetRecordID(person)
         
         if !personService.doesPersonExist(addressBookRecordId) {
-            let firstName = ABRecordCopyValue(person, kABPersonFirstNameProperty).takeRetainedValue() as! String
+            var firstName : String?
+            let rawFirstName = ABRecordCopyValue(person, kABPersonFirstNameProperty)
+            if rawFirstName != nil {
+                firstName = rawFirstName.takeRetainedValue() as! String
+            }
             
-            let lastName = ABRecordCopyValue(person, kABPersonLastNameProperty).takeRetainedValue() as! String
+            var lastName : String?
+            let rawLastName = ABRecordCopyValue(person, kABPersonLastNameProperty)
+            if rawLastName != nil {
+                lastName = rawLastName.takeRetainedValue() as! String
+            }
             
             let name = PersonHelper().buildFullName(firstName, lastName: lastName)
             
