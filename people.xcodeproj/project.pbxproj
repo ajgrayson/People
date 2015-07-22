@@ -10,10 +10,6 @@
 		0F0CA7631B5CA202001E5459 /* NotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0CA7621B5CA202001E5459 /* NotesTableViewCell.swift */; };
 		0F0CA7651B5CAD2E001E5459 /* PeopleListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0CA7641B5CAD2E001E5459 /* PeopleListTableViewCell.swift */; };
 		0F0CA7671B5CB0C1001E5459 /* AppNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0CA7661B5CB0C1001E5459 /* AppNavigationController.swift */; };
-		0F32478E1B5EF317004D56E2 /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F32478A1B5EF317004D56E2 /* Note+CoreDataProperties.swift */; };
-		0F32478F1B5EF317004D56E2 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F32478B1B5EF317004D56E2 /* Note.swift */; };
-		0F3247901B5EF317004D56E2 /* Person+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F32478C1B5EF317004D56E2 /* Person+CoreDataProperties.swift */; };
-		0F3247911B5EF317004D56E2 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F32478D1B5EF317004D56E2 /* Person.swift */; };
 		0F8E8EF31B5DAD3500E9D52F /* NoteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8E8EF21B5DAD3500E9D52F /* NoteService.swift */; };
 		0F8E8EF71B5DCB3E00E9D52F /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F8E8EF61B5DCB3E00E9D52F /* AddressBookUI.framework */; };
 		0F8E8EF91B5DCB4800E9D52F /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F8E8EF81B5DCB4800E9D52F /* AddressBook.framework */; };
@@ -30,6 +26,10 @@
 		0FF27A031B5B9E5900FDEDC7 /* PeopleListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF27A021B5B9E5900FDEDC7 /* PeopleListTableViewController.swift */; };
 		0FF27A051B5BA34800FDEDC7 /* NotesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF27A041B5BA34800FDEDC7 /* NotesTableViewController.swift */; };
 		0FF27A071B5BA35800FDEDC7 /* EditNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF27A061B5BA35800FDEDC7 /* EditNoteViewController.swift */; };
+		0FF2B69D1B5F4149007FE0C2 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF2B6991B5F4149007FE0C2 /* Note.swift */; };
+		0FF2B69E1B5F4149007FE0C2 /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF2B69A1B5F4149007FE0C2 /* Note+CoreDataProperties.swift */; };
+		0FF2B69F1B5F4149007FE0C2 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF2B69B1B5F4149007FE0C2 /* Person.swift */; };
+		0FF2B6A01B5F4149007FE0C2 /* Person+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF2B69C1B5F4149007FE0C2 /* Person+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,10 +46,6 @@
 		0F0CA7621B5CA202001E5459 /* NotesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesTableViewCell.swift; sourceTree = "<group>"; };
 		0F0CA7641B5CAD2E001E5459 /* PeopleListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleListTableViewCell.swift; sourceTree = "<group>"; };
 		0F0CA7661B5CB0C1001E5459 /* AppNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppNavigationController.swift; sourceTree = "<group>"; };
-		0F32478A1B5EF317004D56E2 /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Note+CoreDataProperties.swift"; path = "../Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		0F32478B1B5EF317004D56E2 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Note.swift; path = ../Note.swift; sourceTree = "<group>"; };
-		0F32478C1B5EF317004D56E2 /* Person+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Person+CoreDataProperties.swift"; path = "../Person+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		0F32478D1B5EF317004D56E2 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Person.swift; path = ../Person.swift; sourceTree = "<group>"; };
 		0F8E8EF21B5DAD3500E9D52F /* NoteService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteService.swift; sourceTree = "<group>"; };
 		0F8E8EF61B5DCB3E00E9D52F /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		0F8E8EF81B5DCB4800E9D52F /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
@@ -70,6 +66,10 @@
 		0FF27A021B5B9E5900FDEDC7 /* PeopleListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleListTableViewController.swift; sourceTree = "<group>"; };
 		0FF27A041B5BA34800FDEDC7 /* NotesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesTableViewController.swift; sourceTree = "<group>"; };
 		0FF27A061B5BA35800FDEDC7 /* EditNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditNoteViewController.swift; sourceTree = "<group>"; };
+		0FF2B6991B5F4149007FE0C2 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		0FF2B69A1B5F4149007FE0C2 /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0FF2B69B1B5F4149007FE0C2 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		0FF2B69C1B5F4149007FE0C2 /* Person+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,10 +95,10 @@
 		0FA35F491B5E024A00131D3E /* models */ = {
 			isa = PBXGroup;
 			children = (
-				0F32478A1B5EF317004D56E2 /* Note+CoreDataProperties.swift */,
-				0F32478B1B5EF317004D56E2 /* Note.swift */,
-				0F32478C1B5EF317004D56E2 /* Person+CoreDataProperties.swift */,
-				0F32478D1B5EF317004D56E2 /* Person.swift */,
+				0FF2B6991B5F4149007FE0C2 /* Note.swift */,
+				0FF2B69A1B5F4149007FE0C2 /* Note+CoreDataProperties.swift */,
+				0FF2B69B1B5F4149007FE0C2 /* Person.swift */,
+				0FF2B69C1B5F4149007FE0C2 /* Person+CoreDataProperties.swift */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -303,19 +303,19 @@
 				0FA35F441B5DDDA100131D3E /* AddressBookService.swift in Sources */,
 				0F8E8EF31B5DAD3500E9D52F /* NoteService.swift in Sources */,
 				0FA35F531B5E1C3000131D3E /* NSDateExtensions.swift in Sources */,
-				0F3247901B5EF317004D56E2 /* Person+CoreDataProperties.swift in Sources */,
-				0F3247911B5EF317004D56E2 /* Person.swift in Sources */,
 				0FC6236B1B5DA00200A08B65 /* PersonService.swift in Sources */,
+				0FF2B6A01B5F4149007FE0C2 /* Person+CoreDataProperties.swift in Sources */,
 				0F0CA7631B5CA202001E5459 /* NotesTableViewCell.swift in Sources */,
 				0FF279E31B5B9B4300FDEDC7 /* people.xcdatamodeld in Sources */,
 				0FA35F4D1B5E059800131D3E /* PersonHelper.swift in Sources */,
 				0FF27A031B5B9E5900FDEDC7 /* PeopleListTableViewController.swift in Sources */,
+				0FF2B69D1B5F4149007FE0C2 /* Note.swift in Sources */,
 				0F0CA7651B5CAD2E001E5459 /* PeopleListTableViewCell.swift in Sources */,
-				0F32478F1B5EF317004D56E2 /* Note.swift in Sources */,
 				0FF279E01B5B9B4300FDEDC7 /* AppDelegate.swift in Sources */,
 				0FF27A071B5BA35800FDEDC7 /* EditNoteViewController.swift in Sources */,
 				0FF27A051B5BA34800FDEDC7 /* NotesTableViewController.swift in Sources */,
-				0F32478E1B5EF317004D56E2 /* Note+CoreDataProperties.swift in Sources */,
+				0FF2B69F1B5F4149007FE0C2 /* Person.swift in Sources */,
+				0FF2B69E1B5F4149007FE0C2 /* Note+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
