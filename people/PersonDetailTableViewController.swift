@@ -25,6 +25,8 @@ class PersonDetailTableViewController: UITableViewController, ABPeoplePickerNavi
     
     private var addressBookRecordId : ABRecordID?
     
+    private var originalAddressBookRecordId : ABRecordID?
+    
     @IBAction func saveButtonClick(sender: AnyObject) {
         if save() {
             self.navigationController?.navigationController?.popViewControllerAnimated(true)
@@ -56,10 +58,18 @@ class PersonDetailTableViewController: UITableViewController, ABPeoplePickerNavi
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section == 1 && indexPath.row == 0 {
             cell.selectionStyle = UITableViewCellSelectionStyle.Default
-            //cell.userInteractionEnabled = true
         } else {
             cell.selectionStyle = UITableViewCellSelectionStyle.None
-            //cell.userInteractionEnabled = false
+        }
+        
+        if indexPath.section == 0 && indexPath.row == 0 {
+            if addressBookRecordId != nil {
+                cell.selectionStyle = UITableViewCellSelectionStyle.Default
+                cell.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+            } else {
+                cell.selectionStyle = UITableViewCellSelectionStyle.None
+                cell.accessoryType = UITableViewCellAccessoryType.None
+            }
         }
     }
     
@@ -79,12 +89,17 @@ class PersonDetailTableViewController: UITableViewController, ABPeoplePickerNavi
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section == 1 && indexPath.row == 0 {
             clickedLinkToContactRow()
+        } else if indexPath.section == 0 && indexPath.row == 0 {
+            if addressBookRecordId != nil {
+                viewPerson(addressBookRecordId!)
+            }
         }
     }
     
     func removeContactLink() {
         addressBookRecordId = nil
         showLinkToContact()
+        tableView.reloadData()
     }
     
     func displayPerson() {
@@ -95,18 +110,13 @@ class PersonDetailTableViewController: UITableViewController, ABPeoplePickerNavi
             if person!.isLinkedToAddressBook {
                 showUnlinkContact()
                 addressBookRecordId = person?.addressBookRecordId!.intValue
+                originalAddressBookRecordId = addressBookRecordId
             } else {
                 showLinkToContact()
             }
         } else {
             showFindContact()
         }
-        
-//        if nameTextField.enabled {
-//            nameTextField.becomeFirstResponder()
-//        } else {
-//            descriptionTextField.becomeFirstResponder()
-//        }
     }
     
     func showLinkToContact() {
@@ -117,7 +127,7 @@ class PersonDetailTableViewController: UITableViewController, ABPeoplePickerNavi
     }
     
     func showUnlinkContact() {
-        contactRecordNameLabel.text = "Remove"
+        contactRecordNameLabel.text = "Unlink from Contact"
         contactRecordNameLabel.textColor = UIColor.redColor()
         viewContactCell.selected = false
         nameTextField.enabled = false
@@ -207,7 +217,7 @@ class PersonDetailTableViewController: UITableViewController, ABPeoplePickerNavi
         
         let recordId = ABRecordGetRecordID(person)
         
-        if !personService.doesPersonExist(recordId) {
+        if recordId == originalAddressBookRecordId || !personService.doesPersonExist(recordId) {
             var firstName : String?
             let rawFirstName = ABRecordCopyValue(person, kABPersonFirstNameProperty)
             if rawFirstName != nil {

@@ -6,7 +6,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Edit Person-->
         <scene sceneID="Vg5-Nu-eIy">
             <objects>
                 <tableViewController id="6zZ-Vu-wn1" customClass="PersonDetailTableViewController" customModule="people" customModuleProvider="target" sceneMemberID="viewController">
@@ -15,10 +15,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
-                            <tableViewSection headerTitle="Personal Details" id="arn-Ri-gup">
+                            <tableViewSection id="arn-Ri-gup">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Qo2-af-I9T">
-                                        <rect key="frame" x="0.0" y="113.5" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="99" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Qo2-af-I9T" id="G5g-vK-00A">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -39,7 +39,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="4cV-mL-JN9">
-                                        <rect key="frame" x="0.0" y="157.5" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="143" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4cV-mL-JN9" id="sAc-tA-JIz">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -61,10 +61,10 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Contact Record" id="ahG-F0-5kE">
+                            <tableViewSection id="ahG-F0-5kE">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="PdT-BT-Gml">
-                                        <rect key="frame" x="0.0" y="243.5" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="207" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PdT-BT-Gml" id="uig-e8-i3e">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
@@ -100,7 +100,7 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Item" id="Sru-9T-SzB"/>
-                    <navigationItem key="navigationItem" id="cFg-8g-i1X">
+                    <navigationItem key="navigationItem" title="Edit Person" id="cFg-8g-i1X">
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="Op0-1V-UWJ">
                             <connections>
                                 <action selector="saveButtonClick:" destination="6zZ-Vu-wn1" id="qlJ-ng-Uln"/>
@@ -136,7 +136,7 @@
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="John Doe" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mS8-Cu-a85">
                                             <rect key="frame" x="8" y="8" width="444" height="28"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -236,7 +236,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="72" id="NOd-j7-trQ"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="default">
@@ -429,19 +429,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rtM-hn-KyW">
-                                <rect key="frame" x="3" y="-1" width="594" height="601"/>
+                                <rect key="frame" x="3" y="72" width="594" height="528"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="rtM-hn-KyW" firstAttribute="top" secondItem="i1p-I0-Vvv" secondAttribute="bottom" constant="8" id="1J1-1d-gbe"/>
                             <constraint firstItem="rtM-hn-KyW" firstAttribute="trailing" secondItem="Uvs-l4-SIX" secondAttribute="trailingMargin" constant="13" id="3dl-XJ-cpZ"/>
                             <constraint firstItem="rtM-hn-KyW" firstAttribute="leading" secondItem="Uvs-l4-SIX" secondAttribute="leadingMargin" constant="-13" id="R6v-lK-lgp"/>
+                            <constraint firstItem="zUr-W5-PAP" firstAttribute="top" secondItem="rtM-hn-KyW" secondAttribute="bottom" id="Su9-NG-F8M"/>
                             <constraint firstItem="zUr-W5-PAP" firstAttribute="top" secondItem="rtM-hn-KyW" secondAttribute="bottom" id="ZwV-wV-ZgR"/>
                             <constraint firstItem="rtM-hn-KyW" firstAttribute="top" secondItem="i1p-I0-Vvv" secondAttribute="bottom" constant="-65" id="pGz-UR-oGl"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="pGz-UR-oGl"/>
+                                <exclude reference="ZwV-wV-ZgR"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Edit Note" id="VYL-7y-HLS">
                         <barButtonItem key="backBarButtonItem" title="Notes" id="6hu-6D-baS"/>

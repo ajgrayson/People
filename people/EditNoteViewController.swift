@@ -37,6 +37,8 @@ class EditNoteViewController: UIViewController {
         noteService = NoteService(context: managedContext)
         personService = PersonService(context: managedContext)
         
+        self.automaticallyAdjustsScrollViewInsets = false
+        
         loadNote()
     }
 
