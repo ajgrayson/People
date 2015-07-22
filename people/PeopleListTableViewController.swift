@@ -8,10 +8,8 @@
 
 import UIKit
 import CoreData
-import AddressBookUI
-import AddressBook
 
-class PeopleListTableViewController: UITableViewController, ABPeoplePickerNavigationControllerDelegate {
+class PeopleListTableViewController: UITableViewController {
 
     // passed in properties
     var managedContext : NSManagedObjectContext!
@@ -25,22 +23,20 @@ class PeopleListTableViewController: UITableViewController, ABPeoplePickerNaviga
     
     private var noteService : NoteService!
     
-    private let addressBookRef: ABAddressBook = ABAddressBookCreateWithOptions(nil, nil).takeRetainedValue()
-    
     @IBAction func addPersonClicked(sender: AnyObject) {
-        let authorizationStatus = ABAddressBookGetAuthorizationStatus()
-        
-        switch authorizationStatus {
-        case .Denied, .Restricted:
-            //1
-            self.displayCantAddContactAlert()
-        case .Authorized:
-            //2
-            lookupAddressBook()
-        case .NotDetermined:
-            //3
-            promptForAddressBookRequestAccess()
-        }
+//        let authorizationStatus = ABAddressBookGetAuthorizationStatus()
+//        
+//        switch authorizationStatus {
+//        case .Denied, .Restricted:
+//            //1
+//            self.displayCantAddContactAlert()
+//        case .Authorized:
+//            //2
+//            lookupAddressBook()
+//        case .NotDetermined:
+//            //3
+//            promptForAddressBookRequestAccess()
+//        }
     }
     
     override func viewDidLoad() {
@@ -90,7 +86,7 @@ class PeopleListTableViewController: UITableViewController, ABPeoplePickerNaviga
             self.deleteRow(indexPath)
         }
         
-        let editAction = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: "View") {
+        let editAction = UITableViewRowAction(style: UITableViewRowActionStyle.Normal, title: "Edit") {
             (action, indexPath) -> Void in
             self.viewRow(indexPath)
         }
@@ -127,9 +123,11 @@ class PeopleListTableViewController: UITableViewController, ABPeoplePickerNaviga
         
         personToView = person
         
-        let recordId = person.valueForKey("addressBookRecordId")?.intValue
+        //let recordId = person.valueForKey("addressBookRecordId")?.intValue
         
-        viewPerson(recordId!)
+        //viewPerson(recordId!)
+        
+        self.performSegueWithIdentifier("editPerson", sender: self)
     }
     
     // MARK: - Navigation
@@ -142,135 +140,24 @@ class PeopleListTableViewController: UITableViewController, ABPeoplePickerNaviga
             
             let person = people[self.tableView.indexPathsForSelectedRows!.first!.row]
             
-            nvc2.person = person;
+            nvc2.person = person
             nvc2.managedContext = self.managedContext
+            nvc2.managedContext = managedContext
+        } else if segue.identifier == "addPerson" {
+            let nvc = segue.destinationViewController as! UINavigationController
+            let nvc2 = nvc.childViewControllers.first as! PersonDetailTableViewController
+            
+            //nvc2.person = person
+            nvc2.managedContext = managedContext
+        } else if segue.identifier == "editPerson" {
+            let nvc = segue.destinationViewController as! UINavigationController
+            let nvc2 = nvc.childViewControllers.first as! PersonDetailTableViewController
+            
+            let person = personToView
+            
+            nvc2.person = person
+            nvc2.managedContext = managedContext
         }
-    }
-    
-    // address picker
-    
-    func lookupAddressBook() {
-        let picker = ABPeoplePickerNavigationController()
-        picker.peoplePickerDelegate = self;
-        
-        self.presentViewController(picker, animated: true) { () -> Void in
-            
-        }
-    }
-    
-    func peoplePickerNavigationController(peoplePicker: ABPeoplePickerNavigationController, didSelectPerson person: ABRecord) {
-        
-        let addressBookRecordId = ABRecordGetRecordID(person)
-        
-        if !personService.doesPersonExist(addressBookRecordId) {
-            var firstName : String?
-            let rawFirstName = ABRecordCopyValue(person, kABPersonFirstNameProperty)
-            if rawFirstName != nil {
-                firstName = rawFirstName.takeRetainedValue() as! String
-            }
-            
-            var lastName : String?
-            let rawLastName = ABRecordCopyValue(person, kABPersonLastNameProperty)
-            if rawLastName != nil {
-                lastName = rawLastName.takeRetainedValue() as! String
-            }
-            
-            let name = PersonHelper().buildFullName(firstName, lastName: lastName)
-            
-            personService.addPerson(name, addressBookRecordId: addressBookRecordId)
-            
-            closeAddressPicker()
-            
-            tableView.reloadData()
-        } else {
-            closeAddressPicker()
-            displayAlreadyExistsAlert()
-        }
-    }
-    
-    func peoplePickerNavigationControllerDidCancel(peoplePicker: ABPeoplePickerNavigationController) {
-        closeAddressPicker()
-    }
-    
-    func peoplePickerNavigationController(peoplePicker: ABPeoplePickerNavigationController, didSelectPerson person: ABRecord, property: ABPropertyID, identifier: ABMultiValueIdentifier) {
-        
-    }
-    
-    func closeAddressPicker() {
-        self.dismissViewControllerAnimated(true, completion: { () -> Void in
-            
-        })
-    }
-    
-    func displayAlreadyExistsAlert() {
-        let cantAddContactAlert = UIAlertController(title: "Contact Already Exists",
-            message: "This contact has already been added.",
-            preferredStyle: .Alert)
-        
-        cantAddContactAlert.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
-        
-        self.presentViewController(cantAddContactAlert, animated: true, completion: nil)
-    }
-    
-    func viewPerson(addressBookRecordId: Int32) {
-        
-        AddressBookService().lookupAddressBookRecord(addressBookRecordId, result: {(record: ABRecord?) -> Void in
-            
-            if record != nil {
-                let personViewController = ABPersonViewController()
-                personViewController.displayedPerson = record!
-                
-                self.navigationController?.pushViewController(personViewController, animated: true)
-            } else {
-                self.showMissingContactError()
-            }
-        })
-        
-    }
-    
-    func promptForAddressBookRequestAccess() {
-        ABAddressBookRequestAccessWithCompletion(addressBookRef) {
-            (granted: Bool, error: CFError!) in
-            dispatch_async(dispatch_get_main_queue()) {
-                if !granted {
-                    // 1
-                    self.displayCantAddContactAlert()
-                } else {
-                    // 2
-                    self.lookupAddressBook()
-                }
-            }
-        }
-    }
-    
-    func openSettings() {
-        let url = NSURL(string: UIApplicationOpenSettingsURLString)
-        UIApplication.sharedApplication().openURL(url!)
-    }
-    
-    func displayCantAddContactAlert() {
-        let cantAddContactAlert = UIAlertController(title: "Cannot Add Contact",
-            message: "You must give the app permission to add the contact first.",
-            preferredStyle: .Alert)
-        
-        cantAddContactAlert.addAction(UIAlertAction(title: "Change Settings",
-            style: .Default,
-            handler: { action in
-                self.openSettings()
-        }))
-        
-        cantAddContactAlert.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
-        presentViewController(cantAddContactAlert, animated: true, completion: nil)
-    }
-    
-    func showMissingContactError() {
-        let missingContactAlert = UIAlertController(title: "Missing Contact",
-            message: "The contact can't be found in your address book. It's likely they've its been deleted.",
-            preferredStyle: .Alert)
-        
-        missingContactAlert.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
-        
-        presentViewController(missingContactAlert, animated: true, completion: nil)
     }
 
 }

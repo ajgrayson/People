@@ -24,5 +24,11 @@ class Person: NSManagedObject {
         }
     }
 
+    var isLinkedToAddressBook : Bool {
+        get {
+            return self.valueForKey("addressBookRecordId") != nil && self.valueForKey("addressBookRecordId") as? Int != 0
+        }
+    }
+    
     
 }
