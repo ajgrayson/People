@@ -111,7 +111,7 @@ class NotesTableViewController: UITableViewController {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
         
-        let nvc = segue.destinationViewController as! EditNoteViewController
+        let nvc = segue.destinationViewController as! NoteTableViewController
         
         if(segue.identifier == "editNote") {
             let note = notes[self.tableView.indexPathsForSelectedRows!.first!.row]

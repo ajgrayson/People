@@ -11,6 +11,7 @@
 		0F0CA7651B5CAD2E001E5459 /* PeopleListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0CA7641B5CAD2E001E5459 /* PeopleListTableViewCell.swift */; };
 		0F0CA7671B5CB0C1001E5459 /* AppNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0CA7661B5CB0C1001E5459 /* AppNavigationController.swift */; };
 		0F566E061B5F70C400483742 /* PersonDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F566E051B5F70C400483742 /* PersonDetailTableViewController.swift */; };
+		0F6F0A751B60740D00DB3393 /* NoteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F0A741B60740D00DB3393 /* NoteTableViewController.swift */; };
 		0F8E8EF31B5DAD3500E9D52F /* NoteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8E8EF21B5DAD3500E9D52F /* NoteService.swift */; };
 		0F8E8EF71B5DCB3E00E9D52F /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F8E8EF61B5DCB3E00E9D52F /* AddressBookUI.framework */; };
 		0F8E8EF91B5DCB4800E9D52F /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F8E8EF81B5DCB4800E9D52F /* AddressBook.framework */; };
@@ -26,7 +27,6 @@
 		0FF279F91B5B9B4300FDEDC7 /* peopleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF279F81B5B9B4300FDEDC7 /* peopleTests.swift */; };
 		0FF27A031B5B9E5900FDEDC7 /* PeopleListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF27A021B5B9E5900FDEDC7 /* PeopleListTableViewController.swift */; };
 		0FF27A051B5BA34800FDEDC7 /* NotesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF27A041B5BA34800FDEDC7 /* NotesTableViewController.swift */; };
-		0FF27A071B5BA35800FDEDC7 /* EditNoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF27A061B5BA35800FDEDC7 /* EditNoteViewController.swift */; };
 		0FF2B69D1B5F4149007FE0C2 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF2B6991B5F4149007FE0C2 /* Note.swift */; };
 		0FF2B69E1B5F4149007FE0C2 /* Note+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF2B69A1B5F4149007FE0C2 /* Note+CoreDataProperties.swift */; };
 		0FF2B69F1B5F4149007FE0C2 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF2B69B1B5F4149007FE0C2 /* Person.swift */; };
@@ -48,6 +48,7 @@
 		0F0CA7641B5CAD2E001E5459 /* PeopleListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleListTableViewCell.swift; sourceTree = "<group>"; };
 		0F0CA7661B5CB0C1001E5459 /* AppNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppNavigationController.swift; sourceTree = "<group>"; };
 		0F566E051B5F70C400483742 /* PersonDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonDetailTableViewController.swift; sourceTree = "<group>"; };
+		0F6F0A741B60740D00DB3393 /* NoteTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteTableViewController.swift; sourceTree = "<group>"; };
 		0F8E8EF21B5DAD3500E9D52F /* NoteService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteService.swift; sourceTree = "<group>"; };
 		0F8E8EF61B5DCB3E00E9D52F /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		0F8E8EF81B5DCB4800E9D52F /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
@@ -67,7 +68,6 @@
 		0FF279F81B5B9B4300FDEDC7 /* peopleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = peopleTests.swift; sourceTree = "<group>"; };
 		0FF27A021B5B9E5900FDEDC7 /* PeopleListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleListTableViewController.swift; sourceTree = "<group>"; };
 		0FF27A041B5BA34800FDEDC7 /* NotesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesTableViewController.swift; sourceTree = "<group>"; };
-		0FF27A061B5BA35800FDEDC7 /* EditNoteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditNoteViewController.swift; sourceTree = "<group>"; };
 		0FF2B6991B5F4149007FE0C2 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		0FF2B69A1B5F4149007FE0C2 /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0FF2B69B1B5F4149007FE0C2 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
@@ -162,8 +162,8 @@
 				0F566E051B5F70C400483742 /* PersonDetailTableViewController.swift */,
 				0FF27A021B5B9E5900FDEDC7 /* PeopleListTableViewController.swift */,
 				0FF27A041B5BA34800FDEDC7 /* NotesTableViewController.swift */,
-				0FF27A061B5BA35800FDEDC7 /* EditNoteViewController.swift */,
 				0F0CA7621B5CA202001E5459 /* NotesTableViewCell.swift */,
+				0F6F0A741B60740D00DB3393 /* NoteTableViewController.swift */,
 				0F0CA7641B5CAD2E001E5459 /* PeopleListTableViewCell.swift */,
 				0F0CA7661B5CB0C1001E5459 /* AppNavigationController.swift */,
 				0FF279E61B5B9B4300FDEDC7 /* Main.storyboard */,
@@ -303,6 +303,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F0CA7671B5CB0C1001E5459 /* AppNavigationController.swift in Sources */,
+				0F6F0A751B60740D00DB3393 /* NoteTableViewController.swift in Sources */,
 				0FA35F441B5DDDA100131D3E /* AddressBookService.swift in Sources */,
 				0F8E8EF31B5DAD3500E9D52F /* NoteService.swift in Sources */,
 				0F566E061B5F70C400483742 /* PersonDetailTableViewController.swift in Sources */,
@@ -316,7 +317,6 @@
 				0FF2B69D1B5F4149007FE0C2 /* Note.swift in Sources */,
 				0F0CA7651B5CAD2E001E5459 /* PeopleListTableViewCell.swift in Sources */,
 				0FF279E01B5B9B4300FDEDC7 /* AppDelegate.swift in Sources */,
-				0FF27A071B5BA35800FDEDC7 /* EditNoteViewController.swift in Sources */,
 				0FF27A051B5BA34800FDEDC7 /* NotesTableViewController.swift in Sources */,
 				0FF2B69F1B5F4149007FE0C2 /* Person.swift in Sources */,
 				0FF2B69E1B5F4149007FE0C2 /* Note+CoreDataProperties.swift in Sources */,
