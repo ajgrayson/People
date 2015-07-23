@@ -488,7 +488,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="159"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="hFw-LP-bZ7">
+                                                <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="5" translatesAutoresizingMaskIntoConstraints="NO" id="hFw-LP-bZ7">
                                                     <rect key="frame" x="8" y="8" width="584" height="143"/>
                                                     <date key="date" timeIntervalSinceReferenceDate="459305834.65426999">
                                                         <!--2015-07-23 00:57:14 +0000-->
@@ -521,6 +521,7 @@
                     <connections>
                         <outlet property="contentTextView" destination="PdR-zt-5Kv" id="jbM-jL-rvX"/>
                         <outlet property="dateLabel" destination="e6a-AD-Lfn" id="ZbQ-hr-Q2k"/>
+                        <outlet property="dateLabelCell" destination="vII-jU-Ge4" id="d4w-iM-9WX"/>
                         <outlet property="datePicker" destination="hFw-LP-bZ7" id="gEs-c0-qru"/>
                         <outlet property="datePickerCell" destination="gIy-tn-ofk" id="LSH-gr-jbb"/>
                     </connections>

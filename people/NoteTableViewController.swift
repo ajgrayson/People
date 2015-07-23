@@ -15,6 +15,7 @@ class NoteTableViewController: UITableViewController {
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var contentTextView: UITextView!
     @IBOutlet weak var datePickerCell: UITableViewCell!
+    @IBOutlet weak var dateLabelCell: UITableViewCell!
     
     @IBAction func saveNoteClicked(sender: AnyObject) {
         if save() {
@@ -51,7 +52,7 @@ class NoteTableViewController: UITableViewController {
     
     func updateDate(date: NSDate) {
         let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "MMMM dd, YYYY h:mma"
+        dateFormatter.dateFormat = "MMMM dd, YYYY h:mm a"
         dateLabel.text = dateFormatter.stringFromDate(date)
     }
     
@@ -110,8 +111,7 @@ class NoteTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section == 1 && indexPath.row == 0 {
-            datePickerIsOpen = !datePickerIsOpen
-            datePickerCell.hidden = !datePickerIsOpen
+            toggleDatePicker()
         }
     }
     
@@ -119,6 +119,12 @@ class NoteTableViewController: UITableViewController {
         if !datePickerIsOpen && indexPath.section == 1 && indexPath.row == 1 {
             cell.hidden = true
         }
+    }
+    
+    func toggleDatePicker() {
+        datePickerIsOpen = !datePickerIsOpen
+        datePickerCell.hidden = !datePickerIsOpen
+        dateLabelCell.selected = false
     }
 
 }

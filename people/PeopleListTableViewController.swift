@@ -104,7 +104,37 @@ class PeopleListTableViewController: UITableViewController {
     
     func deleteRow(indexPath: NSIndexPath) {
         let person = people[indexPath.row]
+        displayDeleteConfirmation(person)
+    }
+    
+    func viewRow(indexPath: NSIndexPath) {
+        let person = people[indexPath.row]
         
+        personToView = person
+        
+        self.performSegueWithIdentifier("editPerson", sender: self)
+    }
+    
+    func displayDeleteConfirmation(person: Person) {
+        let alert = UIAlertController(title: "Delete Person",
+            message: "Are you sure you want to delete this person.",
+            preferredStyle: .Alert)
+        
+        alert.addAction(UIAlertAction(title: "No", style: .Cancel, handler: {
+            action in
+                self.tableView.setEditing(false, animated: true)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Yes",
+            style: .Default,
+            handler: { action in
+                self.deletePerson(person)
+        }))
+        
+        presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func deletePerson(person: Person) {
         noteService.deleteNotesFor(person)
         
         managedContext.deleteObject(person)
@@ -116,18 +146,6 @@ class PeopleListTableViewController: UITableViewController {
         }
         
         loadPeople()
-    }
-    
-    func viewRow(indexPath: NSIndexPath) {
-        let person = people[indexPath.row]
-        
-        personToView = person
-        
-        //let recordId = person.valueForKey("addressBookRecordId")?.intValue
-        
-        //viewPerson(recordId!)
-        
-        self.performSegueWithIdentifier("editPerson", sender: self)
     }
     
     // MARK: - Navigation

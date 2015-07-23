@@ -98,12 +98,33 @@ class NotesTableViewController: UITableViewController {
     
     func deleteRow(indexPath: NSIndexPath) {
         let note = notes[indexPath.row]
+        displayDeleteConfirmation(note)
+    }
+    
+    func displayDeleteConfirmation(note: Note) {
+        let alert = UIAlertController(title: "Delete Note",
+            message: "Are you sure you want to delete this note.",
+            preferredStyle: .Alert)
         
-        noteService.deleteNote(note)
+        alert.addAction(UIAlertAction(title: "No", style: .Cancel, handler: {
+            action in
+            self.tableView.setEditing(false, animated: true)
+        }))
         
-        loadNotes()
+        alert.addAction(UIAlertAction(title: "Yes",
+            style: .Default,
+            handler: { action in
+                self.deleteNote(note)
+        }))
+        
+        presentViewController(alert, animated: true, completion: nil)
     }
 
+    func deleteNote(note: Note) {
+        noteService.deleteNote(note)
+        loadNotes()
+    }
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
