@@ -20,5 +20,7 @@ extension Person {
     @NSManaged var name: String?
     @NSManaged var updatedDate: NSDate?
     @NSManaged var notes: NSSet?
+    @NSManaged var caption: String?
+    @NSManaged var favourite: NSNumber?
 
 }

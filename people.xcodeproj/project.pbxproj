@@ -49,6 +49,7 @@
 		0F0CA7661B5CB0C1001E5459 /* AppNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppNavigationController.swift; sourceTree = "<group>"; };
 		0F566E051B5F70C400483742 /* PersonDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonDetailTableViewController.swift; sourceTree = "<group>"; };
 		0F6F0A741B60740D00DB3393 /* NoteTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteTableViewController.swift; sourceTree = "<group>"; };
+		0F6F0A761B60AAF600DB3393 /* peoplev2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = peoplev2.xcdatamodel; sourceTree = "<group>"; };
 		0F8E8EF21B5DAD3500E9D52F /* NoteService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteService.swift; sourceTree = "<group>"; };
 		0F8E8EF61B5DCB3E00E9D52F /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		0F8E8EF81B5DCB4800E9D52F /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
@@ -547,9 +548,10 @@
 		0FF279E11B5B9B4300FDEDC7 /* people.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				0F6F0A761B60AAF600DB3393 /* peoplev2.xcdatamodel */,
 				0FF279E21B5B9B4300FDEDC7 /* people.xcdatamodel */,
 			);
-			currentVersion = 0FF279E21B5B9B4300FDEDC7 /* people.xcdatamodel */;
+			currentVersion = 0F6F0A761B60AAF600DB3393 /* peoplev2.xcdatamodel */;
 			path = people.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

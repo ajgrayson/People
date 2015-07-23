@@ -33,11 +33,10 @@ class PersonDetailTableViewController: UITableViewController, ABPeoplePickerNavi
         }
     }
     
+    @IBOutlet weak var favouriteSwitch: UISwitch!
     @IBOutlet weak var contactRecordNameLabel: UILabel!
     @IBOutlet weak var viewContactCell: UITableViewCell!
-    
     @IBOutlet weak var nameTextField: UITextField!
-    
     @IBOutlet weak var descriptionTextField: UITextField!
     
     override func viewDidLoad() {
@@ -80,7 +79,7 @@ class PersonDetailTableViewController: UITableViewController, ABPeoplePickerNavi
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch(section) {
         case 0:
-            return 2
+            return 3
         default:
             return 1
         }
@@ -105,7 +104,8 @@ class PersonDetailTableViewController: UITableViewController, ABPeoplePickerNavi
     func displayPerson() {
         if person != nil {
             nameTextField.text = person!.name
-            //descriptionTextField.text = person!.note
+            descriptionTextField.text = person!.caption
+            favouriteSwitch.setOn(person!.isFavourite, animated: false)
             
             if person!.isLinkedToAddressBook {
                 showUnlinkContact()
@@ -196,8 +196,12 @@ class PersonDetailTableViewController: UITableViewController, ABPeoplePickerNavi
                 person?.addressBookRecordId = nil
             }
             person?.name = name
-            personService.updatePerson(person!)
         }
+        
+        person?.isFavourite = favouriteSwitch.on
+        person?.caption = descriptionTextField.text
+        
+        personService.updatePerson(person!)
         
         return true
     }

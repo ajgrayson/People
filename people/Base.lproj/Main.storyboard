@@ -59,12 +59,40 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="tde-IY-bdh">
+                                        <rect key="frame" x="0.0" y="187" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tde-IY-bdh" id="wet-69-oJ1">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Favourite" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CTs-RL-4sX">
+                                                    <rect key="frame" x="8" y="11" width="527" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0MJ-cM-Q6E">
+                                                    <rect key="frame" x="543" y="6" width="51" height="31"/>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="0MJ-cM-Q6E" firstAttribute="leading" secondItem="CTs-RL-4sX" secondAttribute="trailing" constant="8" id="42j-yk-0xr"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="0MJ-cM-Q6E" secondAttribute="bottom" constant="-1.5" id="AZM-y8-mWc"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="0MJ-cM-Q6E" secondAttribute="trailing" id="CFm-Fo-tDz"/>
+                                                <constraint firstAttribute="leadingMargin" secondItem="CTs-RL-4sX" secondAttribute="leading" id="V3Y-2k-4OX"/>
+                                                <constraint firstItem="CTs-RL-4sX" firstAttribute="top" secondItem="wet-69-oJ1" secondAttribute="topMargin" constant="3" id="V8O-sK-No9"/>
+                                                <constraint firstItem="0MJ-cM-Q6E" firstAttribute="top" secondItem="wet-69-oJ1" secondAttribute="topMargin" constant="-2" id="yJ9-Tx-xHR"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="CTs-RL-4sX" secondAttribute="bottom" constant="3.5" id="yJa-EJ-KWW"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection id="ahG-F0-5kE">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="PdT-BT-Gml">
-                                        <rect key="frame" x="0.0" y="207" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="251" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PdT-BT-Gml" id="uig-e8-i3e">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -110,6 +138,7 @@
                     <connections>
                         <outlet property="contactRecordNameLabel" destination="BpJ-FZ-foV" id="lPR-nr-Bsn"/>
                         <outlet property="descriptionTextField" destination="chT-aw-gAG" id="qZH-bN-zgh"/>
+                        <outlet property="favouriteSwitch" destination="0MJ-cM-Q6E" id="AJB-qG-Tav"/>
                         <outlet property="nameTextField" destination="d11-gC-bbO" id="Bj3-dB-S7U"/>
                         <outlet property="viewContactCell" destination="PdT-BT-Gml" id="c3c-Yq-tYO"/>
                     </connections>
