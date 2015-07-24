@@ -76,8 +76,13 @@ class PeopleListTableViewController: UITableViewController {
     
         cell.nameLabel!.text = p.name
         cell.timeLabel!.text = p.timeSinceLastContact
+        cell.captionLabel!.text = p.caption
         
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 60
     }
     
     override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
