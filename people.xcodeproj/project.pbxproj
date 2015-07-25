@@ -19,6 +19,7 @@
 		0FA35F4D1B5E059800131D3E /* PersonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA35F4C1B5E059800131D3E /* PersonHelper.swift */; };
 		0FA35F531B5E1C3000131D3E /* NSDateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA35F521B5E1C3000131D3E /* NSDateExtensions.swift */; };
 		0FC6236B1B5DA00200A08B65 /* PersonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6236A1B5DA00200A08B65 /* PersonService.swift */; };
+		0FF001851B6438FC00B0ECB9 /* PersonListTableViewCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF001841B6438FC00B0ECB9 /* PersonListTableViewCell2.swift */; };
 		0FF279E01B5B9B4300FDEDC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF279DF1B5B9B4300FDEDC7 /* AppDelegate.swift */; };
 		0FF279E31B5B9B4300FDEDC7 /* people.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0FF279E11B5B9B4300FDEDC7 /* people.xcdatamodeld */; };
 		0FF279E81B5B9B4300FDEDC7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FF279E61B5B9B4300FDEDC7 /* Main.storyboard */; };
@@ -57,6 +58,8 @@
 		0FA35F4C1B5E059800131D3E /* PersonHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonHelper.swift; sourceTree = "<group>"; };
 		0FA35F521B5E1C3000131D3E /* NSDateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtensions.swift; sourceTree = "<group>"; };
 		0FC6236A1B5DA00200A08B65 /* PersonService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonService.swift; sourceTree = "<group>"; };
+		0FF001841B6438FC00B0ECB9 /* PersonListTableViewCell2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonListTableViewCell2.swift; sourceTree = "<group>"; };
+		0FF001861B643FF400B0ECB9 /* peoplev3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = peoplev3.xcdatamodel; sourceTree = "<group>"; };
 		0FF279DA1B5B9B4300FDEDC7 /* people.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = people.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FF279DE1B5B9B4300FDEDC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0FF279DF1B5B9B4300FDEDC7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -132,6 +135,27 @@
 			name = services;
 			sourceTree = "<group>";
 		};
+		0FF001821B64389900B0ECB9 /* people */ = {
+			isa = PBXGroup;
+			children = (
+				0F566E051B5F70C400483742 /* PersonDetailTableViewController.swift */,
+				0FF27A021B5B9E5900FDEDC7 /* PeopleListTableViewController.swift */,
+				0F0CA7641B5CAD2E001E5459 /* PeopleListTableViewCell.swift */,
+				0FF001841B6438FC00B0ECB9 /* PersonListTableViewCell2.swift */,
+			);
+			name = people;
+			sourceTree = "<group>";
+		};
+		0FF001831B6438A000B0ECB9 /* notes */ = {
+			isa = PBXGroup;
+			children = (
+				0FF27A041B5BA34800FDEDC7 /* NotesTableViewController.swift */,
+				0F0CA7621B5CA202001E5459 /* NotesTableViewCell.swift */,
+				0F6F0A741B60740D00DB3393 /* NoteTableViewController.swift */,
+			);
+			name = notes;
+			sourceTree = "<group>";
+		};
 		0FF279D11B5B9B4300FDEDC7 = {
 			isa = PBXGroup;
 			children = (
@@ -155,17 +179,13 @@
 		0FF279DC1B5B9B4300FDEDC7 /* people */ = {
 			isa = PBXGroup;
 			children = (
+				0FF001831B6438A000B0ECB9 /* notes */,
+				0FF001821B64389900B0ECB9 /* people */,
 				0FA35F511B5E1C2500131D3E /* extensions */,
 				0FA35F4E1B5E05ED00131D3E /* helpers */,
 				0FA35F491B5E024A00131D3E /* models */,
 				0FC623691B5D9FE100A08B65 /* services */,
 				0FF279DF1B5B9B4300FDEDC7 /* AppDelegate.swift */,
-				0F566E051B5F70C400483742 /* PersonDetailTableViewController.swift */,
-				0FF27A021B5B9E5900FDEDC7 /* PeopleListTableViewController.swift */,
-				0FF27A041B5BA34800FDEDC7 /* NotesTableViewController.swift */,
-				0F0CA7621B5CA202001E5459 /* NotesTableViewCell.swift */,
-				0F6F0A741B60740D00DB3393 /* NoteTableViewController.swift */,
-				0F0CA7641B5CAD2E001E5459 /* PeopleListTableViewCell.swift */,
 				0F0CA7661B5CB0C1001E5459 /* AppNavigationController.swift */,
 				0FF279E61B5B9B4300FDEDC7 /* Main.storyboard */,
 				0FF279E91B5B9B4300FDEDC7 /* Images.xcassets */,
@@ -316,6 +336,7 @@
 				0FA35F4D1B5E059800131D3E /* PersonHelper.swift in Sources */,
 				0FF27A031B5B9E5900FDEDC7 /* PeopleListTableViewController.swift in Sources */,
 				0FF2B69D1B5F4149007FE0C2 /* Note.swift in Sources */,
+				0FF001851B6438FC00B0ECB9 /* PersonListTableViewCell2.swift in Sources */,
 				0F0CA7651B5CAD2E001E5459 /* PeopleListTableViewCell.swift in Sources */,
 				0FF279E01B5B9B4300FDEDC7 /* AppDelegate.swift in Sources */,
 				0FF27A051B5BA34800FDEDC7 /* NotesTableViewController.swift in Sources */,
@@ -402,6 +423,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = People;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -440,6 +462,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = People;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -548,10 +571,11 @@
 		0FF279E11B5B9B4300FDEDC7 /* people.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				0FF001861B643FF400B0ECB9 /* peoplev3.xcdatamodel */,
 				0F6F0A761B60AAF600DB3393 /* peoplev2.xcdatamodel */,
 				0FF279E21B5B9B4300FDEDC7 /* people.xcdatamodel */,
 			);
-			currentVersion = 0F6F0A761B60AAF600DB3393 /* peoplev2.xcdatamodel */;
+			currentVersion = 0FF001861B643FF400B0ECB9 /* peoplev3.xcdatamodel */;
 			path = people.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

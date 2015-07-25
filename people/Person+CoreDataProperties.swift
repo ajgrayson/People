@@ -22,5 +22,6 @@ extension Person {
     @NSManaged var notes: NSSet?
     @NSManaged var caption: String?
     @NSManaged var favourite: NSNumber?
+    @NSManaged var image: NSData?
 
 }

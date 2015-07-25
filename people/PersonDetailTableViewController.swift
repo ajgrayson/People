@@ -27,6 +27,8 @@ class PersonDetailTableViewController: UITableViewController, ABPeoplePickerNavi
     
     private var originalAddressBookRecordId : ABRecordID?
     
+    private var addressBookImage : NSData?
+    
     @IBAction func saveButtonClick(sender: AnyObject) {
         if save() {
             self.navigationController?.navigationController?.popViewControllerAnimated(true)
@@ -97,6 +99,7 @@ class PersonDetailTableViewController: UITableViewController, ABPeoplePickerNavi
     
     func removeContactLink() {
         addressBookRecordId = nil
+        addressBookImage = nil
         showLinkToContact()
         tableView.reloadData()
     }
@@ -200,6 +203,7 @@ class PersonDetailTableViewController: UITableViewController, ABPeoplePickerNavi
         
         person?.isFavourite = favouriteSwitch.on
         person?.caption = descriptionTextField.text
+        person?.image = addressBookImage
         
         personService.updatePerson(person!)
         
@@ -237,6 +241,12 @@ class PersonDetailTableViewController: UITableViewController, ABPeoplePickerNavi
             let name = PersonHelper().buildFullName(firstName, lastName: lastName)
             
             addressBookRecordId = recordId
+            
+            
+            if ABPersonHasImageData(person) {
+                let image = ABPersonCopyImageDataWithFormat(person, kABPersonImageFormatThumbnail)
+                addressBookImage = image.takeRetainedValue()
+            }
             
             nameTextField.text = name
             nameTextField.enabled = false

@@ -70,19 +70,38 @@ class PeopleListTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("personCell", forIndexPath: indexPath) as! PeopleListTableViewCell
-        
         let p : Person = people[indexPath.row]
-    
-        cell.nameLabel!.text = p.name
-        cell.timeLabel!.text = p.timeSinceLastContact
-        cell.captionLabel!.text = p.caption
         
-        return cell
+        if p.caption != nil && p.caption != "" {
+            let cell = tableView.dequeueReusableCellWithIdentifier("personCell", forIndexPath: indexPath) as! PeopleListTableViewCell
+            cell.nameLabel!.text = p.name
+            cell.timeLabel!.text = p.timeSinceLastContact
+            cell.captionLabel!.text = p.caption
+            
+            if p.image != nil {
+                cell.photoView?.image = UIImage(data: p.image!)
+            } else {
+                cell.photoView?.image = UIImage(named: "Person")
+            }
+            
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCellWithIdentifier("personCell2", forIndexPath: indexPath) as! PersonListTableViewCell2
+            cell.nameLabel!.text = p.name
+            cell.timeLabel!.text = p.timeSinceLastContact
+            
+            if p.image != nil {
+                cell.photoView?.image = UIImage(data: p.image!)
+            } else {
+                cell.photoView?.image = UIImage(named: "Person")
+            }
+            
+            return cell
+        }
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 60
+        return 80
     }
     
     override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
@@ -157,7 +176,7 @@ class PeopleListTableViewController: UITableViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if(segue.identifier == "viewNotes") {
+        if(segue.identifier == "viewNotes" || segue.identifier == "viewNotes2") {
             let nvc = segue.destinationViewController as! UINavigationController
             let nvc2 = nvc.childViewControllers.first as! NotesTableViewController
             
