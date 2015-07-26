@@ -54,17 +54,17 @@ class NotesTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("noteCell", forIndexPath: indexPath) as! NotesTableViewCell
         
-        let content = notes[indexPath.row].valueForKey("content") as! String?
-        let updatedDate = notes[indexPath.row].valueForKey("updatedDate") as! NSDate?
+        let content = notes[indexPath.row].content
+        let date = notes[indexPath.row].date
         
-        cell.noteLabel!.text = content!
-        cell.dateLabel!.text = updatedDate?.relativeTime
+        cell.noteLabel!.text = content
+        cell.dateLabel!.text = date?.relativeTime
         
         return cell
     }
     
     func loadPerson() {
-        self.navigationItem.title = person.valueForKey("name") as! String!
+        self.navigationItem.title = person.name
     }
     
     func configureTableView() {

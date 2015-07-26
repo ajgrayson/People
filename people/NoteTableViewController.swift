@@ -35,11 +35,16 @@ class NoteTableViewController: UITableViewController {
     
     private var personService : PersonService!
     
+    private var personLastContactedService : PersonLastContactedService!
+    
+    private var datePickerIsOpen : Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         noteService = NoteService(context: managedContext)
         personService = PersonService(context: managedContext)
+        personLastContactedService = PersonLastContactedService(context: managedContext)
         
         loadNote()
         
@@ -47,10 +52,10 @@ class NoteTableViewController: UITableViewController {
     }
     
     func handleDatePicker(sender: UIDatePicker) {
-        updateDate(sender.date)
+        updateDateLabel(sender.date)
     }
     
-    func updateDate(date: NSDate) {
+    func updateDateLabel(date: NSDate) {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "MMMM dd, YYYY h:mm a"
         dateLabel.text = dateFormatter.stringFromDate(date)
@@ -59,10 +64,17 @@ class NoteTableViewController: UITableViewController {
     func loadNote() {
         if(note != nil) {
             contentTextView.text = note!.valueForKey("content") as! String
-            datePicker.setDate(note!.updatedDate!, animated: false)
-            updateDate(note!.updatedDate!)
+            
+            // temp while date not always set
+            if note!.date != nil {
+                datePicker.setDate(note!.date!, animated: false)
+                updateDateLabel(note!.date!)
+            } else {
+                datePicker.setDate(note!.updatedDate!, animated: false)
+                updateDateLabel(note!.updatedDate!)
+            }
         } else {
-            updateDate(NSDate())
+            updateDateLabel(NSDate())
             contentTextView.becomeFirstResponder()
         }
     }
@@ -76,20 +88,21 @@ class NoteTableViewController: UITableViewController {
         
         let date = datePicker.date
         
-        // only update if its newer
-        if person.lastContactedDate == nil || date.compare(person.lastContactedDate!) == NSComparisonResult.OrderedDescending {
-            personService.setLastContactedDate(person, date: date)
-        }
-        
         if note == nil {
             note = noteService.addNote(content, toPerson: person)
         } else {
             note!.setValue(content, forKey: "content")
         }
         
-        note?.updatedDate = date;
+        note?.date = date;
         
-        return noteService.updateNote(note!)
+        let res = noteService.updateNote(note!)
+        
+        if res {
+            personLastContactedService.updateLastContacted(person)
+        }
+        
+        return res
     }
 
     override func didReceiveMemoryWarning() {
@@ -109,8 +122,6 @@ class NoteTableViewController: UITableViewController {
         }
         return 2
     }
-    
-    private var datePickerIsOpen : Bool = false
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section == 1 && indexPath.row == 0 {

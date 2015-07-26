@@ -23,7 +23,7 @@ class NoteService : NSObject {
         fetchRequest.predicate = NSPredicate(format: "person = %@", argumentArray: [person])
         
         if orderedByDate {
-            let sortDate = NSSortDescriptor(key: "updatedDate", ascending: false)
+            let sortDate = NSSortDescriptor(key: "date", ascending: false)
             fetchRequest.sortDescriptors = [sortDate]
         }
         
@@ -66,8 +66,9 @@ class NoteService : NSObject {
         let entity =  NSEntityDescription.entityForName("Note", inManagedObjectContext: context)
         
         let note = Note(entity: entity!, insertIntoManagedObjectContext:context)
-        note.setValue(date, forKey: "createdDate")
-        note.setValue(content, forKey: "content")
+        note.createdDate = date
+        note.content = content
+        note.date = date // default
         
         let set = toPerson.mutableSetValueForKey("notes")
         set.addObject(note)
@@ -78,9 +79,7 @@ class NoteService : NSObject {
     }
     
     func updateNote(note: Note) -> Bool {
-        //let date = NSDate()
-        
-        //note.setValue(date, forKey: "updatedDate")
+        note.updatedDate = NSDate()
         
         do {
             try context.save()

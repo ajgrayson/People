@@ -18,5 +18,6 @@ extension Note {
     @NSManaged var createdDate: NSDate?
     @NSManaged var updatedDate: NSDate?
     @NSManaged var person: NSManagedObject?
-
+    @NSManaged var date: NSDate?
+    
 }
