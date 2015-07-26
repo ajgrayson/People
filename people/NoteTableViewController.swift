@@ -9,16 +9,17 @@
 import UIKit
 import CoreData
 
-class NoteTableViewController: UITableViewController {
+class NoteTableViewController: UITableViewController, UITextViewDelegate {
     
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var contentTextView: UITextView!
     @IBOutlet weak var datePickerCell: UITableViewCell!
     @IBOutlet weak var dateLabelCell: UITableViewCell!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     
     @IBAction func saveNoteClicked(sender: AnyObject) {
-        if save() {
+        if save(false) {
             self.navigationController?.popViewControllerAnimated(true)
         }
     }
@@ -39,6 +40,8 @@ class NoteTableViewController: UITableViewController {
     
     private var datePickerIsOpen : Bool = false
     
+    private var draftSaveTimer : NSTimer!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,11 +51,20 @@ class NoteTableViewController: UITableViewController {
         
         loadNote()
         
+        draftSaveTimer = NSTimer.scheduledTimerWithTimeInterval(15, target: self, selector: Selector("updateDraft"), userInfo: nil, repeats: true)
+        
         datePicker.addTarget(self, action: Selector("handleDatePicker:"), forControlEvents: UIControlEvents.ValueChanged)
+        
+        contentTextView.delegate = self
+    }
+    
+    func textViewDidChange(textView: UITextView) {
+        saveButton.enabled = true
     }
     
     func handleDatePicker(sender: UIDatePicker) {
         updateDateLabel(sender.date)
+        saveButton.enabled = true
     }
     
     func updateDateLabel(date: NSDate) {
@@ -63,23 +75,41 @@ class NoteTableViewController: UITableViewController {
     
     func loadNote() {
         if(note != nil) {
-            contentTextView.text = note!.valueForKey("content") as! String
-            
-            // temp while date not always set
-            if note!.date != nil {
-                datePicker.setDate(note!.date!, animated: false)
-                updateDateLabel(note!.date!)
-            } else {
-                datePicker.setDate(note!.updatedDate!, animated: false)
-                updateDateLabel(note!.updatedDate!)
-            }
+            loadNote(note!)
         } else {
-            updateDateLabel(NSDate())
-            contentTextView.becomeFirstResponder()
+            let draftNote = noteService.getDraft(person)
+            if draftNote != nil {
+                note = draftNote;
+                loadNote(note!)
+            } else {
+                updateDateLabel(NSDate())
+                contentTextView.becomeFirstResponder()
+            }
         }
     }
     
-    func save() -> Bool {
+    func loadNote(note: Note) {
+        contentTextView.text = note.valueForKey("content") as! String
+        
+        // temp while date not always set
+        if note.date != nil {
+            datePicker.setDate(note.date!, animated: false)
+            updateDateLabel(note.date!)
+        } else {
+            datePicker.setDate(note.updatedDate!, animated: false)
+            updateDateLabel(note.updatedDate!)
+        }
+        
+        saveButton.enabled = false
+    }
+    
+    func updateDraft() {
+        if save(false) {
+            saveButton.enabled = false
+        }
+    }
+    
+    func save(draft: Bool) -> Bool {
         let content = contentTextView.text
         
         if content == nil || content == "" {
@@ -95,6 +125,7 @@ class NoteTableViewController: UITableViewController {
         }
         
         note?.date = date;
+        note?.isDraft = draft
         
         let res = noteService.updateNote(note!)
         

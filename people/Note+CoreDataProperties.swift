@@ -19,5 +19,6 @@ extension Note {
     @NSManaged var updatedDate: NSDate?
     @NSManaged var person: NSManagedObject?
     @NSManaged var date: NSDate?
+    @NSManaged var draft: NSNumber?
     
 }

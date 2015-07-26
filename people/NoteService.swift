@@ -37,6 +37,25 @@ class NoteService : NSObject {
 
     }
     
+    func getDraft(person: Person) -> Note? {
+        let fetchRequest = NSFetchRequest(entityName:"Note")
+        
+        fetchRequest.predicate = NSPredicate(format: "person = %@ and draft=%@", argumentArray: [person, true])
+        
+        do {
+            let fetchedResults = try context.executeFetchRequest(fetchRequest) as! [Note]
+            
+            if fetchedResults.count > 0 {
+                return fetchedResults.first!
+            }
+            
+            return nil
+        } catch {
+            return nil
+        }
+
+    }
+    
     func deleteNote(note: Note) -> Bool {
         context.deleteObject(note)
         

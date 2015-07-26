@@ -11,6 +11,13 @@ import CoreData
 
 class Note: NSManagedObject {
 
-// Insert code here to add functionality to your managed object subclass
+    var isDraft: Bool {
+        get {
+            return Bool(draft != nil && draft != 0)
+        }
+        set {
+            draft = NSNumber(bool: newValue)
+        }
+    }
 
 }

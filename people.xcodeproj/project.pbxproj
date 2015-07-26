@@ -63,6 +63,7 @@
 		0FC6236A1B5DA00200A08B65 /* PersonService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonService.swift; sourceTree = "<group>"; };
 		0FCBB2281B64A1CB00AE4168 /* PersonLastContactedService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonLastContactedService.swift; sourceTree = "<group>"; };
 		0FCBB22A1B64A2AD00AE4168 /* peoplev4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = peoplev4.xcdatamodel; sourceTree = "<group>"; };
+		0FCBB22B1B64C77F00AE4168 /* peoplev5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = peoplev5.xcdatamodel; sourceTree = "<group>"; };
 		0FF001841B6438FC00B0ECB9 /* PersonListTableViewCell2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonListTableViewCell2.swift; sourceTree = "<group>"; };
 		0FF001861B643FF400B0ECB9 /* peoplev3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = peoplev3.xcdatamodel; sourceTree = "<group>"; };
 		0FF279DA1B5B9B4300FDEDC7 /* people.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = people.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -580,12 +581,13 @@
 		0FF279E11B5B9B4300FDEDC7 /* people.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				0FCBB22B1B64C77F00AE4168 /* peoplev5.xcdatamodel */,
 				0FCBB22A1B64A2AD00AE4168 /* peoplev4.xcdatamodel */,
 				0FF001861B643FF400B0ECB9 /* peoplev3.xcdatamodel */,
 				0F6F0A761B60AAF600DB3393 /* peoplev2.xcdatamodel */,
 				0FF279E21B5B9B4300FDEDC7 /* people.xcdatamodel */,
 			);
-			currentVersion = 0FCBB22A1B64A2AD00AE4168 /* peoplev4.xcdatamodel */;
+			currentVersion = 0FCBB22B1B64C77F00AE4168 /* peoplev5.xcdatamodel */;
 			path = people.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
