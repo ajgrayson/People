@@ -58,12 +58,20 @@ class NoteTableViewController: UITableViewController, UITextViewDelegate {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        draftSaveTimer = NSTimer.scheduledTimerWithTimeInterval(15, target: self, selector: Selector("updateDraft"), userInfo: nil, repeats: true)
+        draftSaveTimer = NSTimer.scheduledTimerWithTimeInterval(15, target: self, selector: Selector("onDraftSaveTimer"), userInfo: nil, repeats: true)
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         draftSaveTimer.invalidate()
+    }
+    
+    func onDraftSaveTimer() {
+        if (note == nil && contentTextView.text != nil) || note != nil {
+            if save(false) {
+                saveButton.enabled = false
+            }
+        }
     }
     
     func textViewDidChange(textView: UITextView) {
@@ -85,14 +93,14 @@ class NoteTableViewController: UITableViewController, UITextViewDelegate {
         if(note != nil) {
             loadNote(note!)
         } else {
-            let draftNote = noteService.getDraft(person)
-            if draftNote != nil {
-                note = draftNote;
-                loadNote(note!)
-            } else {
+            //let draftNote = noteService.getDraft(person)
+            //if draftNote != nil {
+            //    note = draftNote;
+            //    loadNote(note!)
+            //} else {
                 updateDateLabel(NSDate())
                 contentTextView.becomeFirstResponder()
-            }
+            //}
         }
     }
     
@@ -111,11 +119,11 @@ class NoteTableViewController: UITableViewController, UITextViewDelegate {
         saveButton.enabled = false
     }
     
-    func updateDraft() {
-        if save(false) {
-            saveButton.enabled = false
-        }
-    }
+//    func updateDraft() {
+//        if save(false) {
+//            saveButton.enabled = false
+//        }
+//    }
     
     func save(draft: Bool) -> Bool {
         let content = contentTextView.text
