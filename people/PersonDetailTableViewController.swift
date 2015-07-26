@@ -110,6 +110,8 @@ class PersonDetailTableViewController: UITableViewController, ABPeoplePickerNavi
             descriptionTextField.text = person!.caption
             favouriteSwitch.setOn(person!.isFavourite, animated: false)
             
+            addressBookImage = person?.image
+            
             if person!.isLinkedToAddressBook {
                 showUnlinkContact()
                 addressBookRecordId = person?.addressBookRecordId!.intValue
@@ -148,22 +150,6 @@ class PersonDetailTableViewController: UITableViewController, ABPeoplePickerNavi
             removeContactLink()
         } else {
             openLinkToAddressBook()
-        }
-    }
-    
-    func viewAddressBookContact() {
-        let authorizationStatus = ABAddressBookGetAuthorizationStatus()
-        
-        switch authorizationStatus {
-        case .Denied, .Restricted:
-            //1
-            self.displayCantAddContactAlert()
-        case .Authorized:
-            //2
-            lookupAddressBook()
-        case .NotDetermined:
-            //3
-            promptForAddressBookRequestAccess()
         }
     }
     
@@ -288,17 +274,11 @@ class PersonDetailTableViewController: UITableViewController, ABPeoplePickerNavi
     
     func viewPerson(addressBookRecordId: Int32) {
         
-        AddressBookService().lookupAddressBookRecord(addressBookRecordId, result: {(record: ABRecord?) -> Void in
-            
-            if record != nil {
-                let personViewController = ABPersonViewController()
-                personViewController.displayedPerson = record!
-                
-                self.navigationController?.pushViewController(personViewController, animated: true)
-            } else {
-                self.showMissingContactError()
-            }
-        })
+        let personViewController = ABPersonViewController()
+        
+        personViewController.displayedPerson = ABAddressBookGetPersonWithRecordID(addressBookRef, addressBookRecordId).takeUnretainedValue()
+        
+        self.navigationController?.pushViewController(personViewController, animated: true)
         
     }
     

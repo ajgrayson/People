@@ -37,7 +37,6 @@ class AddressBookService : NSObject {
         switch authorizationStatus {
         case .Denied, .Restricted:
             //1
-            print("Denied")
             deniedBlock()
         case .Authorized:
             //2
@@ -53,10 +52,8 @@ class AddressBookService : NSObject {
             (granted: Bool, error: CFError!) in
             dispatch_async(dispatch_get_main_queue()) {
                 if !granted {
-                    print("Just denied")
                     deniedBlock()
                 } else {
-                    print("Just authorized")
                     successBlock()
                 }
             }
