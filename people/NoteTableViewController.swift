@@ -76,7 +76,10 @@ class NoteTableViewController: UITableViewController {
         
         let date = datePicker.date
         
-        personService.setLastContactedDate(person, date: date)
+        // only update if its newer
+        if person.lastContactedDate == nil || date.compare(person.lastContactedDate!) == NSComparisonResult.OrderedDescending {
+            personService.setLastContactedDate(person, date: date)
+        }
         
         if note == nil {
             note = noteService.addNote(content, toPerson: person)
