@@ -51,11 +51,19 @@ class NoteTableViewController: UITableViewController, UITextViewDelegate {
         
         loadNote()
         
-        draftSaveTimer = NSTimer.scheduledTimerWithTimeInterval(15, target: self, selector: Selector("updateDraft"), userInfo: nil, repeats: true)
-        
         datePicker.addTarget(self, action: Selector("handleDatePicker:"), forControlEvents: UIControlEvents.ValueChanged)
         
         contentTextView.delegate = self
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        draftSaveTimer = NSTimer.scheduledTimerWithTimeInterval(15, target: self, selector: Selector("updateDraft"), userInfo: nil, repeats: true)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        draftSaveTimer.invalidate()
     }
     
     func textViewDidChange(textView: UITextView) {

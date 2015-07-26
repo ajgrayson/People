@@ -186,6 +186,11 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="Eyz-z7-AY1"/>
+                                                </mask>
+                                            </variation>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="38 days ago" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6CJ-eH-xjI">
                                             <rect key="frame" x="460" y="29" width="125" height="21"/>
@@ -215,10 +220,16 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <color key="textColor" red="0.50196081399917603" green="0.50196081399917603" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="Xg9-aP-pyn"/>
+                                                </mask>
+                                            </variation>
                                         </label>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="6CJ-eH-xjI" firstAttribute="centerY" secondItem="2Pu-rt-niD" secondAttribute="centerY" id="0Xk-cV-GB6"/>
+                                        <constraint firstItem="6CJ-eH-xjI" firstAttribute="leading" secondItem="Pkq-5g-Gwe" secondAttribute="trailing" constant="8" id="5IT-oy-74M"/>
                                         <constraint firstAttribute="leadingMargin" secondItem="Giv-op-WkH" secondAttribute="leading" id="5Sq-rz-bJu"/>
                                         <constraint firstAttribute="leadingMargin" secondItem="mS8-Cu-a85" secondAttribute="leading" id="5dg-l3-MdN"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="mS8-Cu-a85" secondAttribute="bottom" constant="16" id="5us-Xe-MbY"/>
@@ -276,6 +287,7 @@
                                             <exclude reference="Yui-DA-cvd"/>
                                             <exclude reference="gl6-jL-Tfs"/>
                                             <exclude reference="iAi-4X-QMf"/>
+                                            <exclude reference="kcd-9Z-Qli"/>
                                             <exclude reference="sAz-Jq-g3D"/>
                                         </mask>
                                     </variation>
@@ -323,8 +335,8 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Person" translatesAutoresizingMaskIntoConstraints="NO" id="obO-y5-ydr">
-                                            <rect key="frame" x="8" y="7" width="60" height="60"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Person" translatesAutoresizingMaskIntoConstraints="NO" id="obO-y5-ydr">
+                                            <rect key="frame" x="8" y="9" width="60" height="60"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="60" id="5dP-Hl-LYs"/>
                                                 <constraint firstAttribute="width" constant="44" id="DAc-ti-rzx"/>

@@ -55,7 +55,10 @@ class NotesTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("noteCell", forIndexPath: indexPath) as! NotesTableViewCell
         
         let content = notes[indexPath.row].content
-        let date = notes[indexPath.row].date
+        var date = notes[indexPath.row].date
+        if date == nil {
+            date = notes[indexPath.row].updatedDate
+        }
         
         cell.noteLabel!.text = content
         cell.dateLabel!.text = date?.relativeTime
@@ -102,19 +105,19 @@ class NotesTableViewController: UITableViewController {
     }
     
     func displayDeleteConfirmation(note: Note) {
-        let alert = UIAlertController(title: "Delete Note",
+        let alert = UIAlertController(title: "DELETE",
             message: "Are you sure you want to delete this note.",
             preferredStyle: .Alert)
-        
-        alert.addAction(UIAlertAction(title: "No", style: .Cancel, handler: {
-            action in
-            self.tableView.setEditing(false, animated: true)
-        }))
         
         alert.addAction(UIAlertAction(title: "Yes",
             style: .Default,
             handler: { action in
                 self.deleteNote(note)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "No", style: .Cancel, handler: {
+            action in
+            self.tableView.setEditing(false, animated: true)
         }))
         
         presentViewController(alert, animated: true, completion: nil)

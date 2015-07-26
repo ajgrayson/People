@@ -81,6 +81,6 @@ extension NSDate {
         if date.hoursFrom(self) > 0 || date.minutesFrom(self) > 0 || date.secondsFrom(self) > 0 || date.nanosecondsFrom(self) > 0 {
             return "Today"
         }
-        return ""
+        return "N/A"
     }
 }

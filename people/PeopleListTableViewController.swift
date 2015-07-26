@@ -166,19 +166,19 @@ class PeopleListTableViewController: UITableViewController {
     }
     
     func displayDeleteConfirmation(person: Person) {
-        let alert = UIAlertController(title: "Delete Person",
-            message: "Are you sure you want to delete this person.",
+        let alert = UIAlertController(title: "DELETE",
+            message: "Are you sure you want to delete this person?",
             preferredStyle: .Alert)
-        
-        alert.addAction(UIAlertAction(title: "No", style: .Cancel, handler: {
-            action in
-                self.tableView.setEditing(false, animated: true)
-        }))
         
         alert.addAction(UIAlertAction(title: "Yes",
             style: .Default,
             handler: { action in
                 self.deletePerson(person)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "No", style: .Cancel, handler: {
+            action in
+                self.tableView.setEditing(false, animated: true)
         }))
         
         presentViewController(alert, animated: true, completion: nil)
