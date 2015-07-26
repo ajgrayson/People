@@ -32,7 +32,7 @@ class Person: NSManagedObject {
     
     var isFavourite: Bool {
         get {
-            return Bool(favourite != 0)
+            return Bool(favourite != nil && favourite != 0)
         }
         set {
             favourite = NSNumber(bool: newValue)

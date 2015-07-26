@@ -10,6 +10,7 @@
 		0F0CA7631B5CA202001E5459 /* NotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0CA7621B5CA202001E5459 /* NotesTableViewCell.swift */; };
 		0F0CA7651B5CAD2E001E5459 /* PeopleListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0CA7641B5CAD2E001E5459 /* PeopleListTableViewCell.swift */; };
 		0F0CA7671B5CB0C1001E5459 /* AppNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0CA7661B5CB0C1001E5459 /* AppNavigationController.swift */; };
+		0F0F2D801B644ABD009EAEA2 /* NSDateExtensionsRelativeTimeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0F2D7F1B644ABD009EAEA2 /* NSDateExtensionsRelativeTimeTests.swift */; };
 		0F566E061B5F70C400483742 /* PersonDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F566E051B5F70C400483742 /* PersonDetailTableViewController.swift */; };
 		0F6F0A751B60740D00DB3393 /* NoteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6F0A741B60740D00DB3393 /* NoteTableViewController.swift */; };
 		0F8E8EF31B5DAD3500E9D52F /* NoteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8E8EF21B5DAD3500E9D52F /* NoteService.swift */; };
@@ -48,6 +49,7 @@
 		0F0CA7621B5CA202001E5459 /* NotesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesTableViewCell.swift; sourceTree = "<group>"; };
 		0F0CA7641B5CAD2E001E5459 /* PeopleListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleListTableViewCell.swift; sourceTree = "<group>"; };
 		0F0CA7661B5CB0C1001E5459 /* AppNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppNavigationController.swift; sourceTree = "<group>"; };
+		0F0F2D7F1B644ABD009EAEA2 /* NSDateExtensionsRelativeTimeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtensionsRelativeTimeTests.swift; sourceTree = "<group>"; };
 		0F566E051B5F70C400483742 /* PersonDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonDetailTableViewController.swift; sourceTree = "<group>"; };
 		0F6F0A741B60740D00DB3393 /* NoteTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteTableViewController.swift; sourceTree = "<group>"; };
 		0F6F0A761B60AAF600DB3393 /* peoplev2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = peoplev2.xcdatamodel; sourceTree = "<group>"; };
@@ -209,6 +211,7 @@
 			children = (
 				0FF279F81B5B9B4300FDEDC7 /* peopleTests.swift */,
 				0FF279F61B5B9B4300FDEDC7 /* Supporting Files */,
+				0F0F2D7F1B644ABD009EAEA2 /* NSDateExtensionsRelativeTimeTests.swift */,
 			);
 			path = peopleTests;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F0F2D801B644ABD009EAEA2 /* NSDateExtensionsRelativeTimeTests.swift in Sources */,
 				0FF279F91B5B9B4300FDEDC7 /* peopleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

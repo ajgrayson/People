@@ -15,7 +15,11 @@ class PeopleListTableViewController: UITableViewController {
     var managedContext : NSManagedObjectContext!
     
     // local properties
-    private var people = [Person]()
+    //private var people = [Person]()
+    
+    private var peopleGroup1 = [Person]()
+    
+    private var peopleGroup2 = [Person]()
     
     private var personToView : Person?
     
@@ -62,15 +66,26 @@ class PeopleListTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        return 2
+    }
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "Favourites"
+        } else {
+            return "Others"
+        }
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return people.count
+        if section == 0 {
+            return peopleGroup1.count
+        }
+        return peopleGroup2.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let p : Person = people[indexPath.row]
+        let p = getPerson(indexPath)
         
         if p.caption != nil && p.caption != "" {
             let cell = tableView.dequeueReusableCellWithIdentifier("personCell", forIndexPath: indexPath) as! PeopleListTableViewCell
@@ -122,17 +137,28 @@ class PeopleListTableViewController: UITableViewController {
     }
     
     func loadPeople() {
-        people = personService.getAllPeopleOrderedByName()
+        peopleGroup1 = personService.getFavorites(true)
+        peopleGroup2 = personService.getFavorites(false)
         tableView.reloadData()
     }
     
+    func getPerson(indexPath: NSIndexPath) -> Person {
+        let person : Person
+        if indexPath.section == 0 {
+            person = peopleGroup1[indexPath.row]
+        } else {
+            person = peopleGroup2[indexPath.row]
+        }
+        return person
+    }
+    
     func deleteRow(indexPath: NSIndexPath) {
-        let person = people[indexPath.row]
+        let person = getPerson(indexPath)
         displayDeleteConfirmation(person)
     }
     
     func viewRow(indexPath: NSIndexPath) {
-        let person = people[indexPath.row]
+        let person = getPerson(indexPath)
         
         personToView = person
         
@@ -180,7 +206,7 @@ class PeopleListTableViewController: UITableViewController {
             let nvc = segue.destinationViewController as! UINavigationController
             let nvc2 = nvc.childViewControllers.first as! NotesTableViewController
             
-            let person = people[self.tableView.indexPathsForSelectedRows!.first!.row]
+            let person = getPerson(self.tableView.indexPathsForSelectedRows!.first!)
             
             nvc2.person = person
             nvc2.managedContext = self.managedContext

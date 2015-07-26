@@ -76,6 +76,29 @@ class PersonService : NSObject {
         }
     }
     
+    func getFavorites(favorites: Bool) -> [Person] {
+        let fetchRequest = NSFetchRequest(entityName:"Person")
+        
+        let sort = NSSortDescriptor(key: "name", ascending: true)
+        fetchRequest.sortDescriptors = [sort]
+        
+        if favorites {
+            fetchRequest.predicate = NSPredicate(format: "favourite = %@", argumentArray: [NSNumber(int: 1)])
+        } else {
+            fetchRequest.predicate = NSPredicate(format: "favourite != %@", argumentArray: [NSNumber(int: 1)])
+        }
+        
+        do {
+            let fetchedResults = try managedObjectContext.executeFetchRequest(fetchRequest) as! [Person]
+            
+            return fetchedResults
+        } catch {
+            print("Failed to get results")
+            return [Person]()
+        }
+        
+    }
+    
     func doesPersonExist(addressBookRecordId: Int32) -> Bool {
         let fetchRequest = NSFetchRequest(entityName: "Person")
         
