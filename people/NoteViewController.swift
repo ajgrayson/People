@@ -38,6 +38,8 @@ class NoteViewController: UIViewController, UITextViewDelegate, NoteDetailsUpdat
     
     private var date : NSDate?
     
+    private var dateOverride : NSDate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -63,7 +65,8 @@ class NoteViewController: UIViewController, UITextViewDelegate, NoteDetailsUpdat
     }
     
     func noteDetailsDidChange(details: NoteDetails) {
-        date = details.date
+        dateOverride = details.date
+        saveButton.enabled = true
     }
     
     func onDraftSaveTimer() {
@@ -111,7 +114,7 @@ class NoteViewController: UIViewController, UITextViewDelegate, NoteDetailsUpdat
             note!.content = content
         }
         
-        note?.date = date;
+        note?.date = dateOverride ?? date;
         note?.isDraft = draft
         
         let res = noteService.updateNote(note!)
@@ -132,7 +135,7 @@ class NoteViewController: UIViewController, UITextViewDelegate, NoteDetailsUpdat
             let nvc = segue.destinationViewController as! AppNavigationController
             let nvc2 = nvc.childViewControllers.first as! NoteDetailsTableViewController
             
-            nvc2.date = date
+            nvc2.date = dateOverride ?? date
             nvc2.delegate = self
         }
     }
