@@ -57,11 +57,58 @@ class NoteViewController: UIViewController, UITextViewDelegate, NoteDetailsUpdat
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         draftSaveTimer = NSTimer.scheduledTimerWithTimeInterval(15, target: self, selector: Selector("onDraftSaveTimer"), userInfo: nil, repeats: true)
+        
+        registerForNotifications()
     }
     
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         draftSaveTimer.invalidate()
+        unregisterForNotifications()
+    }
+    
+    func registerForNotifications() {
+
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWasShown:", name: UIKeyboardDidShowNotification, object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardWillBeHidden:", name: UIKeyboardWillHideNotification, object: nil)
+        
+    }
+    
+    func unregisterForNotifications() {
+        
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+        
+    }
+    
+    func keyboardWasShown(notification: NSNotification) {
+//        NSDictionary* info = [aNotification userInfo];
+//        CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+//        
+//        UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbSize.height, 0.0);
+//        scrollView.contentInset = contentInsets;
+//        scrollView.scrollIndicatorInsets = contentInsets;
+//        
+//        // If active text field is hidden by keyboard, scroll it so it's visible
+//        // Your app might not need or want this behavior.
+//        CGRect aRect = self.view.frame;
+//        aRect.size.height -= kbSize.height;
+//        if (!CGRectContainsPoint(aRect, activeField.frame.origin) ) {
+//            [self.scrollView scrollRectToVisible:activeField.frame animated:YES];
+//        }
+        
+        let info : NSDictionary? = notification.userInfo
+        let size : CGSize = (info!.objectForKey(UIKeyboardFrameBeginUserInfoKey)?.CGRectValue.size)!
+        
+        let inset : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, size.height, 0.0)
+        
+        contentTextView.contentInset = inset;
+        contentTextView.scrollIndicatorInsets = inset;
+    }
+    
+    func keyboardWillBeHidden(notification: NSNotification) {
+        contentTextView.contentInset = UIEdgeInsetsZero
+        contentTextView.scrollIndicatorInsets = UIEdgeInsetsZero
     }
     
     func noteDetailsDidChange(details: NoteDetails) {
