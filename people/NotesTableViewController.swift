@@ -61,7 +61,7 @@ class NotesTableViewController: UITableViewController {
         }
         
         cell.noteLabel!.text = content
-        cell.dateLabel!.text = date?.relativeTime
+        cell.dateLabel!.text = date?.relativeTime.uppercaseString
         
         return cell
     }
