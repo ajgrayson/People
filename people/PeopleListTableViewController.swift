@@ -26,23 +26,7 @@ class PeopleListTableViewController: UITableViewController {
     private var personService : PersonService!
     
     private var noteService : NoteService!
-    
-    @IBAction func addPersonClicked(sender: AnyObject) {
-//        let authorizationStatus = ABAddressBookGetAuthorizationStatus()
-//        
-//        switch authorizationStatus {
-//        case .Denied, .Restricted:
-//            //1
-//            self.displayCantAddContactAlert()
-//        case .Authorized:
-//            //2
-//            lookupAddressBook()
-//        case .NotDetermined:
-//            //3
-//            promptForAddressBookRequestAccess()
-//        }
-    }
-    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -89,6 +73,7 @@ class PeopleListTableViewController: UITableViewController {
         
         if p.caption != nil && p.caption != "" {
             let cell = tableView.dequeueReusableCellWithIdentifier("personCell", forIndexPath: indexPath) as! PeopleListTableViewCell
+            
             cell.nameLabel!.text = p.name
             cell.timeLabel!.text = p.timeSinceLastContact
             cell.captionLabel!.text = p.caption
@@ -101,7 +86,8 @@ class PeopleListTableViewController: UITableViewController {
             
             return cell
         } else {
-            let cell = tableView.dequeueReusableCellWithIdentifier("personCell2", forIndexPath: indexPath) as! PersonListTableViewCell2
+            let cell = tableView.dequeueReusableCellWithIdentifier("personCell2", forIndexPath: indexPath) as! PeopleListTableViewCell2
+            
             cell.nameLabel!.text = p.name
             cell.timeLabel!.text = p.timeSinceLastContact
             
@@ -113,10 +99,11 @@ class PeopleListTableViewController: UITableViewController {
             
             return cell
         }
+        
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 80
+        return 100
     }
     
     override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
@@ -202,29 +189,24 @@ class PeopleListTableViewController: UITableViewController {
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if(segue.identifier == "viewNotes" || segue.identifier == "viewNotes2") {
-            let nvc = segue.destinationViewController as! UINavigationController
-            let nvc2 = nvc.childViewControllers.first as! NotesTableViewController
+        if(segue.identifier == "viewPerson" || segue.identifier == "viewPerson2") {
+            let nvc = segue.destinationViewController as! PersonOverviewTableViewController
             
             let person = getPerson(self.tableView.indexPathsForSelectedRows!.first!)
             
-            nvc2.person = person
-            nvc2.managedContext = self.managedContext
-            nvc2.managedContext = managedContext
+            nvc.person = person
+            nvc.managedContext = managedContext
         } else if segue.identifier == "addPerson" {
-            let nvc = segue.destinationViewController as! UINavigationController
-            let nvc2 = nvc.childViewControllers.first as! PersonDetailTableViewController
+            let nvc = segue.destinationViewController as! PersonDetailTableViewController
             
-            //nvc2.person = person
-            nvc2.managedContext = managedContext
+            nvc.managedContext = managedContext
         } else if segue.identifier == "editPerson" {
-            let nvc = segue.destinationViewController as! UINavigationController
-            let nvc2 = nvc.childViewControllers.first as! PersonDetailTableViewController
+            let nvc = segue.destinationViewController as! PersonDetailTableViewController
             
             let person = personToView
             
-            nvc2.person = person
-            nvc2.managedContext = managedContext
+            nvc.person = person
+            nvc.managedContext = managedContext
         }
     }
 

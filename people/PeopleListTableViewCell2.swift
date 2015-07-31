@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PersonListTableViewCell2: UITableViewCell {
+class PeopleListTableViewCell2: UITableViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
     

@@ -11,6 +11,11 @@
 		0F0CA7651B5CAD2E001E5459 /* PeopleListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0CA7641B5CAD2E001E5459 /* PeopleListTableViewCell.swift */; };
 		0F0CA7671B5CB0C1001E5459 /* AppNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0CA7661B5CB0C1001E5459 /* AppNavigationController.swift */; };
 		0F0F2D801B644ABD009EAEA2 /* NSDateExtensionsRelativeTimeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F0F2D7F1B644ABD009EAEA2 /* NSDateExtensionsRelativeTimeTests.swift */; };
+		0F137C361B6C41A3000BD0EB /* ReminderDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F137C351B6C41A3000BD0EB /* ReminderDetailsTableViewController.swift */; };
+		0F137C391B6C46B5000BD0EB /* Reminder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F137C381B6C46B5000BD0EB /* Reminder.swift */; };
+		0F137C3B1B6C46C3000BD0EB /* Reminder+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F137C3A1B6C46C3000BD0EB /* Reminder+CoreDataProperties.swift */; };
+		0F137C3D1B6C4797000BD0EB /* ReminderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F137C3C1B6C4797000BD0EB /* ReminderTableViewCell.swift */; };
+		0F137C3F1B6C47CD000BD0EB /* ReminderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F137C3E1B6C47CD000BD0EB /* ReminderService.swift */; };
 		0F18AC451B66C4A30058FB98 /* NoteDetailsUpdateDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F18AC441B66C4A30058FB98 /* NoteDetailsUpdateDelegate.swift */; };
 		0F18AC471B66C4D90058FB98 /* NoteDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F18AC461B66C4D90058FB98 /* NoteDetails.swift */; };
 		0F48AABB1B66228700154B2E /* NoteDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F48AABA1B66228700154B2E /* NoteDetailsTableViewController.swift */; };
@@ -25,7 +30,9 @@
 		0FBDC7811B66BFEA00CC3069 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FBDC7801B66BFEA00CC3069 /* NoteViewController.swift */; };
 		0FC6236B1B5DA00200A08B65 /* PersonService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6236A1B5DA00200A08B65 /* PersonService.swift */; };
 		0FCBB2291B64A1CB00AE4168 /* PersonLastContactedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCBB2281B64A1CB00AE4168 /* PersonLastContactedService.swift */; };
-		0FF001851B6438FC00B0ECB9 /* PersonListTableViewCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF001841B6438FC00B0ECB9 /* PersonListTableViewCell2.swift */; };
+		0FE96E291B6C2FAF0037D28C /* PersonOverviewTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE96E281B6C2FAF0037D28C /* PersonOverviewTableViewController.swift */; };
+		0FE96E2C1B6C33510037D28C /* RemindersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE96E2B1B6C33510037D28C /* RemindersTableViewController.swift */; };
+		0FF001851B6438FC00B0ECB9 /* PeopleListTableViewCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF001841B6438FC00B0ECB9 /* PeopleListTableViewCell2.swift */; };
 		0FF279E01B5B9B4300FDEDC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF279DF1B5B9B4300FDEDC7 /* AppDelegate.swift */; };
 		0FF279E31B5B9B4300FDEDC7 /* people.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0FF279E11B5B9B4300FDEDC7 /* people.xcdatamodeld */; };
 		0FF279E81B5B9B4300FDEDC7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0FF279E61B5B9B4300FDEDC7 /* Main.storyboard */; };
@@ -55,6 +62,12 @@
 		0F0CA7641B5CAD2E001E5459 /* PeopleListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleListTableViewCell.swift; sourceTree = "<group>"; };
 		0F0CA7661B5CB0C1001E5459 /* AppNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppNavigationController.swift; sourceTree = "<group>"; };
 		0F0F2D7F1B644ABD009EAEA2 /* NSDateExtensionsRelativeTimeTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtensionsRelativeTimeTests.swift; sourceTree = "<group>"; };
+		0F137C351B6C41A3000BD0EB /* ReminderDetailsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderDetailsTableViewController.swift; sourceTree = "<group>"; };
+		0F137C371B6C4662000BD0EB /* peoplev6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = peoplev6.xcdatamodel; sourceTree = "<group>"; };
+		0F137C381B6C46B5000BD0EB /* Reminder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reminder.swift; sourceTree = "<group>"; };
+		0F137C3A1B6C46C3000BD0EB /* Reminder+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reminder+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0F137C3C1B6C4797000BD0EB /* ReminderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderTableViewCell.swift; sourceTree = "<group>"; };
+		0F137C3E1B6C47CD000BD0EB /* ReminderService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReminderService.swift; sourceTree = "<group>"; };
 		0F18AC441B66C4A30058FB98 /* NoteDetailsUpdateDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteDetailsUpdateDelegate.swift; sourceTree = "<group>"; };
 		0F18AC461B66C4D90058FB98 /* NoteDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteDetails.swift; sourceTree = "<group>"; };
 		0F48AABA1B66228700154B2E /* NoteDetailsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteDetailsTableViewController.swift; sourceTree = "<group>"; };
@@ -72,7 +85,9 @@
 		0FCBB2281B64A1CB00AE4168 /* PersonLastContactedService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonLastContactedService.swift; sourceTree = "<group>"; };
 		0FCBB22A1B64A2AD00AE4168 /* peoplev4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = peoplev4.xcdatamodel; sourceTree = "<group>"; };
 		0FCBB22B1B64C77F00AE4168 /* peoplev5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = peoplev5.xcdatamodel; sourceTree = "<group>"; };
-		0FF001841B6438FC00B0ECB9 /* PersonListTableViewCell2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonListTableViewCell2.swift; sourceTree = "<group>"; };
+		0FE96E281B6C2FAF0037D28C /* PersonOverviewTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonOverviewTableViewController.swift; sourceTree = "<group>"; };
+		0FE96E2B1B6C33510037D28C /* RemindersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemindersTableViewController.swift; sourceTree = "<group>"; };
+		0FF001841B6438FC00B0ECB9 /* PeopleListTableViewCell2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleListTableViewCell2.swift; sourceTree = "<group>"; };
 		0FF001861B643FF400B0ECB9 /* peoplev3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = peoplev3.xcdatamodel; sourceTree = "<group>"; };
 		0FF279DA1B5B9B4300FDEDC7 /* people.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = people.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FF279DE1B5B9B4300FDEDC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -119,6 +134,8 @@
 				0FF2B69A1B5F4149007FE0C2 /* Note+CoreDataProperties.swift */,
 				0FF2B69B1B5F4149007FE0C2 /* Person.swift */,
 				0FF2B69C1B5F4149007FE0C2 /* Person+CoreDataProperties.swift */,
+				0F137C381B6C46B5000BD0EB /* Reminder.swift */,
+				0F137C3A1B6C46C3000BD0EB /* Reminder+CoreDataProperties.swift */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -146,17 +163,29 @@
 				0FC6236A1B5DA00200A08B65 /* PersonService.swift */,
 				0F8E8EF21B5DAD3500E9D52F /* NoteService.swift */,
 				0FA35F431B5DDDA100131D3E /* AddressBookService.swift */,
+				0F137C3E1B6C47CD000BD0EB /* ReminderService.swift */,
 			);
 			name = services;
+			sourceTree = "<group>";
+		};
+		0FE96E2A1B6C33440037D28C /* reminders */ = {
+			isa = PBXGroup;
+			children = (
+				0FE96E2B1B6C33510037D28C /* RemindersTableViewController.swift */,
+				0F137C351B6C41A3000BD0EB /* ReminderDetailsTableViewController.swift */,
+				0F137C3C1B6C4797000BD0EB /* ReminderTableViewCell.swift */,
+			);
+			name = reminders;
 			sourceTree = "<group>";
 		};
 		0FF001821B64389900B0ECB9 /* people */ = {
 			isa = PBXGroup;
 			children = (
 				0F566E051B5F70C400483742 /* PersonDetailTableViewController.swift */,
+				0FE96E281B6C2FAF0037D28C /* PersonOverviewTableViewController.swift */,
 				0FF27A021B5B9E5900FDEDC7 /* PeopleListTableViewController.swift */,
 				0F0CA7641B5CAD2E001E5459 /* PeopleListTableViewCell.swift */,
-				0FF001841B6438FC00B0ECB9 /* PersonListTableViewCell2.swift */,
+				0FF001841B6438FC00B0ECB9 /* PeopleListTableViewCell2.swift */,
 			);
 			name = people;
 			sourceTree = "<group>";
@@ -198,6 +227,7 @@
 		0FF279DC1B5B9B4300FDEDC7 /* people */ = {
 			isa = PBXGroup;
 			children = (
+				0FE96E2A1B6C33440037D28C /* reminders */,
 				0FF001831B6438A000B0ECB9 /* notes */,
 				0FF001821B64389900B0ECB9 /* people */,
 				0FA35F511B5E1C2500131D3E /* extensions */,
@@ -349,19 +379,26 @@
 				0F8E8EF31B5DAD3500E9D52F /* NoteService.swift in Sources */,
 				0FCBB2291B64A1CB00AE4168 /* PersonLastContactedService.swift in Sources */,
 				0F566E061B5F70C400483742 /* PersonDetailTableViewController.swift in Sources */,
+				0FE96E291B6C2FAF0037D28C /* PersonOverviewTableViewController.swift in Sources */,
+				0F137C3B1B6C46C3000BD0EB /* Reminder+CoreDataProperties.swift in Sources */,
 				0FA35F531B5E1C3000131D3E /* NSDateExtensions.swift in Sources */,
+				0F137C3F1B6C47CD000BD0EB /* ReminderService.swift in Sources */,
 				0FC6236B1B5DA00200A08B65 /* PersonService.swift in Sources */,
 				0FF2B6A01B5F4149007FE0C2 /* Person+CoreDataProperties.swift in Sources */,
 				0F18AC451B66C4A30058FB98 /* NoteDetailsUpdateDelegate.swift in Sources */,
 				0F0CA7631B5CA202001E5459 /* NotesTableViewCell.swift in Sources */,
 				0FF279E31B5B9B4300FDEDC7 /* people.xcdatamodeld in Sources */,
+				0FE96E2C1B6C33510037D28C /* RemindersTableViewController.swift in Sources */,
+				0F137C361B6C41A3000BD0EB /* ReminderDetailsTableViewController.swift in Sources */,
+				0F137C391B6C46B5000BD0EB /* Reminder.swift in Sources */,
 				0FA35F4D1B5E059800131D3E /* PersonHelper.swift in Sources */,
 				0F48AABB1B66228700154B2E /* NoteDetailsTableViewController.swift in Sources */,
+				0F137C3D1B6C4797000BD0EB /* ReminderTableViewCell.swift in Sources */,
 				0FF27A031B5B9E5900FDEDC7 /* PeopleListTableViewController.swift in Sources */,
 				0FBDC7811B66BFEA00CC3069 /* NoteViewController.swift in Sources */,
 				0F18AC471B66C4D90058FB98 /* NoteDetails.swift in Sources */,
 				0FF2B69D1B5F4149007FE0C2 /* Note.swift in Sources */,
-				0FF001851B6438FC00B0ECB9 /* PersonListTableViewCell2.swift in Sources */,
+				0FF001851B6438FC00B0ECB9 /* PeopleListTableViewCell2.swift in Sources */,
 				0F0CA7651B5CAD2E001E5459 /* PeopleListTableViewCell.swift in Sources */,
 				0FF279E01B5B9B4300FDEDC7 /* AppDelegate.swift in Sources */,
 				0FF27A051B5BA34800FDEDC7 /* NotesTableViewController.swift in Sources */,
@@ -597,13 +634,14 @@
 		0FF279E11B5B9B4300FDEDC7 /* people.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				0F137C371B6C4662000BD0EB /* peoplev6.xcdatamodel */,
 				0FCBB22B1B64C77F00AE4168 /* peoplev5.xcdatamodel */,
 				0FCBB22A1B64A2AD00AE4168 /* peoplev4.xcdatamodel */,
 				0FF001861B643FF400B0ECB9 /* peoplev3.xcdatamodel */,
 				0F6F0A761B60AAF600DB3393 /* peoplev2.xcdatamodel */,
 				0FF279E21B5B9B4300FDEDC7 /* people.xcdatamodel */,
 			);
-			currentVersion = 0FCBB22B1B64C77F00AE4168 /* peoplev5.xcdatamodel */;
+			currentVersion = 0F137C371B6C4662000BD0EB /* peoplev6.xcdatamodel */;
 			path = people.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

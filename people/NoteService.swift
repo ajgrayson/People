@@ -37,6 +37,26 @@ class NoteService : NSObject {
 
     }
     
+    func getLatestNoteFor(person: Person) -> Note? {
+        let fetchRequest = NSFetchRequest(entityName:"Note")
+        
+        fetchRequest.predicate = NSPredicate(format: "person = %@", argumentArray: [person])
+        
+        let sortDate = NSSortDescriptor(key: "date", ascending: false)
+        fetchRequest.sortDescriptors = [sortDate]
+        
+        do {
+            let fetchedResults = try context.executeFetchRequest(fetchRequest) as! [Note]
+            
+            if fetchedResults.count > 0 {
+                return fetchedResults.first
+            }
+            return nil
+        } catch {
+            return nil
+        }
+    }
+    
     func getDraft(person: Person) -> Note? {
         let fetchRequest = NSFetchRequest(entityName:"Note")
         
