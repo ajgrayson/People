@@ -110,6 +110,12 @@ class PersonOverviewTableViewController: UITableViewController {
             nvc2.person = person
             nvc2.managedContext = managedContext
         }
+        else if segue.identifier == "editPerson" {
+            let nvc = segue.destinationViewController as! PersonDetailTableViewController
+            
+            nvc.person = person
+            nvc.managedContext = managedContext
+        }
     }
 
 }

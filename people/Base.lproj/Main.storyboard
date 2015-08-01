@@ -151,7 +151,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bMC-5q-0x4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2018" y="248"/>
+            <point key="canvasLocation" x="2830" y="-66"/>
         </scene>
         <!--People-->
         <scene sceneID="qOY-Gl-bLp">
@@ -679,7 +679,13 @@
                             <outlet property="delegate" destination="FTC-TC-gzr" id="CdZ-Sv-Mw4"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="AWm-yo-itD"/>
+                    <navigationItem key="navigationItem" id="AWm-yo-itD">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="80a-rq-owk">
+                            <connections>
+                                <segue destination="6zZ-Vu-wn1" kind="show" identifier="editPerson" id="MUq-uB-RfL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="descriptionLabel" destination="peq-1a-KPc" id="X2N-PH-9Hh"/>
                         <outlet property="imageView" destination="iPM-9O-bbq" id="pnD-kC-lBP"/>
@@ -1060,7 +1066,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="hfa-sq-YgZ"/>
-        <segue reference="wRP-yG-aiR"/>
+        <segue reference="MUq-uB-RfL"/>
         <segue reference="6OO-Tr-qAO"/>
         <segue reference="fw2-xg-0rZ"/>
     </inferredMetricsTieBreakers>
