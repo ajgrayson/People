@@ -64,7 +64,7 @@ class PersonOverviewTableViewController: UITableViewController {
         if section == 2 && lastNote != nil {
             let formatter = NSDateFormatter()
             formatter.dateFormat = "EEEE, d MMMM YYYY"
-            return formatter.stringFromDate(lastNote!.date!)
+            return formatter.stringFromDate(lastNote!.date ?? lastNote!.updatedDate!)
         }
         return ""
     }

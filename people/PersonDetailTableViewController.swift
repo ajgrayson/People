@@ -31,7 +31,7 @@ class PersonDetailTableViewController: UITableViewController, ABPeoplePickerNavi
     
     @IBAction func saveButtonClick(sender: AnyObject) {
         if save() {
-            self.navigationController?.navigationController?.popViewControllerAnimated(true)
+            self.navigationController?.popViewControllerAnimated(true)
         }
     }
     
