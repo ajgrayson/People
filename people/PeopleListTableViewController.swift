@@ -26,12 +26,15 @@ class PeopleListTableViewController: UITableViewController {
     private var personService : PersonService!
     
     private var noteService : NoteService!
+    
+    private var reminderService : ReminderService!
   
     override func viewDidLoad() {
         super.viewDidLoad()
         
         personService = PersonService(context: managedContext)
         noteService = NoteService(context: managedContext)
+        reminderService = ReminderService(context: managedContext)
 
         // hides the extra lines
         tableView.tableFooterView = UIView(frame: CGRectZero)
@@ -173,6 +176,7 @@ class PeopleListTableViewController: UITableViewController {
     
     func deletePerson(person: Person) {
         noteService.deleteNotesFor(person)
+        reminderService.deleteRemindersFor(person)
         
         managedContext.deleteObject(person)
         

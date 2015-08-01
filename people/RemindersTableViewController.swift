@@ -25,6 +25,10 @@ class RemindersTableViewController: UITableViewController {
         super.viewDidLoad()
 
         reminderService = ReminderService(context: managedContext)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         
         loadReminders()
     }
@@ -36,6 +40,7 @@ class RemindersTableViewController: UITableViewController {
 
     func loadReminders() {
         reminders = reminderService.getAllRemindersFor(person, orderedByDate: true)
+        tableView.reloadData()
     }
     
     // MARK: - Table view data source
@@ -63,50 +68,66 @@ class RemindersTableViewController: UITableViewController {
 
         return cell
     }
-
-    /*
-    // Override to support conditional editing of the table view.
+    
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
         return true
     }
-    */
-
-    /*
-    // Override to support editing the table view.
+    
+    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction] {
+        
+        let deleteAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Delete") {
+            (action, indexPath) -> Void in
+            self.deleteRow(indexPath)
+        }
+        
+        return [deleteAction]
+    }
+    
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
+    
+    func deleteRow(indexPath: NSIndexPath) {
+        let reminder = reminders[indexPath.row]
+        displayDeleteConfirmation(reminder)
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
+    
+    func displayDeleteConfirmation(reminder: Reminder) {
+        let alert = UIAlertController(title: "DELETE",
+            message: "Are you sure you want to delete this reminder.",
+            preferredStyle: .Alert)
+        
+        alert.addAction(UIAlertAction(title: "Yes",
+            style: .Default,
+            handler: { action in
+                self.deleteReminder(reminder)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "No", style: .Cancel, handler: {
+            action in
+            self.tableView.setEditing(false, animated: true)
+        }))
+        
+        presentViewController(alert, animated: true, completion: nil)
     }
-    */
+    
+    func deleteReminder(reminder: Reminder) {
+        reminderService.deleteReminder(reminder)
+        loadReminders()
+    }
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        let nvc = segue.destinationViewController as! ReminderDetailsTableViewController
+        
+        nvc.person = person
+        nvc.context = managedContext
+        
+        if segue.identifier == "editReminder" {
+            let reminder = reminders[(tableView.indexPathForSelectedRow?.row)!]
+            nvc.reminder = reminder
+        }
     }
-    */
 
 }

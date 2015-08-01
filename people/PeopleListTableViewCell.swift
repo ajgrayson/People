@@ -24,6 +24,7 @@ class PeopleListTableViewCell: UITableViewCell {
         
         self.layoutMargins = UIEdgeInsetsZero;
         self.preservesSuperviewLayoutMargins = false;
+        captionLabel.sizeToFit()
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

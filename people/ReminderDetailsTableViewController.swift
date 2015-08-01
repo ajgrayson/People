@@ -7,19 +7,36 @@
 //
 
 import UIKit
+import CoreData
 
 class ReminderDetailsTableViewController: UITableViewController {
+    
+    var context : NSManagedObjectContext!
+    
+    var person : Person!
+    
+    var reminder : Reminder?
+    
+    // local properties
+    
+    private var reminderService : ReminderService!
+    
     @IBAction func saveButtonClicked(sender: AnyObject) {
+        if save() {
+            navigationController?.popViewControllerAnimated(true)
+        }
     }
     
-    @IBOutlet weak var titleTextView: NSLayoutConstraint!
+    @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var noteTextView: UITextView!
     @IBOutlet weak var datePicker: UIDatePicker!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        reminderService = ReminderService(context: context)
         
+        loadReminder()
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,6 +44,38 @@ class ReminderDetailsTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    func loadReminder() {
+        if reminder != nil {
+            titleTextField.text = reminder?.title
+            
+            if reminder?.date != nil {
+                datePicker.date = (reminder?.date)!
+            } else {
+                datePicker.date = NSDate()
+            }
+        }
+    }
+    
+    func save() -> Bool {
+        if titleTextField.text == nil || titleTextField.text == "" {
+            return false
+        }
+        
+        let title = titleTextField.text
+        let date = datePicker.date
+        
+        if reminder == nil {
+            reminder = reminderService.addReminder(title!, date: date, toPerson: person)
+        } else {
+            reminder?.title = title
+            reminder?.date = date
+            
+            reminderService.updateReminder(reminder!)
+        }
+        
+        return true;
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {

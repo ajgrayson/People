@@ -36,4 +36,57 @@ class ReminderService : NSObject {
         }
     }
     
+    func deleteReminder(reminder: Reminder) -> Bool {
+        context.deleteObject(reminder)
+        
+        do {
+            try context.save()
+            return true
+        } catch {
+            print("Could not save")
+            return false
+        }
+    }
+    
+    func deleteRemindersFor(person: Person) {
+        let reminders = getAllRemindersFor(person, orderedByDate: false)
+        for reminder in reminders {
+            deleteReminder(reminder)
+        }
+    }
+    
+    func addReminder(title: String, date: NSDate, toPerson: Person) -> Reminder? {
+        let dateNow = NSDate()
+        
+        if title == "" {
+            return nil
+        }
+        
+        let entity =  NSEntityDescription.entityForName("Reminder", inManagedObjectContext: context)
+        
+        let reminder = Reminder(entity: entity!, insertIntoManagedObjectContext:context)
+        reminder.createdDate = dateNow
+        reminder.title = title
+        reminder.date = date // default
+        
+        let set = toPerson.mutableSetValueForKey("reminders")
+        set.addObject(reminder)
+        
+        updateReminder(reminder)
+        
+        return reminder
+    }
+    
+    func updateReminder(reminder: Reminder) -> Bool {
+        reminder.updatedDate = NSDate()
+        
+        do {
+            try context.save()
+            return true
+        } catch {
+            print("Could not save reminder")
+            return false
+        }
+    }
+    
 }
