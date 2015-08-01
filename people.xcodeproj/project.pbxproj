@@ -105,6 +105,7 @@
 		0FF2B69A1B5F4149007FE0C2 /* Note+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Note+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0FF2B69B1B5F4149007FE0C2 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		0FF2B69C1B5F4149007FE0C2 /* Person+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0FF6075D1B6D720000D2AEE2 /* peoplev7.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = peoplev7.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -634,6 +635,7 @@
 		0FF279E11B5B9B4300FDEDC7 /* people.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				0FF6075D1B6D720000D2AEE2 /* peoplev7.xcdatamodel */,
 				0F137C371B6C4662000BD0EB /* peoplev6.xcdatamodel */,
 				0FCBB22B1B64C77F00AE4168 /* peoplev5.xcdatamodel */,
 				0FCBB22A1B64A2AD00AE4168 /* peoplev4.xcdatamodel */,
@@ -641,7 +643,7 @@
 				0F6F0A761B60AAF600DB3393 /* peoplev2.xcdatamodel */,
 				0FF279E21B5B9B4300FDEDC7 /* people.xcdatamodel */,
 			);
-			currentVersion = 0F137C371B6C4662000BD0EB /* peoplev6.xcdatamodel */;
+			currentVersion = 0FF6075D1B6D720000D2AEE2 /* peoplev7.xcdatamodel */;
 			path = people.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
