@@ -176,7 +176,7 @@
                                                 <constraint firstAttribute="height" constant="37" id="TxX-fR-WfK"/>
                                                 <constraint firstAttribute="height" constant="31" id="uUF-s6-LNR"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="default">
@@ -253,7 +253,7 @@
                                                 <constraint firstAttribute="height" constant="49.5" id="0EB-Ca-eSz"/>
                                                 <constraint firstAttribute="width" constant="71" id="3mQ-dW-dWL"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="44"/>
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="40"/>
                                             <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -379,7 +379,7 @@
                                                 <constraint firstAttribute="width" constant="71" id="ZmW-uY-EL7"/>
                                                 <constraint firstAttribute="height" constant="53" id="vXa-RP-3YO"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="44"/>
+                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="40"/>
                                             <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -417,7 +417,7 @@
                                                 <constraint firstAttribute="height" constant="83.5" id="Fnq-fu-eWu"/>
                                                 <constraint firstAttribute="height" constant="62" id="MLK-S4-TuI"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="default">
@@ -1112,10 +1112,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A16-17-b0U">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="A16-17-b0U">
                                                     <rect key="frame" x="8" y="6" width="584" height="30"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -1316,9 +1316,9 @@
         <image name="Person" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="apM-rQ-ewG"/>
         <segue reference="hfa-sq-YgZ"/>
-        <segue reference="MUq-uB-RfL"/>
+        <segue reference="wRP-yG-aiR"/>
         <segue reference="6OO-Tr-qAO"/>
-        <segue reference="fw2-xg-0rZ"/>
     </inferredMetricsTieBreakers>
 </document>
