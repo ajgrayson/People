@@ -7,7 +7,7 @@
 //
 
 import XCTest
-import people
+import People
 
 class NSDateExtensionsRelativeTimeTests: XCTestCase {
     

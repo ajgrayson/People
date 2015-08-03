@@ -91,7 +91,7 @@
 		0FE96E2B1B6C33510037D28C /* RemindersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemindersTableViewController.swift; sourceTree = "<group>"; };
 		0FF001841B6438FC00B0ECB9 /* PeopleListTableViewCell2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PeopleListTableViewCell2.swift; sourceTree = "<group>"; };
 		0FF001861B643FF400B0ECB9 /* peoplev3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = peoplev3.xcdatamodel; sourceTree = "<group>"; };
-		0FF279DA1B5B9B4300FDEDC7 /* people.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = people.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0FF279DA1B5B9B4300FDEDC7 /* People.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = People.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0FF279DE1B5B9B4300FDEDC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0FF279DF1B5B9B4300FDEDC7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0FF279E21B5B9B4300FDEDC7 /* people.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = people.xcdatamodel; sourceTree = "<group>"; };
@@ -223,7 +223,7 @@
 		0FF279DB1B5B9B4300FDEDC7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0FF279DA1B5B9B4300FDEDC7 /* people.app */,
+				0FF279DA1B5B9B4300FDEDC7 /* People.app */,
 				0FF279F21B5B9B4300FDEDC7 /* peopleTests.xctest */,
 			);
 			name = Products;
@@ -293,7 +293,7 @@
 			);
 			name = people;
 			productName = people;
-			productReference = 0FF279DA1B5B9B4300FDEDC7 /* people.app */;
+			productReference = 0FF279DA1B5B9B4300FDEDC7 /* People.app */;
 			productType = "com.apple.product-type.application";
 		};
 		0FF279F11B5B9B4300FDEDC7 /* peopleTests */ = {
@@ -547,8 +547,8 @@
 				INFOPLIST_FILE = people/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "grayson.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = grayson.people;
+				PRODUCT_NAME = People;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -562,8 +562,8 @@
 				INFOPLIST_FILE = people/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "grayson.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = grayson.people;
+				PRODUCT_NAME = People;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
