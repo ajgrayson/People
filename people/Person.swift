@@ -15,7 +15,7 @@ class Person: NSManagedObject {
 
     var timeSinceLastContact : String {
         get {
-            let dateRaw : AnyObject? = self.valueForKey("lastContactedDate")
+            let dateRaw : AnyObject? = self.lastContactedDate
             if dateRaw == nil {
                 return ""
             }

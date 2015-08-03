@@ -21,10 +21,13 @@ class RemindersTableViewController: UITableViewController {
     
     private var reminderService : ReminderService!
     
+    private var notificationService : NotificationService!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         reminderService = ReminderService(context: managedContext)
+        notificationService = NotificationService()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -111,6 +114,9 @@ class RemindersTableViewController: UITableViewController {
     }
     
     func deleteReminder(reminder: Reminder) {
+        if reminder.notificationId != nil {
+            notificationService.cancelNotification(reminder.notificationId!)
+        }
         reminderService.deleteReminder(reminder)
         loadReminders()
     }
@@ -124,7 +130,7 @@ class RemindersTableViewController: UITableViewController {
         nvc.person = person
         nvc.context = managedContext
         
-        if segue.identifier == "editReminder" {
+        if segue.identifier == "viewReminder" {
             let reminder = reminders[(tableView.indexPathForSelectedRow?.row)!]
             nvc.reminder = reminder
         }

@@ -52,25 +52,25 @@ class PersonOverviewTableViewController: UITableViewController {
         nameLabel.text = person.name
         descriptionLabel.text = person.caption
         
-        lastNote = noteService.getLatestNoteFor(person)
-        if lastNote != nil {
-            noteLabel.text = lastNote?.content
-        }
+//        lastNote = noteService.getLatestNoteFor(person)
+//        if lastNote != nil {
+//            noteLabel.text = lastNote?.content
+//        }
     }
     
     // MARK: - Table view data source
 
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 2 && lastNote != nil {
-            let formatter = NSDateFormatter()
-            formatter.dateFormat = "EEEE, d MMMM YYYY"
-            return formatter.stringFromDate(lastNote!.date ?? lastNote!.updatedDate!)
-        }
-        return ""
-    }
+//    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        if section == 2 && lastNote != nil {
+//            let formatter = NSDateFormatter()
+//            formatter.dateFormat = "EEEE, d MMMM YYYY"
+//            return formatter.stringFromDate(lastNote!.date ?? lastNote!.updatedDate!)
+//        }
+//        return ""
+//    }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 3
+        return 2
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

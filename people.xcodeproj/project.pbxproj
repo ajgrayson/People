@@ -24,6 +24,7 @@
 		0F8E8EF31B5DAD3500E9D52F /* NoteService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8E8EF21B5DAD3500E9D52F /* NoteService.swift */; };
 		0F8E8EF71B5DCB3E00E9D52F /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F8E8EF61B5DCB3E00E9D52F /* AddressBookUI.framework */; };
 		0F8E8EF91B5DCB4800E9D52F /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F8E8EF81B5DCB4800E9D52F /* AddressBook.framework */; };
+		0F90871F1B6F7F2300B10A4C /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F90871E1B6F7F2300B10A4C /* NotificationService.swift */; };
 		0FA35F441B5DDDA100131D3E /* AddressBookService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA35F431B5DDDA100131D3E /* AddressBookService.swift */; };
 		0FA35F4D1B5E059800131D3E /* PersonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA35F4C1B5E059800131D3E /* PersonHelper.swift */; };
 		0FA35F531B5E1C3000131D3E /* NSDateExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA35F521B5E1C3000131D3E /* NSDateExtensions.swift */; };
@@ -77,6 +78,7 @@
 		0F8E8EF21B5DAD3500E9D52F /* NoteService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteService.swift; sourceTree = "<group>"; };
 		0F8E8EF61B5DCB3E00E9D52F /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		0F8E8EF81B5DCB4800E9D52F /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		0F90871E1B6F7F2300B10A4C /* NotificationService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		0FA35F431B5DDDA100131D3E /* AddressBookService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressBookService.swift; sourceTree = "<group>"; };
 		0FA35F4C1B5E059800131D3E /* PersonHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonHelper.swift; sourceTree = "<group>"; };
 		0FA35F521B5E1C3000131D3E /* NSDateExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDateExtensions.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 		0FF2B69B1B5F4149007FE0C2 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		0FF2B69C1B5F4149007FE0C2 /* Person+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Person+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0FF6075D1B6D720000D2AEE2 /* peoplev7.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = peoplev7.xcdatamodel; sourceTree = "<group>"; };
+		0FF7F99D1B6F7B1900C7A20C /* peoplev8.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = peoplev8.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +168,7 @@
 				0F8E8EF21B5DAD3500E9D52F /* NoteService.swift */,
 				0FA35F431B5DDDA100131D3E /* AddressBookService.swift */,
 				0F137C3E1B6C47CD000BD0EB /* ReminderService.swift */,
+				0F90871E1B6F7F2300B10A4C /* NotificationService.swift */,
 			);
 			name = services;
 			sourceTree = "<group>";
@@ -386,6 +390,7 @@
 				0F137C3F1B6C47CD000BD0EB /* ReminderService.swift in Sources */,
 				0FC6236B1B5DA00200A08B65 /* PersonService.swift in Sources */,
 				0FF2B6A01B5F4149007FE0C2 /* Person+CoreDataProperties.swift in Sources */,
+				0F90871F1B6F7F2300B10A4C /* NotificationService.swift in Sources */,
 				0F18AC451B66C4A30058FB98 /* NoteDetailsUpdateDelegate.swift in Sources */,
 				0F0CA7631B5CA202001E5459 /* NotesTableViewCell.swift in Sources */,
 				0FF279E31B5B9B4300FDEDC7 /* people.xcdatamodeld in Sources */,
@@ -635,6 +640,7 @@
 		0FF279E11B5B9B4300FDEDC7 /* people.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				0FF7F99D1B6F7B1900C7A20C /* peoplev8.xcdatamodel */,
 				0FF6075D1B6D720000D2AEE2 /* peoplev7.xcdatamodel */,
 				0F137C371B6C4662000BD0EB /* peoplev6.xcdatamodel */,
 				0FCBB22B1B64C77F00AE4168 /* peoplev5.xcdatamodel */,
@@ -643,7 +649,7 @@
 				0F6F0A761B60AAF600DB3393 /* peoplev2.xcdatamodel */,
 				0FF279E21B5B9B4300FDEDC7 /* people.xcdatamodel */,
 			);
-			currentVersion = 0FF6075D1B6D720000D2AEE2 /* peoplev7.xcdatamodel */;
+			currentVersion = 0FF7F99D1B6F7B1900C7A20C /* peoplev8.xcdatamodel */;
 			path = people.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

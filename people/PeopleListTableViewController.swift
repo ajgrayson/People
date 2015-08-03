@@ -78,8 +78,22 @@ class PeopleListTableViewController: UITableViewController {
             let cell = tableView.dequeueReusableCellWithIdentifier("personCell", forIndexPath: indexPath) as! PeopleListTableViewCell
             
             cell.nameLabel!.text = p.name
-            cell.timeLabel!.text = p.timeSinceLastContact
             cell.captionLabel!.text = p.caption
+            
+            if p.lastContactedDate != nil {
+                cell.dayLabel.text = p.lastContactedDate!.relativeDay()
+                
+                let dateFormatter = NSDateFormatter()
+                dateFormatter.dateFormat = "d";
+                cell.dateLabel.text = dateFormatter.stringFromDate(p.lastContactedDate!)
+                
+                dateFormatter.dateFormat = "MMMM";
+                cell.monthLabel.text = dateFormatter.stringFromDate(p.lastContactedDate!)
+            } else {
+                cell.dayLabel.text = ""
+                cell.dateLabel.text = ""
+                cell.monthLabel.text = ""
+            }
             
             if p.image != nil {
                 cell.photoView?.image = UIImage(data: p.image!)
@@ -92,7 +106,21 @@ class PeopleListTableViewController: UITableViewController {
             let cell = tableView.dequeueReusableCellWithIdentifier("personCell2", forIndexPath: indexPath) as! PeopleListTableViewCell2
             
             cell.nameLabel!.text = p.name
-            cell.timeLabel!.text = p.timeSinceLastContact
+            
+            if p.lastContactedDate != nil {
+                cell.dayLabel.text = p.lastContactedDate!.relativeDay()
+                
+                let dateFormatter = NSDateFormatter()
+                dateFormatter.dateFormat = "d";
+                cell.dateLabel.text = dateFormatter.stringFromDate(p.lastContactedDate!)
+                
+                dateFormatter.dateFormat = "MMMM";
+                cell.monthLabel.text = dateFormatter.stringFromDate(p.lastContactedDate!)
+            } else {
+                cell.dayLabel.text = ""
+                cell.dateLabel.text = ""
+                cell.monthLabel.text = ""
+            }
             
             if p.image != nil {
                 cell.photoView?.image = UIImage(data: p.image!)
@@ -106,7 +134,7 @@ class PeopleListTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 100
+        return 81
     }
     
     override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {

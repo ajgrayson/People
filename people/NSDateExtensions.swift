@@ -52,6 +52,31 @@ extension NSDate {
         return relativeTimeFrom(now)
     }
     
+    public func relativeDay() -> String {
+        let date = NSDate()
+        
+        if date.weeksFrom(self) > 0 {
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "EEEE"
+            
+            return dateFormatter.stringFromDate(self)
+        }
+        
+        if date.daysFrom(self) > 0 {
+            if date.daysFrom(self) == 1 { return "Yesterday" }
+            
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "EEEE"
+            
+            return dateFormatter.stringFromDate(self)
+        }
+        if date.hoursFrom(self) > 0 || date.minutesFrom(self) > 0 || date.secondsFrom(self) > 0 || date.nanosecondsFrom(self) > 0 {
+            return "Today"
+        }
+        
+        return "";
+    }
+    
     public func relativeTimeFrom(date: NSDate) -> String {
         //if date.
         

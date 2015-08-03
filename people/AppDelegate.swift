@@ -22,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         listController.managedContext = self.managedObjectContext;
         
+        application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: UIUserNotificationType.Alert, categories: nil))  // types are UIUserNotificationType members
+        
         return true
     }
 

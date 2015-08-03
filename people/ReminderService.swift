@@ -55,7 +55,7 @@ class ReminderService : NSObject {
         }
     }
     
-    func addReminder(title: String, date: NSDate, toPerson: Person) -> Reminder? {
+    func addReminder(title: String, date: NSDate, id: String, toPerson: Person) -> Reminder? {
         let dateNow = NSDate()
         
         if title == "" {
@@ -68,6 +68,7 @@ class ReminderService : NSObject {
         reminder.createdDate = dateNow
         reminder.title = title
         reminder.date = date // default
+        reminder.notificationId = id
         
         let set = toPerson.mutableSetValueForKey("reminders")
         set.addObject(reminder)
