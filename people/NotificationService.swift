@@ -23,18 +23,15 @@ class NotificationService : NSObject {
     }
     
     func cancelNotification(id: String) {
-        if UIApplication.sharedApplication().scheduledLocalNotifications != nil {
-            for notification in UIApplication.sharedApplication().scheduledLocalNotifications! as [UILocalNotification] {
+        let notifications = UIApplication.sharedApplication().scheduledLocalNotifications
+        
+        if notifications != nil {
+            for notification in notifications! as [UILocalNotification] {
                 if (notification.userInfo!["UUID"] as! String == id) {
                     UIApplication.sharedApplication().cancelLocalNotification(notification)
                     break
                 }
             }
         }
-    }
-    
-    func updateNotification(title: String, date: NSDate, id: String) {
-        cancelNotification(id)
-        addNotification(title, date: date, id: id)
     }
 }

@@ -15,7 +15,7 @@
         <!--Edit Person-->
         <scene sceneID="Vg5-Nu-eIy">
             <objects>
-                <tableViewController id="6zZ-Vu-wn1" customClass="PersonDetailTableViewController" customModule="people" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="6zZ-Vu-wn1" customClass="PersonDetailTableViewController" customModule="People" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="vZ0-pU-IWz">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -156,13 +156,13 @@
         <!--People-->
         <scene sceneID="qOY-Gl-bLp">
             <objects>
-                <tableViewController id="Esw-g5-99S" customClass="PeopleListTableViewController" customModule="people" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Esw-g5-99S" customClass="PeopleListTableViewController" customModule="People" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="98" sectionHeaderHeight="22" sectionFooterHeight="1" id="3mh-gr-1pP">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="personCell" rowHeight="81" id="REY-Qa-td8" customClass="PeopleListTableViewCell" customModule="people" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="personCell" rowHeight="81" id="REY-Qa-td8" customClass="PeopleListTableViewCell" customModule="People" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="86" width="600" height="81"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="REY-Qa-td8" id="mQD-T0-jhz">
@@ -212,7 +212,6 @@
                                                 <constraint firstAttribute="width" constant="136" id="wb5-u8-Iop"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
-                                            <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="default">
                                                 <mask key="constraints">
@@ -228,7 +227,6 @@
                                                 <constraint firstAttribute="width" constant="71" id="X6R-cb-8mc"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="11"/>
-                                            <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Person" translatesAutoresizingMaskIntoConstraints="NO" id="Gcx-sB-03i">
@@ -254,7 +252,6 @@
                                                 <constraint firstAttribute="width" constant="71" id="3mQ-dW-dWL"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="40"/>
-                                            <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -350,7 +347,7 @@
                                     <segue destination="FTC-TC-gzr" kind="show" identifier="viewPerson" id="O2q-3b-GVT"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="personCell2" rowHeight="81" id="QHp-kp-Qvt" customClass="PeopleListTableViewCell2" customModule="people" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="personCell2" rowHeight="81" id="QHp-kp-Qvt" customClass="PeopleListTableViewCell2" customModule="People" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="167" width="600" height="81"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QHp-kp-Qvt" id="Iel-SF-3HX">
@@ -380,7 +377,6 @@
                                                 <constraint firstAttribute="height" constant="53" id="vXa-RP-3YO"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" weight="light" pointSize="40"/>
-                                            <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="June" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qf2-rr-0YK">
@@ -390,7 +386,6 @@
                                                 <constraint firstAttribute="width" constant="71" id="iUf-j7-UnF"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="11"/>
-                                            <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friday" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HUF-Ln-fqi">
@@ -402,7 +397,6 @@
                                                 <constraint firstAttribute="height" constant="18" id="ZGK-zm-eUM"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
-                                            <color key="textColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="default">
                                                 <mask key="constraints">
@@ -510,13 +504,13 @@
         <!--Notes-->
         <scene sceneID="e6e-ht-VWC">
             <objects>
-                <tableViewController id="JRC-0z-1rN" customClass="NotesTableViewController" customModule="people" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="JRC-0z-1rN" customClass="NotesTableViewController" customModule="People" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="8wu-sr-dMO">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="noteCell" rowHeight="62" id="rvt-2P-hSX" customClass="NotesTableViewCell" customModule="people" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="noteCell" rowHeight="62" id="rvt-2P-hSX" customClass="NotesTableViewCell" customModule="People" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="86" width="600" height="62"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rvt-2P-hSX" id="lAV-dE-S9O">
@@ -731,7 +725,7 @@
         <!--Person Overview Table View Controller-->
         <scene sceneID="kLh-i9-w4N">
             <objects>
-                <tableViewController id="FTC-TC-gzr" customClass="PersonOverviewTableViewController" customModule="people" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="FTC-TC-gzr" customClass="PersonOverviewTableViewController" customModule="People" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="s2W-EO-Cpt">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -924,7 +918,7 @@
         <!--Note-->
         <scene sceneID="lZh-lZ-owh">
             <objects>
-                <viewController id="F6y-Y1-RlW" customClass="NoteViewController" customModule="people" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="F6y-Y1-RlW" customClass="NoteViewController" customModule="People" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SsE-Zr-4WT"/>
                         <viewControllerLayoutGuide type="bottom" id="tl1-PX-0Rb"/>
@@ -981,7 +975,7 @@
         <!--People-->
         <scene sceneID="r4Q-Oh-AYq">
             <objects>
-                <navigationController title="People" automaticallyAdjustsScrollViewInsets="NO" id="0h6-8b-5eC" customClass="AppNavigationController" customModule="people" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController title="People" automaticallyAdjustsScrollViewInsets="NO" id="0h6-8b-5eC" customClass="AppNavigationController" customModule="People" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="YFV-0B-k3K">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1002,13 +996,13 @@
         <!--Reminders-->
         <scene sceneID="tsw-wH-BnG">
             <objects>
-                <tableViewController id="zBm-PN-8fF" customClass="RemindersTableViewController" customModule="people" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="zBm-PN-8fF" customClass="RemindersTableViewController" customModule="People" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="62" sectionHeaderHeight="22" sectionFooterHeight="22" id="W6w-ME-3nZ">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="reminderCell" rowHeight="62" id="vHk-a8-nCF" customClass="ReminderTableViewCell" customModule="people" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="reminderCell" rowHeight="62" id="vHk-a8-nCF" customClass="ReminderTableViewCell" customModule="People" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="86" width="600" height="62"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vHk-a8-nCF" id="AtK-Ui-fbg">
@@ -1097,7 +1091,7 @@
         <!--Reminder-->
         <scene sceneID="OxW-AI-N6E">
             <objects>
-                <tableViewController id="jTn-Gs-hWz" customClass="ReminderDetailsTableViewController" customModule="people" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="jTn-Gs-hWz" customClass="ReminderDetailsTableViewController" customModule="People" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="tBa-ho-ffG">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1208,7 +1202,7 @@
         <!--Details-->
         <scene sceneID="3Vs-VJ-DGN">
             <objects>
-                <tableViewController id="61n-5w-Okk" customClass="NoteDetailsTableViewController" customModule="people" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="61n-5w-Okk" customClass="NoteDetailsTableViewController" customModule="People" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Vmd-6T-D8J">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1295,7 +1289,7 @@
         <!--App Navigation Controller-->
         <scene sceneID="IUA-Qz-NvI">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Qfv-Ql-hxp" customClass="AppNavigationController" customModule="people" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Qfv-Ql-hxp" customClass="AppNavigationController" customModule="People" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="oig-Mv-a1S">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>

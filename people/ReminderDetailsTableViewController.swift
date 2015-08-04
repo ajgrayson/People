@@ -76,7 +76,13 @@ class ReminderDetailsTableViewController: UITableViewController {
             reminder!.title = title
             reminder!.date = date
             
-            notificationService.updateNotification(title!, date: date, id: reminder!.notificationId ?? id)
+            if reminder!.notificationId != nil {
+                notificationService.cancelNotification(reminder!.notificationId!)
+            }
+            
+            notificationService.addNotification(title!, date: date, id: id)
+            
+            reminder!.notificationId = id
             
             reminderService.updateReminder(reminder!)
         }
