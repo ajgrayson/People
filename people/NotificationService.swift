@@ -11,10 +11,11 @@ import UIKit
 
 class NotificationService : NSObject {
     
-    func addNotification(title: String, date: NSDate, id: String) {
+    func addNotification(title: String, body: String, date: NSDate, id: String) {
         let notification = UILocalNotification()
-        notification.alertBody = title
-        notification.alertAction = "open"
+        notification.alertBody = title + ": " + body
+        //notification.alertTitle = title
+        notification.alertAction = "view"
         notification.fireDate = date
         notification.soundName = UILocalNotificationDefaultSoundName
         notification.userInfo = ["UUID": id ]

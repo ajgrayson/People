@@ -71,7 +71,7 @@ class ReminderDetailsTableViewController: UITableViewController {
         if reminder == nil {
             reminder = reminderService.addReminder(title!, date: date, id: id, toPerson: person)
           
-            notificationService.addNotification(title!, date: date, id: id)
+            notificationService.addNotification(person!.name!, body: title!, date: date, id: id)
         } else {
             reminder!.title = title
             reminder!.date = date
@@ -80,7 +80,7 @@ class ReminderDetailsTableViewController: UITableViewController {
                 notificationService.cancelNotification(reminder!.notificationId!)
             }
             
-            notificationService.addNotification(title!, date: date, id: id)
+            notificationService.addNotification(person!.name!, body: title!, date: date, id: id)
             
             reminder!.notificationId = id
             
