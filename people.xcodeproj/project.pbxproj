@@ -550,6 +550,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = grayson.people;
 				PRODUCT_NAME = People;
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -565,6 +566,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = grayson.people;
 				PRODUCT_NAME = People;
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
